@@ -11,7 +11,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-green-800 to-green-400 px-4">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-gradient-to-br from-custom-blue to-blue-400 px-4">
       <img
         src="https://ossimg.diuacting.com/DiuWin/other/h5setting_20240724134839qf9p.png"
         alt="DiuWin"
@@ -42,7 +42,7 @@ const Login = () => {
         </div>
 
         <div className="mb-5">
-          <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <label className="block text-sm font-medium text-custom-blue mb-1">Password</label>
           <input
             type="password"
             placeholder="Enter your password"
@@ -64,18 +64,18 @@ const Login = () => {
 
         <button
           onClick={handleLogin}
-          className="w-full bg-green-600 text-white font-semibold py-2 rounded-md hover:bg-green-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full bg-custom-pink text-white font-semibold py-2 rounded-md hover:bg-green-700 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           Log In
         </button>
         
-        <button className="w-full bg-gray-100 text-green-600 font-semibold py-2 rounded-md mt-3 hover:bg-gray-200 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button className="w-full bg-gray-100 text-custom-pink font-semibold py-2 rounded-md mt-3 hover:bg-gray-200 transition duration-200 focus:outline-none focus:ring-2 focus:ring-green-500">
           Register
         </button>
 
         <div className="flex justify-between mt-4 text-sm">
-          <a href="#" className="text-green-600 hover:text-green-700">Forgot Password?</a>
-          <a href="#" className="text-green-600 hover:text-green-700">Customer Service</a>
+          <a href="#" className="text-custom-pink hover:text-green-700">Forgot Password?</a>
+          <a href="#" className="text-custom-pink hover:text-green-700">Customer Service</a>
         </div>
       </div> 
     </div>
