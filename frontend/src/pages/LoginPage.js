@@ -34,13 +34,13 @@ function LoginPage() {
   };
 
   return (
-    <div className="bg-green-400 h-screen flex flex-col items-center justify-center">
+    <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
-        <h1 className="text-2xl font-bold text-white mb-1">Log in</h1>
-        <p className="text-white text-sm">
+        <h1 className="text-2xl font-bold text-custom-pink mb-1">Log in</h1>
+        <p className="text-custom-pink text-sm">
           Please log in with your phone number or email
         </p>
-        <p className="text-white text-sm sm:text-base">
+        <p className="text-custom-pink text-sm sm:text-base">
           If you forget your password, please contact customer service
         </p>
       </div>
@@ -48,14 +48,14 @@ function LoginPage() {
       <div className="bg-white p-8 shadow-md w-full max-w-md h-3/4 mt-10 flex flex-col justify-center">
         <div className="flex justify-center mb-4 gap-4">
           <button
-            className={`flex flex-col items-center px-6 py-2 font-medium text-xl ${isPhoneLogin ? "text-black border-b-2 border-green-500" : " text-gray-600"}`}
+            className={`flex flex-col items-center px-6 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-400"}`}
             onClick={() => setIsPhoneLogin(true)}
           >
             <FaPhone className="mb-1" />
             Phone number
           </button>
           <button
-            className={`flex flex-col items-center px-6 py-2 font-medium text-xl ${!isPhoneLogin ? "text-black border-b-2 border-green-500" : " text-gray-600"}`}
+            className={`flex flex-col items-center px-6 py-2 font-medium text-xl ${!isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-400"}`}
             onClick={() => setIsPhoneLogin(false)}
           >
             <FaEnvelope className="mb-1" />
@@ -68,9 +68,9 @@ function LoginPage() {
             <div>
               <label
                 htmlFor="phone"
-                className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1"
+                className="block mb-2 text-sm font-medium text-custom-blue flex items-center gap-1"
               >
-                <FaPhone className="text-gray-500" />
+                <FaPhone className="text-custom-blue" />
                 Phone Number
               </label>
               <input
@@ -78,7 +78,7 @@ function LoginPage() {
                 id="phone"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
-                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
+                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
                 placeholder="Enter your phone number"
                 required
               />
@@ -89,7 +89,7 @@ function LoginPage() {
                 htmlFor="email"
                 className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1"
               >
-                <FaEnvelope className="text-gray-500" />
+                <FaEnvelope className="text-custom-blue" />
                 Email
               </label>
               <input
@@ -97,7 +97,7 @@ function LoginPage() {
                 id="email"
                 value={email}
                 onChange={handleEmailChange}
-                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
+                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
                 placeholder="name@company.com"
                 required
               />
@@ -109,7 +109,7 @@ function LoginPage() {
               htmlFor="password"
               className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1"
             >
-              <FaLock className="text-gray-500" />
+              <FaLock className="text-custom-blu" />
               Password
             </label>
             <input
@@ -132,13 +132,13 @@ function LoginPage() {
                 onChange={handleRememberPasswordChange}
                 className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-teal-300"
               />
-              <label htmlFor="remember" className="ml-2 text-sm text-gray-500">
+              <label htmlFor="remember" className="ml-2 text-sm text-custom-pink">
                 Remember me
               </label>
             </div>
             <a
               href="#"
-              className="text-sm font-medium text-teal-600 hover:underline"
+              className="text-sm font-medium text-custom-pink hover:underline"
             >
               Forgot password?
             </a>
@@ -146,34 +146,34 @@ function LoginPage() {
 
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 focus:ring-2 focus:ring-indigo-300"
+            className="w-full bg-custom-pink text-white py-3 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-indigo-300"
           >
             Login
           </button>
           <button
             type="button"
-            className="w-full border text-black py-3 rounded-full border-2 border-black hover:bg-gray-300 focus:ring-2 focus:ring-indigo-300"
+            className="w-full border text-black py-3 rounded-full border-2 border-black hover:bg-custom-blue hover:text-white focus:ring-2 focus:ring-indigo-300"
           >
             Register
           </button>
 
           <div className="flex justify-between">
             <div className="flex flex-col items-center">
-              <FaLock className="text-gray-600 mb-1 text-3xl" />{" "}
+              <FaLock className="text-custom-pink mb-1 text-3xl" />{" "}
               {/* Reduced margin bottom */}
               <button
                 type="button"
-                className="text-sm text-gray-600 hover:underline"
+                className="text-sm text-custom-blue hover:underline"
               >
                 Forgot Password
               </button>
             </div>
             <div className="flex flex-col items-center">
-              <FaQuestionCircle className="text-gray-600 mb-1 text-3xl" />{" "}
+              <FaQuestionCircle className="text-custom-pink mb-1 text-3xl" />{" "}
               {/* Reduced margin bottom */}
               <button
                 type="button"
-                className="text-sm text-gray-600 hover:underline"
+                className="text-sm text-custom-blue hover:underline"
               >
                 Customer Service
               </button>

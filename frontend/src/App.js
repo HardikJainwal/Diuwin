@@ -4,6 +4,8 @@ import './App.css';
 
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import ForgotPassword from './pages/ForgotPassword';
+import CustomerService from './pages/CustomerService';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         {/* Public Route */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/forgotpassword" element={<ForgotPassword/>} />
+        <Route path="/customerservice" element={<CustomerService/>} />
         {/* Redirect to /login if no routes match */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>

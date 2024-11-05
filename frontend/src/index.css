@@ -6,12 +6,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   background-color: #9195A3;
 }
 
-/* Frame Styling */
 .frame {
   width: 400px; /* Fixed width */
   height: 761.78px; /* Fixed height */
@@ -28,7 +27,7 @@ body {
   }
 }
 
-/* Mobile View (Landscape) */
+
 @media (max-width: 768px) {
   .frame {
     width: 90%; /* Scales width to 90% of the screen */

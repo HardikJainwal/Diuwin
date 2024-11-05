@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { FaPhone, FaEnvelope, FaLock, FaQuestionCircle, FaKey } from "react-icons/fa";
 
-function SignupPage() {
+function ForgotPassword() {
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [inviteCode, setInviteCode] = useState("");
+  const [verificationCode, setverificationCode] = useState("");
   const [privacyAgreement, setPrivacyAgreement] = useState(false);
   const [rememberPassword, setRememberPassword] = useState(false);
 
@@ -15,9 +15,15 @@ function SignupPage() {
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
   const handleConfirmPasswordChange = (event) => setConfirmPassword(event.target.value);
-  const handleInviteCodeChange = (event) => setInviteCode(event.target.value);
+  const handleverificationCodeChange = (event) => setverificationCode(event.target.value);
   const handlePrivacyAgreementChange = (event) => setPrivacyAgreement(event.target.checked);
   const handleRememberPasswordChange = (event) => setRememberPassword(event.target.checked);
+
+
+  const handleSendVerificationCode = () => {
+    // Logic to send verification code
+    console.log("Verification code sent!");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,34 +34,34 @@ function SignupPage() {
     const loginData = isPhoneLogin ? { phoneNumber, password } : { email, password };
     console.log("Login data:", loginData);
     console.log("Remember password:", rememberPassword);
-    console.log("Invite code:", inviteCode);
+    console.log("verification code:", verificationCode);
     console.log("Privacy agreement accepted:", privacyAgreement);
   };
 
   return (
     <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
-        <h1 className="text-2xl font-bold text-custom-pink mb-1">Register</h1>
+        <h1 className="text-2xl font-bold text-custom-pink mb-1">Forgot Password</h1>
         <p className="text-custom-pink text-sm sm:text-base">
-          Please register by phone number or email
+          Please retrive/change your password through your mobile phone number or email
         </p>
       </div>
 
       <div className="bg-white p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
         <div className="flex justify-center mb-4 gap-4">
           <button
-            className={`flex flex-col items-center px-24 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}
+            className={`flex flex-col items-center px-32 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}
             onClick={() => setIsPhoneLogin(true)}
           >
             <FaPhone className="mb-1" />
-            Register your phone
+            Phone reset
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-8">
           {isPhoneLogin && (
             <div>
-              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-custom-blue flex items-center gap-1">
+              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
                 <FaPhone className="text-custom-blue" />
                 Phone Number
               </label>
@@ -64,7 +70,7 @@ function SignupPage() {
                 id="phone"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
-                className="border border-gray-300 text-custom-blue sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
+                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
                 placeholder="Enter your phone number"
                 required
               />
@@ -104,18 +110,27 @@ function SignupPage() {
           </div>
 
           <div>
-            <label htmlFor="inviteCode" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
+            <label htmlFor="verificationCode" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
               <FaKey className="text-custom-blue" />
-              Invite Code
+              Verification Code
             </label>
-            <input
-              type="text"
-              id="inviteCode"
-              value={inviteCode}
-              onChange={handleInviteCodeChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
-              placeholder="Enter your invite code"
-            />
+            <div className="flex items-center gap-2">
+              <input
+                type="text"
+                id="verificationCode"
+                value={verificationCode}
+                onChange={handleverificationCodeChange}
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
+                placeholder="Enter your verification code"
+              />
+              <button
+                type="button"
+                onClick={handleSendVerificationCode}
+                className="bg-custom-pink text-white px-4 py-2 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-gray-300"
+              >
+                Send
+              </button>
+            </div>
           </div>
 
           <div className="flex items-start mb-4">
@@ -124,7 +139,7 @@ function SignupPage() {
               type="checkbox"
               checked={privacyAgreement}
               onChange={handlePrivacyAgreementChange}
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-teal-300"
+              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-gray-300"
             />
             <label htmlFor="privacyAgreement" className="ml-2 text-sm text-custom-pink">
               I agree to the privacy policy
@@ -135,18 +150,13 @@ function SignupPage() {
             type="submit"
             className="w-full bg-custom-pink text-white py-3 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-gray-300"
           >
-            Register
+            Reset
           </button>
-          <button
-            type="submit"
-            className="w-full bg-custom-pink text-white py-3 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-gray-300"
-          >
-             i have an account Login
-          </button>
+          
         </form>
       </div>
     </div>
   );
 }
 
-export default SignupPage;
+export default ForgotPassword;
