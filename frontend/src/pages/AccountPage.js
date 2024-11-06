@@ -54,8 +54,8 @@ function AccountPage() {
   };
 
   return (
-    <div className="bg-custom-blue h-screen flex flex-col items-center pt-8 justify-center">
-      <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
+    <div className="bg-custom-blue min-h-screen flex flex-col items-center justify-center">
+      <div className="text-left mb-0 w-full max-w-md px-8 mt-10">
         <div className="flex items-center mt-4">
           {/* Profile Picture and Info */}
           <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-custom-pink mr-4">
@@ -208,7 +208,7 @@ function AccountPage() {
                 Phone Number
                 <span className="ml-auto text-gray-500">{">"}</span>{" "}
               </button>
-              <hr className="my-4 border-gray-300" /> 
+              <hr className="my-4 border-gray-300" />
             </div>
             <div>
               <button
@@ -219,7 +219,7 @@ function AccountPage() {
                 Set Password
                 <span className="ml-auto text-gray-500">{">"}</span>{" "}
               </button>
-              <hr className="my-4 border-gray-300" /> 
+              <hr className="my-4 border-gray-300" />
             </div>
             <div>
               <button
@@ -230,7 +230,7 @@ function AccountPage() {
                 Confirm Password
                 <span className="ml-auto text-gray-500">{">"}</span>{" "}
               </button>
-              <hr className="my-4 border-gray-300" /> 
+              <hr className="my-4 border-gray-300" />
             </div>
             <div>
               <button
@@ -244,6 +244,34 @@ function AccountPage() {
             </div>
           </div>
         </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-md mt-8 grid grid-cols-3 gap-4">
+  <div className="symbol flex flex-col items-center">
+    <span className="text-3xl">🔑</span>
+    <p className="mt-2 text-sm">Key</p>
+  </div>
+  <div className="symbol flex flex-col items-center">
+    <span className="text-3xl">💼</span>
+    <p className="mt-2 text-sm">Briefcase</p>
+  </div>
+  <div className="symbol flex flex-col items-center">
+    <span className="text-3xl">📈</span>
+    <p className="mt-2 text-sm">Chart</p>
+  </div>
+  <div className="symbol flex flex-col items-center">
+    <span className="text-3xl">📅</span>
+    <p className="mt-2 text-sm">Calendar</p>
+  </div>
+  <div className="symbol flex flex-col items-center">
+    <span className="text-3xl">⚙️</span>
+    <p className="mt-2 text-sm">Settings</p>
+  </div>
+  <div className="symbol flex flex-col items-center">
+    <span className="text-3xl">🔔</span>
+    <p className="mt-2 text-sm">Notification</p>
+  </div>
+</div>
+
 
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-8">
           <button
