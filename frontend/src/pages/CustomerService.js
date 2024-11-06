@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { FaPhone, FaEnvelope, FaLock, FaQuestionCircle, FaKey } from "react-icons/fa";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaLock,
+  FaQuestionCircle,
+  FaKey,
+} from "react-icons/fa";
 
 function CustomerService() {
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
@@ -14,11 +20,14 @@ function CustomerService() {
   const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value);
   const handleEmailChange = (event) => setEmail(event.target.value);
   const handlePasswordChange = (event) => setPassword(event.target.value);
-  const handleConfirmPasswordChange = (event) => setConfirmPassword(event.target.value);
-  const handleverificationCodeChange = (event) => setverificationCode(event.target.value);
-  const handlePrivacyAgreementChange = (event) => setPrivacyAgreement(event.target.checked);
-  const handleRememberPasswordChange = (event) => setRememberPassword(event.target.checked);
-
+  const handleConfirmPasswordChange = (event) =>
+    setConfirmPassword(event.target.value);
+  const handleverificationCodeChange = (event) =>
+    setverificationCode(event.target.value);
+  const handlePrivacyAgreementChange = (event) =>
+    setPrivacyAgreement(event.target.checked);
+  const handleRememberPasswordChange = (event) =>
+    setRememberPassword(event.target.checked);
 
   const handleSendVerificationCode = () => {
     // Logic to send verification code
@@ -31,7 +40,9 @@ function CustomerService() {
       alert("Passwords do not match!");
       return;
     }
-    const loginData = isPhoneLogin ? { phoneNumber, password } : { email, password };
+    const loginData = isPhoneLogin
+      ? { phoneNumber, password }
+      : { email, password };
     console.log("Login data:", loginData);
     console.log("Remember password:", rememberPassword);
     console.log("verification code:", verificationCode);
@@ -39,120 +50,88 @@ function CustomerService() {
   };
 
   return (
-    <div className="bg-green-400 h-screen flex flex-col items-center justify-center">
+    <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
-        <h1 className="text-2xl font-bold text-white mb-1">Forgot Password</h1>
-        <p className="text-white text-sm sm:text-base">
-          Please retrive/change your password through your mobile phone number or email
+        <h1 className="text-2xl font-bold text-custom-pink mb-1">
+          Customer Service
+        </h1>
+        <p className="text-custom-pink text-sm sm:text-base">
+          Hi, can i help you!
         </p>
       </div>
 
-      <div className="bg-white p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
+      <div className="bg-gray-100 p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
         <div className="flex justify-center mb-4 gap-4">
           <button
-            className={`flex flex-col items-center px-32 py-2 font-medium text-xl ${isPhoneLogin ? "text-black border-b-2 border-green-500" : " text-gray-600"}`}
+            className={`flex flex-col items-center px-32 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}
             onClick={() => setIsPhoneLogin(true)}
           >
             <FaPhone className="mb-1" />
-            Phone reset
+            Self Service
           </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-8">
-          {isPhoneLogin && (
+          <div className="space-y-4">
+            {" "}
+            {/* Container for vertical spacing */}
             <div>
-              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
-                <FaPhone className="text-gray-500" />
-                Phone Number
-              </label>
-              <input
-                type="text"
-                id="phone"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
-                placeholder="Enter your phone number"
-                required
-              />
-            </div>
-          )}
-
-          <div>
-            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
-              <FaLock className="text-gray-500" />
-              Set Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={handlePasswordChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
-              placeholder="••••••••"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="confirmPassword" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
-              <FaLock className="text-gray-500" />
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
-              placeholder="••••••••"
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="verificationCode" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
-              <FaKey className="text-gray-500" />
-              Verification Code
-            </label>
-            <div className="flex items-center gap-2">
-              <input
-                type="text"
-                id="verificationCode"
-                value={verificationCode}
-                onChange={handleverificationCodeChange}
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-teal-600 focus:border-teal-600 block w-full p-2.5"
-                placeholder="Enter your verification code"
-              />
               <button
                 type="button"
-                onClick={handleSendVerificationCode}
-                className="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 focus:ring-2 focus:ring-teal-300"
+                className="block mb-2 text-base font-medium text-gray-900 flex items-center gap-1"
               >
-                Send
+                <FaPhone className="text-custom-blue" />
+                Phone Number
+                <span className="ml-auto text-gray-500">{">"}</span> {/* Greater-than sign */}
+              </button>
+              <hr className="my-4 border-gray-300" /> {/* Horizontal line */}
+            </div>
+            <div>
+              <button
+                type="button"
+                className="block mb-2 text-base font-medium text-gray-900 flex items-center gap-1"
+              >
+                <FaLock className="text-custom-blue" />
+                Set Password
+                <span className="ml-auto text-gray-500">{">"}</span> {/* Greater-than sign */}
+              </button>
+              <hr className="my-4 border-gray-300" /> {/* Horizontal line */}
+            </div>
+            <div>
+              <button
+                type="button"
+                className="block mb-10 text-base font-medium text-gray-900 flex items-center gap-1"
+              >
+                <FaLock className="text-custom-blue" />
+                Confirm Password
+                <span className="ml-auto text-gray-500">{">"}</span> {/* Greater-than sign */}
               </button>
             </div>
           </div>
 
-          <div className="flex items-start mb-4">
-            <input
-              id="privacyAgreement"
-              type="checkbox"
-              checked={privacyAgreement}
-              onChange={handlePrivacyAgreementChange}
-              className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-teal-300"
-            />
-            <label htmlFor="privacyAgreement" className="ml-2 text-sm text-gray-500">
-              I agree to the privacy policy
+          <div>
+            <label
+              htmlFor="verificationCode"
+              className="block mb-2  text-lg font-medium text-gray-900 flex items-center gap-1"
+            >
+              <FaKey className="text-custom-blue" />
+              Kind tips
             </label>
+            <p className="text-sm">
+              1. Please select the corresponding question and submit it for
+              review. After successful submission, the customer service
+              specialist will handle it for you within 10 minutes. Please wait
+              patiently. <br />
+              2. 15 minutes after submitting for review, you can use [Progress
+              Query] to view the review results of the work order you submitted.
+            </p>
           </div>
-
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-3 rounded-full hover:bg-green-700 focus:ring-2 focus:ring-indigo-300"
+            className="w-full bg-custom-pink text-white py-3 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-gray-300"
           >
-            Reset
+            Progress query
           </button>
-          
         </form>
       </div>
     </div>

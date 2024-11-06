@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaPhone, FaEnvelope, FaLock, FaQuestionCircle, FaKey } from "react-icons/fa";
 
-function ForgotPassword() {
+function Wallet() {
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -41,41 +41,78 @@ function ForgotPassword() {
   return (
     <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
-        <h1 className="text-2xl font-bold text-custom-pink mb-1">Forgot Password</h1>
+        <h1 className="text-2xl font-bold text-custom-pink mb-1">Wallet</h1>
         <p className="text-custom-pink text-sm sm:text-base">
-          Please retrive/change your password through your mobile phone number or email
+          Total Balance
         </p>
       </div>
 
+      
       <div className="bg-gray-100 p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
-        <div className="flex justify-center mb-4 gap-4">
-          <button
-            className={`flex flex-col items-center px-32 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}
-            onClick={() => setIsPhoneLogin(true)}
-          >
-            <FaPhone className="mb-1" />
-            Phone reset
-          </button>
+      <div className="bg-white p-8 rounded-lg shadow-md">
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <div className="bg-gray-200 rounded-full p-4">
+            <span className="text-xl font-bold">0%</span>
+          </div>
+          <div className="text-gray-600 mt-2">
+            ₹0.00
+            <br />
+            Main wallet
+          </div>
         </div>
-
+        <div>
+          <div className="bg-gray-200 rounded-full p-4">
+            <span className="text-xl font-bold">0%</span>
+          </div>
+          <div className="text-gray-600 mt-2">
+            ₹0.00
+            <br />
+            3rd party wallet
+          </div>
+        </div>
+      </div>
+      <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        Main wallet transfer
+      </button>
+      <div className="grid grid-cols-4 gap-4 mt-8">
+        <div className="flex flex-col items-center">
+          <div className="bg-orange-100 rounded-full p-4 shadow-md">
+            <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-12 0v 1a6 6 0 0112 0v1z" />
+            </svg>
+          </div>
+          <span className="text-gray-600 mt-2">Action 1</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <div className="bg-blue-100 rounded-full p-4 shadow-md">
+            <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+          </div>
+          <span className="text-gray-600 mt-2">Action 2</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <div className="bg-red-100 rounded-full p-4 shadow-md">
+            <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v8m4-4H8" />
+            </svg>
+          </div>
+          <span className="text-gray-600 mt-2">Action 3</span>
+        </div>
+        <div className="flex flex-col items-center">
+          <div className="bg-yellow-100 rounded-full p-4 shadow-md">
+            <svg className="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.77 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z" />
+            </svg>
+          </div>
+          <span className="text-gray-600 mt-2">Action 4</span>
+        </div>
+      </div>
+    </div>
+        
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-8">
-          {isPhoneLogin && (
-            <div>
-              <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
-                <FaPhone className="text-custom-blue" />
-                Phone Number
-              </label>
-              <input
-                type="text"
-                id="phone"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-gray-600 block w-full p-2.5"
-                placeholder="Enter your phone number"
-                required
-              />
-            </div>
-          )}
+          
 
           <div>
             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">
@@ -159,4 +196,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default Wallet;

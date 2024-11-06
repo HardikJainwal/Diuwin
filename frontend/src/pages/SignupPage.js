@@ -41,7 +41,7 @@ function SignupPage() {
         </p>
       </div>
 
-      <div className="bg-white p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
+      <div className="bg-gray-100 p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
         <div className="flex justify-center mb-4 gap-4">
           <button
             className={`flex flex-col items-center px-24 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}

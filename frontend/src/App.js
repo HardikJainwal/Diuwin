@@ -6,6 +6,8 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ForgotPassword from './pages/ForgotPassword';
 import CustomerService from './pages/CustomerService';
+import AccountPage from './pages/AccountPage';
+import Wallet from './pages/Wallet';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/forgotpassword" element={<ForgotPassword/>} />
         <Route path="/customerservice" element={<CustomerService/>} />
+        <Route path="/accountpage" element={<AccountPage/>} />
+        <Route path="/wallet" element={<Wallet/>} />
         {/* Redirect to /login if no routes match */}
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
