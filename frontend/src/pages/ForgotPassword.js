@@ -39,7 +39,7 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
+    <div className="bg-custom-blue min-h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
         <h1 className="text-2xl font-bold text-custom-pink mb-1">Forgot Password</h1>
         <p className="text-custom-pink text-sm sm:text-base">
@@ -50,7 +50,7 @@ function ForgotPassword() {
       <div className="bg-gray-100 p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
         <div className="flex justify-center mb-4 gap-4">
           <button
-            className={`flex flex-col items-center px-32 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}
+            className={`flex flex-col items-center px-32  font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}
             onClick={() => setIsPhoneLogin(true)}
           >
             <FaPhone className="mb-1" />
@@ -58,7 +58,7 @@ function ForgotPassword() {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-8">
+        <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 mt-4">
           {isPhoneLogin && (
             <div>
               <label htmlFor="phone" className="block mb-2 text-sm font-medium text-gray-900 flex items-center gap-1">

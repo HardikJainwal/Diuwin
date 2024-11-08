@@ -50,7 +50,7 @@ function CustomerService() {
   };
 
   return (
-    <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
+    <div className="bg-custom-blue min-h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
         <h1 className="text-2xl font-bold text-custom-pink mb-1">
           Customer Service
@@ -60,7 +60,7 @@ function CustomerService() {
         </p>
       </div>
 
-      <div className="bg-gray-100 p-8 shadow-md w-full max-w-md h-full mt-10 flex flex-col justify-center">
+      <div className="bg-gray-100 p-8 shadow-md w-full max-w-md h-full mt-14 flex flex-col justify-center">
         <div className="flex justify-center mb-4 gap-4">
           <button
             className={`flex flex-col items-center px-32 py-2 font-medium text-xl ${isPhoneLogin ? "text-custom-blue border-b-2 border-custom-pink" : " text-gray-600"}`}

@@ -33,7 +33,7 @@ function SignupPage() {
   };
 
   return (
-    <div className="bg-custom-blue h-screen flex flex-col items-center justify-center">
+    <div className="bg-custom-blue min-h-screen flex flex-col items-center justify-center">
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
         <h1 className="text-2xl font-bold text-custom-pink mb-1">Register</h1>
         <p className="text-custom-pink text-sm sm:text-base">
