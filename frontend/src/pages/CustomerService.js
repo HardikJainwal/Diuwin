@@ -6,6 +6,7 @@ import {
   FaQuestionCircle,
   FaKey,
 } from "react-icons/fa";
+import Header from "../components/Header";
 
 function CustomerService() {
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
@@ -51,6 +52,7 @@ function CustomerService() {
 
   return (
     <div className="bg-custom-blue min-h-screen flex flex-col items-center justify-center">
+      <Header/>
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
         <h1 className="text-2xl font-bold text-custom-pink mb-1">
           Customer Service
@@ -81,7 +83,7 @@ function CustomerService() {
                 className="block mb-2 text-base font-medium text-gray-900 flex items-center gap-1"
               >
                 <FaPhone className="text-custom-blue" />
-                Phone Number
+                Change ID Login Password
                 <span className="ml-auto text-gray-500">{">"}</span> {/* Greater-than sign */}
               </button>
               <hr className="my-4 border-gray-300" /> {/* Horizontal line */}
@@ -92,7 +94,7 @@ function CustomerService() {
                 className="block mb-2 text-base font-medium text-gray-900 flex items-center gap-1"
               >
                 <FaLock className="text-custom-blue" />
-                Set Password
+                Retrieve Login ID Account
                 <span className="ml-auto text-gray-500">{">"}</span> {/* Greater-than sign */}
               </button>
               <hr className="my-4 border-gray-300" /> {/* Horizontal line */}
@@ -103,7 +105,7 @@ function CustomerService() {
                 className="block mb-10 text-base font-medium text-gray-900 flex items-center gap-1"
               >
                 <FaLock className="text-custom-blue" />
-                Confirm Password
+                Game Problems
                 <span className="ml-auto text-gray-500">{">"}</span> {/* Greater-than sign */}
               </button>
             </div>

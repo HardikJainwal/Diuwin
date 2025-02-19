@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaPhone, FaEnvelope, FaLock, FaQuestionCircle, FaKey } from "react-icons/fa";
+import {Link} from 'react-router-dom'
+import Header from "../components/Header";
 
 function ForgotPassword() {
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
@@ -40,6 +42,7 @@ function ForgotPassword() {
 
   return (
     <div className="bg-custom-blue min-h-screen flex flex-col items-center justify-center">
+      <Header/>
       <div className="text-left mb-0 w-full max-w-md px-8 mt-20">
         <h1 className="text-2xl font-bold text-custom-pink mb-1">Forgot Password</h1>
         <p className="text-custom-pink text-sm sm:text-base">
@@ -145,14 +148,14 @@ function ForgotPassword() {
               I agree to the privacy policy
             </label>
           </div>
-
+          <Link to='/login'>
           <button
             type="submit"
             className="w-full bg-custom-pink text-white py-3 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-gray-300"
           >
             Reset
           </button>
-          
+          </Link>
         </form>
       </div>
     </div>
