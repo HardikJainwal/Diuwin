@@ -452,7 +452,6 @@ function LotteryWingo() {
           </div>
 
           <div className="bg-custom-dark-gray p-2 rounded-lg">
-        
             <div className="flex justify-between space-x-1">
               <span
                 className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
@@ -552,24 +551,30 @@ function LotteryWingo() {
 
             {showPopup && (
               <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
-                
-                  <div
-                    className={`${
-                      tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
-                    } rounded-t-xl px-2 flex flex-col items-center text-center`}
-                  >
-                    <h2 className="text-xl font-bold mt-2">{selectedTitle}</h2>
-                    <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
-                      <span>Select</span>
-                      <span className="font-bold">{showPopup}</span>
-                    </div>
-                    <div className={`${
-                      tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
-                    } rounded-t-xl px-2 flex flex-col items-center text-center p-4`}></div>
+                <div
+                  className={`${
+                    tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
+                  } rounded-t-xl px-2 flex flex-col items-center text-center`}
+                >
+                  <h2 className="text-xl font-bold mt-2">{selectedTitle}</h2>
+                  <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
+                    <span>Select</span>
+                    <span className="font-bold">{showPopup}</span>
                   </div>
+                  <div
+                    className={`relative ${
+                      tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
+                    } rounded-t-xl px-0 flex flex-col items-center text-center p-[14px] relative`}
+                  >
+                    {/* Right-Angle Triangle Arrow at Top-Right */}
+                    <div className="absolute top-0 mr-0 right-0 w-0 h-0 border-t-[30px] border-l-[210px] border-r-0 border-b-0 border-solid border-transparent border-l-neutral-900"></div>
+                    {/* left-Angle Triangle Arrow at Top-Right */}
+                    <div className="absolute top-0 ml-0 left-0 w-0 h-0 border-t-[30px] border-r-[210px] border-l-0 border-b-0 border-solid border-transparent border-r-neutral-900"></div>
+                  </div>
+                </div>
 
-                  <div className="mt-6 space-y-4">
-
+                <div className="mt-6 space-y-4">
+                  <div className="px-2">
                     <div className="flex justify-between">
                       <p className="mb-2">Balance</p>
                       <div className="flex gap-2">
@@ -589,7 +594,6 @@ function LotteryWingo() {
                       </div>
                     </div>
 
-           
                     <div className="flex justify-between">
                       <p className="mb-2">Quantity</p>
                       <div className="flex items-center gap-2">
@@ -635,20 +639,19 @@ function LotteryWingo() {
                       )}
                     </div>
 
-       
                     <div className="flex items-center gap-2">
                       <div className="" onClick={() => setChecked(!checked)}>
                         {checked ? (
                           <img
                             src={agree}
                             alt="icon"
-                            className="w-6 h-6 ml-2" 
+                            className="w-6 h-6 ml-2"
                           />
                         ) : (
                           <img
                             src={notAgree}
                             alt="icon"
-                            className="w-6 h-6 ml-2" 
+                            className="w-6 h-6 ml-2"
                           />
                         )}
                       </div>
@@ -657,29 +660,25 @@ function LotteryWingo() {
                         Pre-sale rules
                       </button>
                     </div>
-
-             
-                    <div className="flex gap-2">
-                      <button
-                        onClick={handleCancelBet}
-                        className="bg-neutral-700 flex-1 py-2 rounded-lg hover:bg-neutral-600 transition"
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className={`${
-                          tailwindColorMap[iconColorMap[showPopup]] ||
-                          "bg-gray-600"
-                        } flex-1 py-2 rounded-lg transition`}
-                      >
-                        Total amount ₹1.00
-                      </button>
-                    </div>
                   </div>
-
-                  
+                  <div className="flex ">
+                    <button
+                      onClick={handleCancelBet}
+                      className="bg-neutral-700 flex-1    hover:bg-neutral-600 transition"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className={`${
+                        tailwindColorMap[iconColorMap[showPopup]] ||
+                        "bg-gray-600"
+                      } flex-1 py-2  transition`}
+                    >
+                      Total amount ₹1.00
+                    </button>
+                  </div>
                 </div>
-          
+              </div>
             )}
           </div>
           {/* Fourth Line: Random with Border and Buttons */}
@@ -721,20 +720,31 @@ function LotteryWingo() {
           </div>
 
           {showBigPopup && (
-            <div className="fixed bottom-0 left-0 w-[410px] shadow-lg rounded-t-lg">
-              <div className="w-[410px] rounded-xl bg-neutral-900 text-white p-4 font-['Open_Sans']">
+            <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
+              
                 <div
                   className={`${iconColor[selectedBigOption] || "bg-gray-600"} 
-              rounded-t-xl p-4 flex flex-col items-center text-center`}
+              rounded-t-xl flex flex-col items-center text-center`}
                 >
-                  <h2 className="text-xl font-bold">{selectedTitle}</h2>
+                  <h2 className="text-xl font-bold mt-2">{selectedTitle}</h2>
                   <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
                     <span>Select</span>
                     <span className="font-bold">{selectedBigOption}</span>
                   </div>
+                  <div
+                    className={`relative ${
+                      iconColor[selectedBigOption] || "bg-gray-600"
+                    } rounded-t-xl px-0 flex flex-col items-center text-center p-[14px] relative`}
+                  >
+                    {/* Right-Angle Triangle Arrow at Top-Right */}
+                    <div className="absolute top-0 mr-0 right-0 w-0 h-0 border-t-[30px] border-l-[210px] border-r-0 border-b-0 border-solid border-transparent border-l-neutral-900"></div>
+                    {/* left-Angle Triangle Arrow at Top-Right */}
+                    <div className="absolute top-0 ml-0 left-0 w-0 h-0 border-t-[30px] border-r-[210px] border-l-0 border-b-0 border-solid border-transparent border-r-neutral-900"></div>
+                  </div>
                 </div>
 
                 <div className="mt-6 space-y-4">
+                  <div className="px-2">
                   {/* Balance Section */}
                   <div className="flex justify-between">
                     <p className="mb-2">Balance</p>
@@ -807,23 +817,23 @@ function LotteryWingo() {
                       Pre-sale rules
                     </button>
                   </div>
-
+                  </div>
                   {/* Action Buttons */}
-                  <div className="flex gap-2">
+                  <div className="flex">
                     <button
                       onClick={handleCancelBigBet}
-                      className="bg-neutral-700 flex-1 py-2 rounded-lg hover:bg-neutral-600 transition"
+                      className="bg-neutral-700 flex-1    hover:bg-neutral-600 transition"
                     >
                       Cancel
                     </button>
                     <button
-                      className={`${iconColor[selectedBigOption] || "bg-gray-600"} flex-1 py-2 rounded-lg transition`}
+                      className={`${iconColor[selectedBigOption] || "bg-gray-600"} flex-1 py-2  transition`}
                     >
                       Total amount ₹1.00
                     </button>
                   </div>
                 </div>
-              </div>
+
             </div>
           )}
         </div>
