@@ -325,7 +325,7 @@ function LotteryWingo() {
             </div>
           </div>
         </div>
-        {/* <FreezePopup> */}
+        <FreezePopup>
         <div className="bg-[#333332] rounded-lg  shadow-md mb-2 p-4 space-y-2">
           {/* First Line: 3 Buttons */}
           <div className="relative">
@@ -837,7 +837,7 @@ function LotteryWingo() {
             </div>
           )}
         </div>
-        {/* </FreezePopup> */}
+        </FreezePopup>
 
         {/* Buttons */}
         <div className="flex justify-between space-x-1 mb-2">
