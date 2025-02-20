@@ -14,6 +14,7 @@ import Timeblack from "../../../Assets/timeblack.png";
 import LotteryWingoheader from "../../../components/LotteryWingoheader";
 import agree from "../../../Assets/agree-a.png";
 import notAgree from "../../../Assets/agree-b.png";
+import FreezePopup from "../../../components/FreezePopup";
 
 const buttonData = [
   {
@@ -24,33 +25,33 @@ const buttonData = [
         30s
       </>
     ),
-    icon: <img src={Timeblack} alt="clock icon" className="w-8 h-8" />,
+    icon: <img src={Timeblack} alt="clock icon" className="w-10 h-10" />,
     activeIcon: (
-      <img src={Timecolor} alt="active clock icon" className="w-8 h-8" />
+      <img src={Timecolor} alt="active clock icon" className="w-10 h-10" />
     ),
   },
   {
     id: 1,
     title: "Win Go 1Min",
-    icon: <img src={Timeblack} alt="clock icon" className="w-8 h-8" />,
+    icon: <img src={Timeblack} alt="clock icon" className="w-10 h-10" />,
     activeIcon: (
-      <img src={Timecolor} alt="active clock icon" className="w-8 h-8" />
+      <img src={Timecolor} alt="active clock icon" className="w-10 h-10" />
     ),
   },
   {
     id: 2,
     title: "Win Go 3Min",
-    icon: <img src={Timeblack} alt="clock icon" className="w-8 h-8" />,
+    icon: <img src={Timeblack} alt="clock icon" className="w-10 h-10" />,
     activeIcon: (
-      <img src={Timecolor} alt="active clock icon" className="w-8 h-8" />
+      <img src={Timecolor} alt="active clock icon" className="w-10 h-10" />
     ),
   },
   {
     id: 3,
     title: "Win Go 5Min",
-    icon: <img src={Timeblack} alt="clock icon" className="w-8 h-8" />,
+    icon: <img src={Timeblack} alt="clock icon" className="w-10 h-10" />,
     activeIcon: (
-      <img src={Timecolor} alt="active clock icon" className="w-8 h-8" />
+      <img src={Timecolor} alt="active clock icon" className="w-10 h-10" />
     ),
   },
 ];
@@ -179,7 +180,7 @@ function LotteryWingo() {
         </div>
       </div>
 
-      <div className="bg-[#242424] px-8 p-2 shadow-md w-full max-w-md h-full mt-4 flex flex-col justify-center">
+      <div className="bg-[#242424] px-8 p-2 shadow-md w-full max-w-md h-full mt-2 flex flex-col justify-center">
         <div className="bg-[#333332] p-2 rounded-full shadow-md  mt-0">
           <div className="flex justify-between items-center w-full">
             <img
@@ -214,7 +215,7 @@ function LotteryWingo() {
                 onClick={() => handleButtonClick(button.id)}
                 className={`flex flex-col items-center text-xs px-4 py-2 rounded-lg w-24 h-auto transition-all duration-300
       ${activeButton === button.id ? "bg-gradient-to-b from-[#fae59f] to-[#c4933f]  text-[#8f5206]" : "bg-[#333332] text-[#a8a5a1]"} 
-      hover:bg-gradient-to-r from-[#fae59f] to-[#c4933f] hover:text-[#8f5206] `}
+       `}
                 style={{
                   textAlign: "center",
                   display: "flex",
@@ -324,6 +325,7 @@ function LotteryWingo() {
             </div>
           </div>
         </div>
+        {/* <FreezePopup> */}
         <div className="bg-[#333332] rounded-lg  shadow-md mb-2 p-4 space-y-2">
           {/* First Line: 3 Buttons */}
           <div className="relative">
@@ -332,7 +334,7 @@ function LotteryWingo() {
               {colors.map((color) => (
                 <button
                   key={color}
-                  className={`bg-${color.toLowerCase()}-500 px-10 text-white py-2 rounded`}
+                  className={`bg-${color.toLowerCase()}-500 px-9 text-white py-2 rounded`}
                   onClick={() => handleBet(color)}
                 >
                   {color}
@@ -340,7 +342,7 @@ function LotteryWingo() {
               ))}
             </div>
             {/* Popups */}
-            {showPopup && (
+            {/* {showPopup && (
               <div className="fixed bottom-0 left-0 w-[410px] shadow-lg rounded-t-lg">
                 <div className="w-[410px] rounded-xl bg-neutral-900 text-white p-4 font-['Open_Sans']">
                   <div
@@ -350,11 +352,13 @@ function LotteryWingo() {
                     <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
                       <span>Select</span>
                       <span className="font-bold">{showPopup}</span>
+                      
                     </div>
+                    
                   </div>
 
                   <div className="mt-6 space-y-4">
-                    {/* Balance Section */}
+            
                     <div className="flex justify-between">
                       <p className="mb-2">Balance</p>
                       <div className="flex gap-2">
@@ -369,7 +373,7 @@ function LotteryWingo() {
                       </div>
                     </div>
 
-                    {/* Quantity Section */}
+       
                     <div className="flex justify-between">
                       <p className="mb-2">Quantity</p>
                       <div className="flex items-center gap-2">
@@ -391,7 +395,7 @@ function LotteryWingo() {
                       </div>
                     </div>
 
-                    {/* Multiplier Buttons */}
+           
                     <div className="flex gap-2 mt-2 justify-end">
                       {["X1", "X5", "X10", "X20", "X50", "X100"].map(
                         (label) => (
@@ -405,20 +409,20 @@ function LotteryWingo() {
                       )}
                     </div>
 
-                    {/* Agreement Checkbox */}
+         
                     <div className="flex items-center gap-2">
                       <div className="" onClick={() => setChecked(!checked)}>
                         {checked ? (
                           <img
                             src={agree}
                             alt="icon"
-                            className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
+                            className="w-6 h-6 ml-2" 
                           />
                         ) : (
                           <img
                             src={notAgree}
                             alt="icon"
-                            className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
+                            className="w-6 h-6 ml-2"
                           />
                         )}
                       </div>
@@ -428,7 +432,6 @@ function LotteryWingo() {
                       </button>
                     </div>
 
-                    {/* Action Buttons */}
                     <div className="flex gap-2">
                       <button
                         onClick={handleCancelBet}
@@ -445,11 +448,11 @@ function LotteryWingo() {
                   </div>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
 
           <div className="bg-custom-dark-gray p-2 rounded-lg">
-            {/* Second Line: 5 Icons */}
+        
             <div className="flex justify-between space-x-1">
               <span
                 className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
@@ -499,7 +502,7 @@ function LotteryWingo() {
             </div>
 
             {/* Third Line: 5 Icons */}
-            <div className="flex justify-between space-x-1">
+            <div className="flex justify-between space-x-1 mt-2">
               <span
                 className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
                 onClick={() => handleIconClick("5")}
@@ -548,22 +551,25 @@ function LotteryWingo() {
             </div>
 
             {showPopup && (
-              <div className="fixed bottom-0 left-0 w-[410px] shadow-lg rounded-t-lg">
-                <div className="w-[410px] rounded-xl bg-neutral-900 text-white p-4 font-['Open_Sans']">
+              <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
+                
                   <div
                     className={`${
                       tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
-                    } rounded-t-xl p-4 flex flex-col items-center text-center`}
+                    } rounded-t-xl px-2 flex flex-col items-center text-center`}
                   >
-                    <h2 className="text-xl font-bold">{selectedTitle}</h2>
+                    <h2 className="text-xl font-bold mt-2">{selectedTitle}</h2>
                     <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
                       <span>Select</span>
                       <span className="font-bold">{showPopup}</span>
                     </div>
+                    <div className={`${
+                      tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
+                    } rounded-t-xl px-2 flex flex-col items-center text-center p-4`}></div>
                   </div>
 
                   <div className="mt-6 space-y-4">
-                    {/* Balance Section */}
+
                     <div className="flex justify-between">
                       <p className="mb-2">Balance</p>
                       <div className="flex gap-2">
@@ -583,7 +589,7 @@ function LotteryWingo() {
                       </div>
                     </div>
 
-                    {/* Quantity Section */}
+           
                     <div className="flex justify-between">
                       <p className="mb-2">Quantity</p>
                       <div className="flex items-center gap-2">
@@ -611,7 +617,6 @@ function LotteryWingo() {
                       </div>
                     </div>
 
-                    {/* Multiplier Buttons */}
                     <div className="flex gap-2 mt-2 justify-end">
                       {["X1", "X5", "X10", "X20", "X50", "X100"].map(
                         (label) => (
@@ -630,20 +635,20 @@ function LotteryWingo() {
                       )}
                     </div>
 
-                    {/* Agreement Checkbox */}
+       
                     <div className="flex items-center gap-2">
                       <div className="" onClick={() => setChecked(!checked)}>
                         {checked ? (
                           <img
                             src={agree}
                             alt="icon"
-                            className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
+                            className="w-6 h-6 ml-2" 
                           />
                         ) : (
                           <img
                             src={notAgree}
                             alt="icon"
-                            className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
+                            className="w-6 h-6 ml-2" 
                           />
                         )}
                       </div>
@@ -653,7 +658,7 @@ function LotteryWingo() {
                       </button>
                     </div>
 
-                    {/* Action Buttons */}
+             
                     <div className="flex gap-2">
                       <button
                         onClick={handleCancelBet}
@@ -671,8 +676,10 @@ function LotteryWingo() {
                       </button>
                     </div>
                   </div>
+
+                  
                 </div>
-              </div>
+          
             )}
           </div>
           {/* Fourth Line: Random with Border and Buttons */}
@@ -820,6 +827,7 @@ function LotteryWingo() {
             </div>
           )}
         </div>
+        {/* </FreezePopup> */}
 
         {/* Buttons */}
         <div className="flex justify-between space-x-1 mb-2">
