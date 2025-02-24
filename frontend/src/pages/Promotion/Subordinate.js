@@ -102,6 +102,59 @@ function Subordinate() {
           </div>
         </div>
 
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 grid-rows-6 mb-4 p-2 bg-[#4d4d4c] rounded-lg">
+  {/* Row 1 */}
+  <div className="pl-3 flex items-center justify-center p-2 relative">
+    <div className="text-lg font-bold text-[#f5f3f0]">Level 1</div>
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[80%] border-r border-[#a8a5a13f]"></div>
+  </div>
+  <div className="pl-3 flex items-center justify-center p-2">
+    <div className="text-lg font-bold text-[#f5f3f0]">0</div>
+  </div>
+
+  <div className="pl-3 flex items-center justify-center p-2 relative">
+    <div className="text-lg font-bold text-[#f5f3f0]">Level 2</div>
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[80%] border-r border-[#a8a5a13f]"></div>
+  </div>
+  <div className="pl-3 flex items-center justify-center p-2">
+    <div className="text-lg font-bold text-[#f5f3f0]">0</div>
+  </div>
+
+  <div className="pl-3 flex items-center justify-center p-2 relative">
+    <div className="text-lg font-bold text-[#f5f3f0]">Level 3</div>
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[80%] border-r border-[#a8a5a13f]"></div>
+  </div>
+  <div className="pl-3 flex items-center justify-center p-2">
+    <div className="text-lg font-bold text-[#f5f3f0]">0</div>
+  </div>
+
+  <div className="pl-3 flex items-center justify-center p-2 relative">
+    <div className="text-lg font-bold text-[#f5f3f0]">Level 4</div>
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[80%] border-r border-[#a8a5a13f]"></div>
+  </div>
+  <div className="pl-3 flex items-center justify-center p-2">
+    <div className="text-lg font-bold text-[#f5f3f0]">0</div>
+  </div>
+
+  <div className="pl-3 flex items-center justify-center p-2 relative">
+    <div className="text-lg font-bold text-[#f5f3f0]">Level 5</div>
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[80%] border-r border-[#a8a5a13f]"></div>
+  </div>
+  <div className="pl-3 flex items-center justify-center p-2">
+    <div className="text-lg font-bold text-[#f5f3f0]">0</div>
+  </div>
+
+  <div className="pl-3 flex items-center justify-center p-2 relative">
+    <div className="text-lg font-bold text-[#f5f3f0]">Level 6</div>
+    <div className="absolute right-0 top-1/2 -translate-y-1/2 h-[80%] border-r border-[#a8a5a13f]"></div>
+  </div>
+  <div className="pl-3 flex items-center justify-center p-2">
+    <div className="text-lg font-bold text-[#f5f3f0]">0</div>
+  </div>
+</div>
+
+
         {/* UID Details */}
         <div className="bg-[#333332] rounded-lg p-4 mb-4">
           <div className="flex justify-start items-center mb-2">

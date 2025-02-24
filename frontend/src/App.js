@@ -28,8 +28,8 @@ import Lottery5d from "./../src/pages/Lottery/Lottery5d/Lottery5d";
 import LotteryTrxWingo from "./../src/pages/Lottery/LotteryTrx/LotteryTrxWingo";
 import Deposit from "./pages/Wallet/Deposit";
 import Withdraw from "./pages/Wallet/Withdraw";
-import withdrawHistory from "./pages/Wallet/withdrawHistory";
-import depositHistory from "./pages/Wallet/depositHistory";
+import withdrawHistory from "./pages/Wallet/WithdrawHistory";
+import DepositHistory from './pages/Wallet/DepositHistory';
 import AboutusProfile from "./pages/Profile/AboutusProfile";
 import ARWallet from "./pages/Profile/ARWallet";
 import BeginnerGuide from "./pages/Profile/BeginnerGuide";
@@ -58,6 +58,7 @@ import DepositTrx from "./pages/Lottery/LotteryTrx/DepositTrx";
 import WithdrawTrx from "./pages/Lottery/LotteryTrx/WithdrawTrx";
 import NewSubordinate from "./pages/Promotion/NewSubordinate";
 import InvitePage from "./pages/Promotion/InvitePage";
+import WithdrawHistory from "./pages/Wallet/WithdrawHistory";
 
 function App() {
   return (
@@ -110,8 +111,8 @@ function App() {
           {/* Wallet Pages */}
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/withdraw" element={<Withdraw />} />
-          <Route path="/depositHistory" element={<depositHistory />} />
-          <Route path="/withdrawHistory" element={<withdrawHistory />} />
+          <Route path="/depositHistory" element={<DepositHistory/>} />
+          <Route path="/withdrawHistory" element={<WithdrawHistory />} />
 
           {/* Profile Pages */}
           <Route path="/aboutusprofile" element={<AboutusProfile />} />

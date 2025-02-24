@@ -1,34 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaWallet } from "react-icons/fa";
-import { FaVolumeUp } from "react-icons/fa";
-import { TbClockFilled } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+
 import Timecolor from "../../../Assets/timecolor.png";
 import Timeblack from "../../../Assets/timeblack.png";
 import speaker from "./../../../Assets/speaker.png";
-import back from "./../../../Assets/back.png";
+import BackButton from "./../../../components/BackButton";
 import empty from "../../../Assets/empty.png";
 import wallet from "../../../Assets/wallets.png";
 import fire from "../../../Assets/fire.png";
 import HowToPlay from "../../../Assets/how to play.png";
-import {
-  FaHome,
-  FaSearch,
-  FaUser,
-  FaShoppingCart,
-  FaCog,
-} from "react-icons/fa";
-import {
-  FaPhone,
-  FaEnvelope,
-  FaLock,
-  FaQuestionCircle,
-  FaKey,
-} from "react-icons/fa";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
+
 import LotteryWingoheader from "../../../components/LotteryWingoheader";
 import invitation from "../../../Assets/invitation.png";
 import refresh from "../../../Assets/refresh.png";
@@ -166,22 +147,7 @@ function LotteryK3() {
     }
   };
 
-  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value);
-  const handleEmailChange = (event) => setEmail(event.target.value);
-  const handlePasswordChange = (event) => setPassword(event.target.value);
-  const handleConfirmPasswordChange = (event) =>
-    setConfirmPassword(event.target.value);
-  const handleverificationCodeChange = (event) =>
-    setverificationCode(event.target.value);
-  const handlePrivacyAgreementChange = (event) =>
-    setPrivacyAgreement(event.target.checked);
-  const handleRememberPasswordChange = (event) =>
-    setRememberPassword(event.target.checked);
 
-  const handleSendVerificationCode = () => {
-    // Logic to send verification code
-    console.log("Verification code sent!");
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -256,7 +222,7 @@ function LotteryK3() {
   return (
     <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center ">
       <LotteryWingoheader />
-      <div className="text-center mb-0 w-full max-w-md px-4 mt-20">
+      <div className="text-center mb-0 w-full max-w-md px-4 mt-2">
         <div className="bg-[#4d4d4c]  rounded-xl shadow-lg p-4">
           {/* Amount */}
           <div className="flex items-center justify-center">
@@ -350,12 +316,11 @@ function LotteryK3() {
               <div className="flex ">
                 <p className="text-[#a8a5a1] mr-4 ">Period</p>
                 <div className="border border-[#8f5206] rounded-full px-2 py-1 flex items-center justify-center gap-2 text-[#8f5206] text-center">
-                                <img src={HowToPlay} alt="How to Play" className="w-5 h-5" />
-                                <p className="text-[#8f5206] text-sm font-medium">
-                                  How to Play
-                                </p>
-                              </div>
-                
+                  <img src={HowToPlay} alt="How to Play" className="w-5 h-5" />
+                  <p className="text-[#8f5206] text-sm font-medium">
+                    How to Play
+                  </p>
+                </div>
               </div>
               <p className="text-lg mt-2 font-bold text-[#f5f3f0]">
                 2928383000211334
@@ -867,7 +832,7 @@ function LotteryK3() {
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
-              <IoIosArrowBack />
+              <BackButton />
             </button>
 
             {/* Page Numbering */}

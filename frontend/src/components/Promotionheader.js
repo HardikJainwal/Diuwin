@@ -3,7 +3,7 @@ import Capture from './../Assets/Capture.png'
 
 const Promotionheader = () => {
   return (
-    <header className="bg-custom-light-gray z-2 h-14 flex items-center justify-between top-0 px-2">
+    <header className="bg-[#414140] z-2 h-14 flex items-center justify-between top-0 px-2">
       <div className="flex-1"></div>
 
       {/* Center with logo */}

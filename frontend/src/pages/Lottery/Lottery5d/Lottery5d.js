@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaWallet } from "react-icons/fa";
-import { FaVolumeUp } from "react-icons/fa";
-import { TbClockFilled } from "react-icons/tb";
+
 import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+
 import Timecolor from "../../../Assets/timecolor.png";
 import Timeblack from "../../../Assets/timeblack.png";
 import refresh from "../../../Assets/refresh.png";
@@ -12,20 +9,7 @@ import empty from "../../../Assets/empty.png";
 import wallet from "../../../Assets/wallets.png";
 import fire from "../../../Assets/fire.png";
 import HowToPlay from "../../../Assets/how to play.png";
-import {
-  FaHome,
-  FaSearch,
-  FaUser,
-  FaShoppingCart,
-  FaCog,
-} from "react-icons/fa";
-import {
-  FaPhone,
-  FaEnvelope,
-  FaLock,
-  FaQuestionCircle,
-  FaKey,
-} from "react-icons/fa";
+import BackButton from "./../../../components/BackButton";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import speaker from "./../../../Assets/speaker.png";
@@ -199,7 +183,7 @@ function Lottery5d() {
   return (
     <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center">
       <LotteryWingoheader />
-      <div className="text-center mb-0 w-full max-w-md px-4 mt-20">
+      <div className="text-center mb-0 w-full max-w-md px-4 mt-2">
         <div className="bg-[#4d4d4c]  rounded-xl shadow-lg p-4">
           {/* Amount */}
           <div className="flex items-center justify-center">
@@ -360,27 +344,25 @@ function Lottery5d() {
           <div className="bg-custom-green rounded-lg w-full p-2">
             {/* Grid with 6 columns */}
             <div className="grid grid-cols-5 bg-slate-700  rounded-lg">
-  {/* Numbers with half-circles and full borders */}
-  {["2", "3", "4", "5", "6"].map((number, index) => (
-    <div
-      key={index}
-      className="flex flex-col items-center border-2 border-black rounded-lg px-2"
-    >
-      {/* Top Half-Circle */}
-      <div className="w-16 h-8 bg-gray-400 rounded-b-full border-x-2 border-t-2 border-black"></div>
+              {/* Numbers with half-circles and full borders */}
+              {["2", "3", "4", "5", "6"].map((number, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center border-2 border-black rounded-lg px-2"
+                >
+                  {/* Top Half-Circle */}
+                  <div className="w-16 h-8 bg-gray-400 rounded-b-full border-x-2 border-t-2 border-black"></div>
 
-      {/* Main Number Circle */}
-      <div className="flex items-center justify-center bg-gray-400 text-white rounded-full w-16 h-16 text-xl mt-2 mb-2 font-bold border-2 border-gray-500">
-        {number}
-      </div>
+                  {/* Main Number Circle */}
+                  <div className="flex items-center justify-center bg-gray-400 text-white rounded-full w-16 h-16 text-xl mt-2 mb-2 font-bold border-2 border-gray-500">
+                    {number}
+                  </div>
 
-      {/* Bottom Half-Circle */}
-      <div className="w-16 h-8 bg-gray-400 rounded-t-full border-x-2 border-b-2 border-gray-500"></div>
-    </div>
-  ))}
-</div>
-
-
+                  {/* Bottom Half-Circle */}
+                  <div className="w-16 h-8 bg-gray-400 rounded-t-full border-x-2 border-b-2 border-gray-500"></div>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex mt-4 justify-left space-x-3 mb-4">
             <button
@@ -1409,7 +1391,7 @@ function Lottery5d() {
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
               >
-                <IoIosArrowBack />
+                <BackButton />
               </button>
 
               {/* Page Numbering */}

@@ -3,7 +3,7 @@ import { AiOutlineCheck } from "react-icons/ai";
 import back from "./../../../Assets/back.png";
 import speaker from "./../../../Assets/speaker.png";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import BackButton from "./../../../components/BackButton";
 import invitation from "../../../Assets/invitation.png";
 import refresh from "../../../Assets/refresh.png";
 import wallet from "../../../Assets/wallets.png";
@@ -148,7 +148,7 @@ function LotteryWingo() {
   return (
     <div className="bg-[#242424] min-h-screen flex flex-col items-center justify-center ">
       <LotteryWingoheader />
-      <div className="text-center mb-0 w-full max-w-md px-8 mt-20">
+      <div className="text-center mb-0 w-full max-w-md px-8 mt-2">
         <div className="bg-[#333332]  rounded-xl shadow-lg p-4">
           {/* Amount */}
           <div className="flex items-center justify-center">
@@ -326,402 +326,295 @@ function LotteryWingo() {
           </div>
         </div>
         <FreezePopup>
-        <div className="bg-[#333332] rounded-lg  shadow-md mb-2 p-4 space-y-2">
-          {/* First Line: 3 Buttons */}
-          <div className="relative">
-            {/* Betting Buttons */}
-            <div className="flex justify-between mb-4 space-x-2">
-              {colors.map((color) => (
-                <button
-                  key={color}
-                  className={`bg-${color.toLowerCase()}-500 px-9 text-white py-2 rounded`}
-                  onClick={() => handleBet(color)}
-                >
-                  {color}
-                </button>
-              ))}
-            </div>
-            {/* Popups */}
-            {/* {showPopup && (
-              <div className="fixed bottom-0 left-0 w-[410px] shadow-lg rounded-t-lg">
-                <div className="w-[410px] rounded-xl bg-neutral-900 text-white p-4 font-['Open_Sans']">
-                  <div
-                    className={`bg-${iconColorMap[showPopup]}-600 rounded-t-xl p-4 flex flex-col items-center text-center`}
+          <div className="bg-[#333332] rounded-lg  shadow-md mb-2 p-4 space-y-2">
+            {/* First Line: 3 Buttons */}
+            <div className="relative">
+              {/* Betting Buttons */}
+              <div className="flex justify-between mb-4 space-x-2">
+                {colors.map((color) => (
+                  <button
+                    key={color}
+                    className={`bg-${color.toLowerCase()}-500 px-9 text-white py-2 rounded`}
+                    onClick={() => handleBet(color)}
                   >
-                    <h2 className="text-xl font-bold">{selectedTitle}</h2>
+                    {color}
+                  </button>
+                ))}
+              </div>
+             
+            </div>
+
+            <div className="bg-custom-dark-gray p-2 rounded-lg">
+              <div className="flex justify-between space-x-1">
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("0")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n0-30bd92d1.png"
+                    alt="Icon 0"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("1")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n1-dfccbff5.png"
+                    alt="Icon 1"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("2")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n2-c2913607.png"
+                    alt="Icon 2"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("3")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n3-f92c313f.png"
+                    alt="Icon 3"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("4")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n4-cb84933b.png"
+                    alt="Icon 4"
+                  />
+                </span>
+              </div>
+
+              {/* Third Line: 5 Icons */}
+              <div className="flex justify-between space-x-1 mt-2">
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("5")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n5-49d0e9c5.png"
+                    alt="Icon 5"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("6")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n6-a56e0b9a.png"
+                    alt="Icon 6"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("7")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n7-5961a17f.png"
+                    alt="Icon 7"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("8")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n8-d4d951a4.png"
+                    alt="Icon 8"
+                  />
+                </span>
+                <span
+                  className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
+                  onClick={() => handleIconClick("9")}
+                >
+                  <img
+                    src="https://diuwin.bet/assets/png/n9-a20f6f42.png"
+                    alt="Icon 9"
+                  />
+                </span>
+              </div>
+
+              {showPopup && (
+                <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
+                  <div
+                    className={`${
+                      tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
+                    } rounded-t-xl px-2 flex flex-col items-center text-center`}
+                  >
+                    <h2 className="text-xl font-bold mt-2">{selectedTitle}</h2>
                     <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
                       <span>Select</span>
                       <span className="font-bold">{showPopup}</span>
-                      
                     </div>
-                    
+                    <div
+                      className={`relative ${
+                        tailwindColorMap[iconColorMap[showPopup]] ||
+                        "bg-gray-600"
+                      } rounded-t-xl px-0 flex flex-col items-center text-center p-[14px] relative`}
+                    >
+                      {/* Right-Angle Triangle Arrow at Top-Right */}
+                      <div className="absolute top-0 mr-0 right-0 w-0 h-0 border-t-[30px] border-l-[210px] border-r-0 border-b-0 border-solid border-transparent border-l-neutral-900"></div>
+                      {/* left-Angle Triangle Arrow at Top-Right */}
+                      <div className="absolute top-0 ml-0 left-0 w-0 h-0 border-t-[30px] border-r-[210px] border-l-0 border-b-0 border-solid border-transparent border-r-neutral-900"></div>
+                    </div>
                   </div>
 
                   <div className="mt-6 space-y-4">
-            
-                    <div className="flex justify-between">
-                      <p className="mb-2">Balance</p>
-                      <div className="flex gap-2">
-                        {[1, 10, 100, 1000].map((value) => (
-                          <button
-                            key={value}
-                            className={`bg-${iconColorMap[showPopup]}-600 px-4 py-1 rounded`}
-                          >
-                            {value}
-                          </button>
-                        ))}
+                    <div className="px-2">
+                      <div className="flex justify-between">
+                        <p className="mb-2">Balance</p>
+                        <div className="flex gap-2">
+                          {["1", "10", "100", "1000"].map((label) => (
+                            <button
+                              key={label}
+                              className={`bg-neutral-700 px-3 py-1 rounded ${
+                                tailwindColorMap[
+                                  iconColorMap[showPopup]
+                                ]?.replace("bg-", "hover:bg-") ||
+                                "hover:bg-gray-500"
+                              } transition`}
+                            >
+                              {label}
+                            </button>
+                          ))}
+                        </div>
                       </div>
-                    </div>
 
-       
-                    <div className="flex justify-between">
-                      <p className="mb-2">Quantity</p>
-                      <div className="flex items-center gap-2">
-                        <button
-                          className={`bg-${iconColorMap[showPopup]}-600 px-2 rounded`}
-                        >
-                          -
-                        </button>
-                        <input
-                          type="text"
-                          defaultValue="1"
-                          className="w-20 bg-neutral-800 text-center py-1 rounded"
-                        />
-                        <button
-                          className={`bg-${iconColorMap[showPopup]}-600 px-2 rounded`}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-
-           
-                    <div className="flex gap-2 mt-2 justify-end">
-                      {["X1", "X5", "X10", "X20", "X50", "X100"].map(
-                        (label) => (
+                      <div className="flex justify-between">
+                        <p className="mb-2">Quantity</p>
+                        <div className="flex items-center gap-2">
                           <button
-                            key={label}
-                            className={`bg-neutral-700 px-3 py-1 rounded hover:bg-${iconColorMap[showPopup]}-600 transition`}
+                            className={`${
+                              tailwindColorMap[iconColorMap[showPopup]] ||
+                              "bg-gray-600"
+                            } px-2 rounded`}
                           >
-                            {label}
+                            -
                           </button>
-                        )
-                      )}
-                    </div>
+                          <input
+                            type="text"
+                            defaultValue="1"
+                            className="w-20 bg-neutral-800 text-center py-1 rounded"
+                          />
+                          <button
+                            className={`${
+                              tailwindColorMap[iconColorMap[showPopup]] ||
+                              "bg-gray-600"
+                            } px-2 rounded`}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
 
-         
-                    <div className="flex items-center gap-2">
-                      <div className="" onClick={() => setChecked(!checked)}>
-                        {checked ? (
-                          <img
-                            src={agree}
-                            alt="icon"
-                            className="w-6 h-6 ml-2" 
-                          />
-                        ) : (
-                          <img
-                            src={notAgree}
-                            alt="icon"
-                            className="w-6 h-6 ml-2"
-                          />
+                      <div className="flex gap-2 mt-2 justify-end">
+                        {["X1", "X5", "X10", "X20", "X50", "X100"].map(
+                          (label) => (
+                            <button
+                              key={label}
+                              className={`bg-neutral-700 px-3 py-1 rounded ${
+                                tailwindColorMap[
+                                  iconColorMap[showPopup]
+                                ]?.replace("bg-", "hover:bg-") ||
+                                "hover:bg-gray-500"
+                              } transition`}
+                            >
+                              {label}
+                            </button>
+                          )
                         )}
                       </div>
-                      <span>I agree</span>
-                      <button className="text-red-500 hover:underline">
-                        Pre-sale rules
-                      </button>
-                    </div>
 
-                    <div className="flex gap-2">
+                      <div className="flex items-center gap-2">
+                        <div className="" onClick={() => setChecked(!checked)}>
+                          {checked ? (
+                            <img
+                              src={agree}
+                              alt="icon"
+                              className="w-6 h-6 ml-2"
+                            />
+                          ) : (
+                            <img
+                              src={notAgree}
+                              alt="icon"
+                              className="w-6 h-6 ml-2"
+                            />
+                          )}
+                        </div>
+                        <span>I agree</span>
+                        <button className="text-red-500 hover:underline">
+                          Pre-sale rules
+                        </button>
+                      </div>
+                    </div>
+                    <div className="flex ">
                       <button
                         onClick={handleCancelBet}
-                        className="bg-neutral-700 flex-1 py-2 rounded-lg hover:bg-neutral-600 transition"
+                        className="bg-neutral-700 flex-1    hover:bg-neutral-600 transition"
                       >
                         Cancel
                       </button>
                       <button
-                        className={`bg-${iconColorMap[showPopup]}-600 flex-1 py-2 rounded-lg hover:bg-${iconColorMap[showPopup]}-500 transition`}
+                        className={`${
+                          tailwindColorMap[iconColorMap[showPopup]] ||
+                          "bg-gray-600"
+                        } flex-1 py-2  transition`}
                       >
                         Total amount ₹1.00
                       </button>
                     </div>
                   </div>
                 </div>
-              </div>
-            )} */}
-          </div>
-
-          <div className="bg-custom-dark-gray p-2 rounded-lg">
-            <div className="flex justify-between space-x-1">
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("0")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n0-30bd92d1.png"
-                  alt="Icon 0"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("1")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n1-dfccbff5.png"
-                  alt="Icon 1"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("2")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n2-c2913607.png"
-                  alt="Icon 2"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("3")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n3-f92c313f.png"
-                  alt="Icon 3"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("4")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n4-cb84933b.png"
-                  alt="Icon 4"
-                />
-              </span>
+              )}
             </div>
-
-            {/* Third Line: 5 Icons */}
-            <div className="flex justify-between space-x-1 mt-2">
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("5")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n5-49d0e9c5.png"
-                  alt="Icon 5"
-                />
+            {/* Fourth Line: Random with Border and Buttons */}
+            <div className="flex justify-center px-8 items-center space-x-2">
+              <span className="border border-red-700 text-red-500 text-sm px-1 py-2 rounded-lg">
+                Random
               </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("6")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n6-a56e0b9a.png"
-                  alt="Icon 6"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("7")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n7-5961a17f.png"
-                  alt="Icon 7"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("8")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n8-d4d951a4.png"
-                  alt="Icon 8"
-                />
-              </span>
-              <span
-                className="bg-gray-200 w-14 h-auto rounded-full flex items-center justify-center"
-                onClick={() => handleIconClick("9")}
-              >
-                <img
-                  src="https://diuwin.bet/assets/png/n9-a20f6f42.png"
-                  alt="Icon 9"
-                />
-              </span>
-            </div>
-
-            {showPopup && (
-              <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
-                <div
+              {["X1", "X5", "X10", "X50", "X100"].map((value) => (
+                <button
+                  key={value}
                   className={`${
-                    tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
-                  } rounded-t-xl px-2 flex flex-col items-center text-center`}
+                    selectedButton === value
+                      ? "bg-custom-green text-white"
+                      : "bg-[#242424] text-[#a8a5a1]"
+                  } text-sm px-4 py-2 rounded-lg`}
+                  onClick={() => handleClick(value)}
                 >
-                  <h2 className="text-xl font-bold mt-2">{selectedTitle}</h2>
-                  <div className="flex w-[300px] items-center justify-center bg-white text-black gap-2 mt-2 p-2 rounded-lg">
-                    <span>Select</span>
-                    <span className="font-bold">{showPopup}</span>
-                  </div>
-                  <div
-                    className={`relative ${
-                      tailwindColorMap[iconColorMap[showPopup]] || "bg-gray-600"
-                    } rounded-t-xl px-0 flex flex-col items-center text-center p-[14px] relative`}
-                  >
-                    {/* Right-Angle Triangle Arrow at Top-Right */}
-                    <div className="absolute top-0 mr-0 right-0 w-0 h-0 border-t-[30px] border-l-[210px] border-r-0 border-b-0 border-solid border-transparent border-l-neutral-900"></div>
-                    {/* left-Angle Triangle Arrow at Top-Right */}
-                    <div className="absolute top-0 ml-0 left-0 w-0 h-0 border-t-[30px] border-r-[210px] border-l-0 border-b-0 border-solid border-transparent border-r-neutral-900"></div>
-                  </div>
-                </div>
+                  {value}
+                </button>
+              ))}
+            </div>
 
-                <div className="mt-6 space-y-4">
-                  <div className="px-2">
-                    <div className="flex justify-between">
-                      <p className="mb-2">Balance</p>
-                      <div className="flex gap-2">
-                        {["1", "10", "100", "1000"].map((label) => (
-                          <button
-                            key={label}
-                            className={`bg-neutral-700 px-3 py-1 rounded ${
-                              tailwindColorMap[
-                                iconColorMap[showPopup]
-                              ]?.replace("bg-", "hover:bg-") ||
-                              "hover:bg-gray-500"
-                            } transition`}
-                          >
-                            {label}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="flex justify-between">
-                      <p className="mb-2">Quantity</p>
-                      <div className="flex items-center gap-2">
-                        <button
-                          className={`${
-                            tailwindColorMap[iconColorMap[showPopup]] ||
-                            "bg-gray-600"
-                          } px-2 rounded`}
-                        >
-                          -
-                        </button>
-                        <input
-                          type="text"
-                          defaultValue="1"
-                          className="w-20 bg-neutral-800 text-center py-1 rounded"
-                        />
-                        <button
-                          className={`${
-                            tailwindColorMap[iconColorMap[showPopup]] ||
-                            "bg-gray-600"
-                          } px-2 rounded`}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
-
-                    <div className="flex gap-2 mt-2 justify-end">
-                      {["X1", "X5", "X10", "X20", "X50", "X100"].map(
-                        (label) => (
-                          <button
-                            key={label}
-                            className={`bg-neutral-700 px-3 py-1 rounded ${
-                              tailwindColorMap[
-                                iconColorMap[showPopup]
-                              ]?.replace("bg-", "hover:bg-") ||
-                              "hover:bg-gray-500"
-                            } transition`}
-                          >
-                            {label}
-                          </button>
-                        )
-                      )}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      <div className="" onClick={() => setChecked(!checked)}>
-                        {checked ? (
-                          <img
-                            src={agree}
-                            alt="icon"
-                            className="w-6 h-6 ml-2"
-                          />
-                        ) : (
-                          <img
-                            src={notAgree}
-                            alt="icon"
-                            className="w-6 h-6 ml-2"
-                          />
-                        )}
-                      </div>
-                      <span>I agree</span>
-                      <button className="text-red-500 hover:underline">
-                        Pre-sale rules
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex ">
-                    <button
-                      onClick={handleCancelBet}
-                      className="bg-neutral-700 flex-1    hover:bg-neutral-600 transition"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      className={`${
-                        tailwindColorMap[iconColorMap[showPopup]] ||
-                        "bg-gray-600"
-                      } flex-1 py-2  transition`}
-                    >
-                      Total amount ₹1.00
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-          {/* Fourth Line: Random with Border and Buttons */}
-          <div className="flex justify-center px-8 items-center space-x-2">
-            <span className="border border-red-700 text-red-500 text-sm px-1 py-2 rounded-lg">
-              Random
-            </span>
-            {["X1", "X5", "X10", "X50", "X100"].map((value) => (
-              <button
-                key={value}
-                className={`${
-                  selectedButton === value
-                    ? "bg-custom-green text-white"
-                    : "bg-[#242424] text-[#a8a5a1]"
-                } text-sm px-4 py-2 rounded-lg`}
-                onClick={() => handleClick(value)}
-              >
-                {value}
+            {/* Fifth Line: Rounded Button Split in Two Parts */}
+            <div className="flex justify-center mt-4">
+              <button className="bg-[#5088d3] text-white rounded-full flex overflow-hidden">
+                <span
+                  className="px-20 py-2 bg-[#feaa57] cursor-pointer"
+                  onClick={() => handleToggleBigPopup("Big")}
+                >
+                  Big
+                </span>
+                <span
+                  className="px-20 py-2 cursor-pointer"
+                  onClick={() => handleToggleBigPopup("Small")}
+                >
+                  Small
+                </span>
               </button>
-            ))}
-          </div>
+            </div>
 
-          {/* Fifth Line: Rounded Button Split in Two Parts */}
-          <div className="flex justify-center mt-4">
-            <button className="bg-[#5088d3] text-white rounded-full flex overflow-hidden">
-              <span
-                className="px-20 py-2 bg-[#feaa57] cursor-pointer"
-                onClick={() => handleToggleBigPopup("Big")}
-              >
-                Big
-              </span>
-              <span
-                className="px-20 py-2 cursor-pointer"
-                onClick={() => handleToggleBigPopup("Small")}
-              >
-                Small
-              </span>
-            </button>
-          </div>
-
-          {showBigPopup && (
-            <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
-              
+            {showBigPopup && (
+              <div className="fixed bottom-0 bg-neutral-900 text-white left-0 w-[410px] shadow-lg rounded-t-lg">
                 <div
                   className={`${iconColor[selectedBigOption] || "bg-gray-600"} 
               rounded-t-xl flex flex-col items-center text-center`}
@@ -745,78 +638,80 @@ function LotteryWingo() {
 
                 <div className="mt-6 space-y-4">
                   <div className="px-2">
-                  {/* Balance Section */}
-                  <div className="flex justify-between">
-                    <p className="mb-2">Balance</p>
-                    <div className="flex gap-2">
-                      {[1, 10, 100, 1000].map((value) => (
+                    {/* Balance Section */}
+                    <div className="flex justify-between">
+                      <p className="mb-2">Balance</p>
+                      <div className="flex gap-2">
+                        {[1, 10, 100, 1000].map((value) => (
+                          <button
+                            key={value}
+                            className={`${iconColor[selectedBigOption] || "bg-gray-600"} px-4 py-1 rounded`}
+                          >
+                            {value}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Quantity Section */}
+                    <div className="flex justify-between">
+                      <p className="mb-2">Quantity</p>
+                      <div className="flex items-center gap-2">
                         <button
-                          key={value}
-                          className={`${iconColor[selectedBigOption] || "bg-gray-600"} px-4 py-1 rounded`}
+                          className={`${iconColor[selectedBigOption] || "bg-gray-600"} px-2 rounded`}
                         >
-                          {value}
+                          -
                         </button>
-                      ))}
+                        <input
+                          type="text"
+                          defaultValue="1"
+                          className="w-20 bg-neutral-800 text-center py-1 rounded"
+                        />
+                        <button
+                          className={`${iconColor[selectedBigOption] || "bg-gray-600"} px-2 rounded`}
+                        >
+                          +
+                        </button>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Quantity Section */}
-                  <div className="flex justify-between">
-                    <p className="mb-2">Quantity</p>
-                    <div className="flex items-center gap-2">
-                      <button
-                        className={`${iconColor[selectedBigOption] || "bg-gray-600"} px-2 rounded`}
-                      >
-                        -
-                      </button>
-                      <input
-                        type="text"
-                        defaultValue="1"
-                        className="w-20 bg-neutral-800 text-center py-1 rounded"
-                      />
-                      <button
-                        className={`${iconColor[selectedBigOption] || "bg-gray-600"} px-2 rounded`}
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Multiplier Buttons */}
-                  <div className="flex gap-2 mt-2 justify-end">
-                    {["X1", "X5", "X10", "X20", "X50", "X100"].map((label) => (
-                      <button
-                        key={label}
-                        className={`bg-neutral-700 px-3 py-1 rounded 
+                    {/* Multiplier Buttons */}
+                    <div className="flex gap-2 mt-2 justify-end">
+                      {["X1", "X5", "X10", "X20", "X50", "X100"].map(
+                        (label) => (
+                          <button
+                            key={label}
+                            className={`bg-neutral-700 px-3 py-1 rounded 
                     ${iconColor[selectedBigOption]?.replace("bg-", "hover:bg-") || "hover:bg-gray-500"} transition`}
-                      >
-                        {label}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Agreement Checkbox */}
-                  <div className="flex items-center gap-2">
-                    <div className="" onClick={() => setChecked(!checked)}>
-                      {checked ? (
-                        <img
-                          src={agree}
-                          alt="icon"
-                          className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
-                        />
-                      ) : (
-                        <img
-                          src={notAgree}
-                          alt="icon"
-                          className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
-                        />
+                          >
+                            {label}
+                          </button>
+                        )
                       )}
                     </div>
-                    <span>I agree</span>
-                    <button className="text-red-500 hover:underline">
-                      Pre-sale rules
-                    </button>
-                  </div>
+
+                    {/* Agreement Checkbox */}
+                    <div className="flex items-center gap-2">
+                      <div className="" onClick={() => setChecked(!checked)}>
+                        {checked ? (
+                          <img
+                            src={agree}
+                            alt="icon"
+                            className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
+                          />
+                        ) : (
+                          <img
+                            src={notAgree}
+                            alt="icon"
+                            className="w-6 h-6 ml-2" // Adjust the spacing with `ml-2` or as needed
+                          />
+                        )}
+                      </div>
+                      <span>I agree</span>
+                      <button className="text-red-500 hover:underline">
+                        Pre-sale rules
+                      </button>
+                    </div>
                   </div>
                   {/* Action Buttons */}
                   <div className="flex">
@@ -833,10 +728,9 @@ function LotteryWingo() {
                     </button>
                   </div>
                 </div>
-
-            </div>
-          )}
-        </div>
+              </div>
+            )}
+          </div>
         </FreezePopup>
 
         {/* Buttons */}
@@ -1127,7 +1021,7 @@ function LotteryWingo() {
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
-              <IoIosArrowBack />
+              <BackButton />
             </button>
 
             {/* Page Numbering */}

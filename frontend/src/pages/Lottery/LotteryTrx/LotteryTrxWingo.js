@@ -4,7 +4,7 @@ import { FaWallet } from "react-icons/fa";
 import { FaVolumeUp } from "react-icons/fa";
 import { TbClockFilled } from "react-icons/tb";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowBack } from "react-icons/io";
+import BackButton from "./../../../components/BackButton";
 import Timecolor from "../../../Assets/timecolor.png";
 import Timeblack from "../../../Assets/timeblack.png";
 import refresh from "../../../Assets/refresh.png";
@@ -75,15 +75,8 @@ const buttonData = [
 function LotteryTrxWingo() {
   const [activeTab, setActiveTab] = useState("gameHistory");
   const [activeButton, setActiveButton] = useState(buttonData[0].id);
-  const [isPhoneLogin, setIsPhoneLogin] = useState(true);
-  const [phoneNumber, setPhoneNumber] = useState("");
+
   const [historyData, setHistoryData] = useState([]);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [verificationCode, setverificationCode] = useState("");
-  const [privacyAgreement, setPrivacyAgreement] = useState(false);
-  const [rememberPassword, setRememberPassword] = useState(false);
 
   const [currentPage, setCurrentPage] = useState();
   const totalPages = 5; // Change this based on your total pages
@@ -98,37 +91,6 @@ function LotteryTrxWingo() {
   const handleClick = (value) => {
     setSelectedButton(value);
   };
-  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value);
-  const handleEmailChange = (event) => setEmail(event.target.value);
-  const handlePasswordChange = (event) => setPassword(event.target.value);
-  const handleConfirmPasswordChange = (event) =>
-    setConfirmPassword(event.target.value);
-  const handleverificationCodeChange = (event) =>
-    setverificationCode(event.target.value);
-  const handlePrivacyAgreementChange = (event) =>
-    setPrivacyAgreement(event.target.checked);
-  const handleRememberPasswordChange = (event) =>
-    setRememberPassword(event.target.checked);
-
-  const handleSendVerificationCode = () => {
-    // Logic to send verification code
-    console.log("Verification code sent!");
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-    const loginData = isPhoneLogin
-      ? { phoneNumber, password }
-      : { email, password };
-    console.log("Login data:", loginData);
-    console.log("Remember password:", rememberPassword);
-    console.log("verification code:", verificationCode);
-    console.log("Privacy agreement accepted:", privacyAgreement);
-  };
 
   // Function to handle button click
   const handleButtonClick = (buttonId) => {
@@ -139,7 +101,7 @@ function LotteryTrxWingo() {
     <div className="bg-[#242424] min-h-screen flex flex-col items-center justify-center ">
       <LotteryWingoheader />
 
-      <div className="text-center mb-0 w-full max-w-md px-8 mt-20">
+      <div className="text-center mb-0 w-full max-w-md px-8 mt-2">
         <div className="bg-[#333332]  rounded-xl shadow-lg p-4">
           {/* Amount */}
           <div className="flex items-center justify-center">
@@ -240,11 +202,11 @@ function LotteryTrxWingo() {
               <div className="flex ">
                 <p className="text-[#8f5206] mr-4 ">Period</p>
                 <div className="border bg-[#333332]  border-[#d9ac4f] rounded-full px-2 py-1 flex items-center justify-center gap-2 text-[#8f5206] text-center">
-                                <img src={HowToPlay} alt="How to Play" className="w-5 h-5" />
-                                <p className="text-[#d9ac4f] text-sm font-medium">
-                                  How to Play
-                                </p>
-                              </div>
+                  <img src={HowToPlay} alt="How to Play" className="w-5 h-5" />
+                  <p className="text-[#d9ac4f] text-sm font-medium">
+                    How to Play
+                  </p>
+                </div>
               </div>
               <p className="text-lg mt-2 font-bold text-[#8f5206]">
                 2928383000211334
@@ -756,7 +718,7 @@ function LotteryTrxWingo() {
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
             >
-              <IoIosArrowBack />
+              <BackButton />
             </button>
 
             {/* Page Numbering */}
@@ -775,7 +737,6 @@ function LotteryTrxWingo() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

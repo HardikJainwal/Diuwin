@@ -43,9 +43,9 @@ function ProfilePage() {
 
 
   return (
-    <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-[#242424] min-h-screen flex flex-col items-center justify-center">
       <LotteryWingoheader />
-      <div className="text-left mb-0 w-full max-w-md px-8 mt-10">
+      <div className="text-left mb-0 w-full max-w-md px-8 ">
         <div className="flex  items-center mt-10">
           {/* Profile Picture and Info */}
           <div className="w-16 h-16 rounded-full overflow-hidden  mr-4">
@@ -67,8 +67,8 @@ function ProfilePage() {
         </div>
       </div>
 
-      <div className="bg-[#333332] p-4 shadow-md w-full max-w-md h-full flex flex-col justify-center">
-        <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md">
+      <div className="bg-[#242424] p-4 shadow-md w-full max-w-md h-full flex flex-col justify-center">
+        <div className="bg-[#333332] p-4 rounded-lg shadow-md">
           <div className="flex justify-between items-center ">
             <div>
               <div className="text-[#a8a5a1]">
@@ -99,7 +99,7 @@ function ProfilePage() {
           </div>
         </div>
 
-        <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md mt-4">
+        <div className="bg-[#333332] p-4 rounded-lg shadow-md mt-4">
           <div className="flex justify-between items-center mb-2">
             <div className="flex">
             <img src={safe} alt="File Icon" className=" w-10 h-10 mt-3 mr-2" />
@@ -117,28 +117,28 @@ function ProfilePage() {
 
         {/* 2x2 grid layout */}
         <div className="grid grid-cols-2 gap-4 mt-4">
-          <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md flex ">
+          <div className="bg-[#333332] p-4 rounded-lg shadow-md flex ">
           <img src={bet} alt="File Icon" className=" w-8 h-8 mr-2" />
           <div className="flex flex-col">
             <p className="text-[#f5f3f0]">game History</p>
             <p className="text-[#a8a5a1] text-xs">My game history</p>
           </div>
           </div>
-          <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md flex">
+          <div className="bg-[#333332] p-4 rounded-lg shadow-md flex">
           <img src={transaction} alt="File Icon" className=" w-8 h-8 mr-2" />
           <div className="flex flex-col">
             <p className="text-[#f5f3f0]">Transaction</p>
             <p className="text-[#a8a5a1] text-xs">My transaction history</p>
           </div>
           </div>
-          <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md flex">
+          <div className="bg-[#333332] p-4 rounded-lg shadow-md flex">
           <img src={DepositHistory} alt="File Icon" className=" w-8 h-8 mr-2" />
           <div className="flex flex-col">
             <p className="text-[#f5f3f0]">Deposit</p>
             <p className="text-[#a8a5a1] text-xs">My deposit history</p>
             </div>
           </div>
-          <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md flex">
+          <div className="bg-[#333332] p-4 rounded-lg shadow-md flex">
           <img src={withdrawHistory} alt="File Icon" className=" w-8 h-8 mr-2" />
           <div className="flex flex-col">
             <p className="text-[#f5f3f0]">Withdraw</p>
@@ -147,7 +147,7 @@ function ProfilePage() {
           </div>
         </div>
 
-        <div className="bg-[#4d4d4c] p-4 rounded-lg shadow-md mt-4">
+        <div className="bg-[#333332] p-4 rounded-lg shadow-md mt-4">
   <div className="space-y-4">
     <div>
       <button
@@ -206,7 +206,7 @@ function ProfilePage() {
   </div>
 </div>
 
-        <div className="bg-[#4d4d4c] text-[#a8a5a1] p-4 rounded-lg shadow-md mt-4">
+        <div className="bg-[#333332] text-[#a8a5a1] p-4 rounded-lg shadow-md mt-4">
   {/* Title aligned to the left */}
   <p className="text-sm font-semibold mb-4 text-[#f5f3f0] text-left">Service Center</p>
 

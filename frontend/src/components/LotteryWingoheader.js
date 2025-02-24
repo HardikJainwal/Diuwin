@@ -4,7 +4,7 @@ import Voice from "./../Assets/voice.png";
 
 const LotteryWingoheader = () => {
   return (
-    <header className="bg-[#4d4d4c] fixed top-0 h-16 flex items-center justify-between px-4 ">
+    <header className="bg-[#414140]fixed top-0 h-16 flex items-center justify-between px-4 ">
       {/* bg-custom-light-gray z-2 h-14 flex items-center justify-between top-0 px-2 */}
       {/* Left side (spacer for alignment) */}
       <div className="flex-1"></div>
