@@ -1,55 +1,8 @@
 import React, { useState } from "react";
 import { MdExpandMore } from "react-icons/md";
-import NotificationHeader from "../../components/NotificationHeader";
-import SubordinateHeader from "../../components/SubordinateHeader";
 import CommissionDetailHeader from "../../components/CommissionDetailHeader";
 
 function CommissionDetailPage() {
-  const [isPhoneLogin, setIsPhoneLogin] = useState(true);
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [verificationCode, setverificationCode] = useState("");
-  const [privacyAgreement, setPrivacyAgreement] = useState(false);
-  const [rememberPassword, setRememberPassword] = useState(false);
-
-  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value);
-  const handleEmailChange = (event) => setEmail(event.target.value);
-  const handlePasswordChange = (event) => setPassword(event.target.value);
-  const handleConfirmPasswordChange = (event) =>
-    setConfirmPassword(event.target.value);
-  const handleverificationCodeChange = (event) =>
-    setverificationCode(event.target.value);
-  const handlePrivacyAgreementChange = (event) =>
-    setPrivacyAgreement(event.target.checked);
-  const handleRememberPasswordChange = (event) =>
-    setRememberPassword(event.target.checked);
-
-  const handleSendVerificationCode = () => {
-    console.log("Verification code sent!");
-  };
-
-  const uid = "14480808";
-  const handleCopy = () => {
-    navigator.clipboard.writeText(uid);
-    alert("UID copied!");
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-    const loginData = isPhoneLogin
-      ? { phoneNumber, password }
-      : { email, password };
-    console.log("Login data:", loginData);
-    console.log("Remember password:", rememberPassword);
-    console.log("verification code:", verificationCode);
-    console.log("Privacy agreement accepted:", privacyAgreement);
-  };
 
   return (
     <div className="bg-[#242424] w-[412px] min-h-screen flex flex-col">

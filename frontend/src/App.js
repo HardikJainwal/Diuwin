@@ -59,6 +59,7 @@ import WithdrawTrx from "./pages/Lottery/LotteryTrx/WithdrawTrx";
 import NewSubordinate from "./pages/Promotion/NewSubordinate";
 import InvitePage from "./pages/Promotion/InvitePage";
 import WithdrawHistory from "./pages/Wallet/WithdrawHistory";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
@@ -68,7 +69,6 @@ function App() {
           {/* Public Route */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          {/* <Route path="/adminroute" element={<AdminRoute />} /> */}
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/customerservice" element={<CustomerService />} />
           <Route path="/ProfilePage" element={<ProfilePage />} />
@@ -78,7 +78,7 @@ function App() {
           <Route path="/privacyagreement" element={<PrivacyAgreement/>} />
           <Route path="/home" element={<Home />} />
 
-          {/* Promotion Pages */}
+          {/* Promotion Pages */} 
           <Route path="/subordinate" element={<Subordinate />} />
           <Route path="/commissiondetailpage"element={<CommissionDetailsPage />}/>
           <Route path="/promotionrule" element={<PromotionRule />} />
@@ -91,7 +91,7 @@ function App() {
           <Route path="/activityaward" element={<ActivityAward />} />
           <Route path="/rebate" element={<Rebate />} />
           <Route path="/jackpot" element={<Jackpot />} />
-          <Route path="/Gift" element={<Gift />} />
+          <Route path="/gift" element={<Gift />} />
           <Route path="/Attendancebonus" element={<Attandancebonus />} />
 
           {/* Lottery Pages */}
@@ -117,12 +117,12 @@ function App() {
           {/* Profile Pages */}
           <Route path="/aboutusprofile" element={<AboutusProfile />} />
           <Route path="/arwallet" element={<ARWallet />} />
-          <Route path="/BeginnerGuide" element={<BeginnerGuide/>} />
+          <Route path="/beginnerguide" element={<BeginnerGuide/>} />
           <Route path="/CustomerServiceProfile" element={<CustomerServiceProfile />} />
           <Route path="/depositHistoryProfile" element={<DepositHistoryProfile/>} />
           <Route path="/depositProfile" element={<DepositProfile />} />
           <Route path="/feedbackProfile" element={<FeedbackProfile/>} />
-          <Route path="/gameHistoryProfile" element={<GameHistoryProfile />} />
+          <Route path="/gamehistoryProfile" element={<GameHistoryProfile />} />
           <Route path="/gamestatistics" element={<GameStatistics />} />
           <Route path="/giftsProfile" element={<GiftsProfile/>} />
           <Route path="/notificationProfile" element={<NotificationProfile/>} />
@@ -130,9 +130,10 @@ function App() {
           <Route path="/safeProfile" element={<SafeProfile />} />
           <Route path="/settingsProfile" element={<SettingsProfile/>} />
           <Route path="/transactionProfile" element={<TransactionProfile />} />
-          <Route path="/vipProfile" element={<VIPProfile />} />
+          <Route path="/vipprofile" element={<VIPProfile />} />
           <Route path="/withdrawHistoryProfile" element={<WithdrawHistoryProfile/>} />
           <Route path="/withdrawProfile" element={<WithdrawProfile />} />
+          <Route path="/settings" element={<Settings/>} />
           {/* Redirect to /login if no routes match */}
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
