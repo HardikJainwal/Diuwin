@@ -135,7 +135,7 @@ function App() {
           <Route path="/withdrawProfile" element={<WithdrawProfile />} />
           <Route path="/settings" element={<Settings/>} />
           {/* Redirect to /login if no routes match */}
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/home" replace />} />
         </Routes>
       </main>
     </BrowserRouter>
