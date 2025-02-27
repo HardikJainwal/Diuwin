@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaPhone, FaEnvelope, FaLock, FaQuestionCircle, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import Header from "../components/Header";
-import { PuzzleCaptcha } from "react-puzzle-captcha";
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/Slice/loginSlice';
 
@@ -15,11 +14,7 @@ function LoginPage() {
     email: "",
     password: "",
   });
-  const [rememberPassword, setRememberPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState(""); 
-  const [captchaVisible, setCaptchaVisible] = useState(false); // State to control CAPTCHA visibility
-  const [captchaVerified, setCaptchaVerified] = useState(false); // State to track CAPTCHA verification
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
@@ -28,30 +23,14 @@ function LoginPage() {
     setCredentials((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleRememberPasswordChange = (event) => setRememberPassword(event.target.checked);
-
-  const handleCaptchaChange = (token) => {
-    setCaptchaToken(token); // Store the CAPTCHA token
-    setCaptchaVerified(true); // Mark CAPTCHA as verified
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    if (!captchaVerified) {
-      alert("Please complete the CAPTCHA verification.");
-      return;
-    }
 
     const loginData = isPhoneLogin
       ? { phoneNumber: credentials.phoneNumber, password: credentials.password }
       : { email: credentials.email, password: credentials.password };
 
     dispatch(loginUser(loginData)); 
-  };
-
-  const handleLoginClick = () => {
-    setCaptchaVisible(true);
   };
 
   if (token) {
@@ -148,17 +127,8 @@ function LoginPage() {
               </div>
             </div>
 
-            {captchaVisible && !captchaVerified && (
-              <PuzzleCaptcha
-                onChange={handleCaptchaChange}
-                width="100%" // Set the width as needed
-                height="250px" // Set the height as needed
-              />
-            )}
-
             <button
               type="submit"
-              onClick={handleLoginClick} // Trigger CAPTCHA on login button click
               className="w-full bg-custom-pink text-white py-3 rounded-full hover:bg-custom-blue focus:ring-2 focus:ring-indigo-300"
             >
               {loading ? 'Logging in...' : 'Login'}

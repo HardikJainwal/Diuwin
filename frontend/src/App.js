@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import ForgotPassword from "./pages/ForgotPassword";
 import CustomerService from "./pages/CustomerService";
@@ -28,8 +28,8 @@ import Lottery5d from "./../src/pages/Lottery/Lottery5d/Lottery5d";
 import LotteryTrxWingo from "./../src/pages/Lottery/LotteryTrx/LotteryTrxWingo";
 import Deposit from "./pages/Wallet/Deposit";
 import Withdraw from "./pages/Wallet/Withdraw";
-import withdrawHistory from "./pages/Wallet/WithdrawHistory";
-import DepositHistory from './pages/Wallet/DepositHistory';
+// import withdrawHistory from "./pages/Wallet/WithdrawHistory";
+// import DepositHistory from './pages/Wallet/DepositHistory';
 import AboutusProfile from "./pages/Profile/AboutusProfile";
 import ARWallet from "./pages/Profile/ARWallet";
 import BeginnerGuide from "./pages/Profile/BeginnerGuide";
@@ -58,7 +58,7 @@ import DepositTrx from "./pages/Lottery/LotteryTrx/DepositTrx";
 import WithdrawTrx from "./pages/Lottery/LotteryTrx/WithdrawTrx";
 import NewSubordinate from "./pages/Promotion/NewSubordinate";
 import InvitePage from "./pages/Promotion/InvitePage";
-import WithdrawHistory from "./pages/Wallet/WithdrawHistory";
+// import WithdrawHistory from "./pages/Wallet/WithdrawHistory";
 import Settings from "./pages/Settings";
 
 function App() {
@@ -67,7 +67,7 @@ function App() {
       <main className="flex-grow">
         <Routes>
           {/* Public Route */}
-          <Route path="/login" element={<LoginPage />} />
+          {/* <Route path="/login" element={<LoginPage />} /> */}
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/customerservice" element={<CustomerService />} />
@@ -111,8 +111,8 @@ function App() {
           {/* Wallet Pages */}
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/withdraw" element={<Withdraw />} />
-          <Route path="/depositHistory" element={<DepositHistory/>} />
-          <Route path="/withdrawHistory" element={<WithdrawHistory />} />
+          {/* <Route path="/depositHistory" element={<DepositHistory/>} /> */}
+          {/* <Route path="/withdrawHistory" element={<WithdrawHistory />} /> */}
 
           {/* Profile Pages */}
           <Route path="/aboutusprofile" element={<AboutusProfile />} />
