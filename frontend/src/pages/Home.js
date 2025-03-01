@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaVolumeUp } from "react-icons/fa";
 
 import Footer from "../components/Footer";
 import Homeheader from "../components/Homeheader";
-import { Element } from "react-scroll";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -39,12 +38,83 @@ import mgActiveImg from "../gamesnav/c8.png";
 import pgActiveImg from "../gamesnav/c9.png";
 import evoActiveImg from "../gamesnav/c10.png";
 
+import lotteryIcon from "../Assets/Gamecategory/gc4.png";
+import originalIcon from "../Assets/Gamecategory/gc8.png";
+import slotsIcon from "../Assets/Gamecategory/gc6.png";
+import sportsIcon from "../Assets/Gamecategory/gc1.png";
+import popularIcon from "../Assets/Gamecategory/gc5.png";
+import casinoIcon from "../Assets/Gamecategory/gc2.png";
+import rummyIcon from "../Assets/Gamecategory/gc7.png";
+import fishingIcon from "../Assets/Gamecategory/gc3.png";
+
+const gameCategories = [
+  {
+    id: 1,
+    title: "Lottery",
+    image: lotteryIcon,
+  },
+  {
+    id: 2,
+    title: "Original",
+    image: originalIcon,
+  },
+  {
+    id: 3,
+    title: "Slots",
+    image: slotsIcon,
+  },
+  {
+    id: 4,
+    title: "Sports",
+    image: sportsIcon,
+  },
+  {
+    id: 5,
+    title: "Popular",
+    image: popularIcon,
+  },
+  {
+    id: 6,
+    title: "Casino",
+    image: casinoIcon,
+  },
+  {
+    id: 7,
+    title: "Rummy",
+    image: rummyIcon,
+  },
+  {
+    id: 8,
+    title: "Fishing",
+    image: fishingIcon,
+  },
+];
+
+// GameCategory component for the gaming platform menu
+const GameCategory = ({ title, image }) => {
+  return (
+    <div className="flex flex-col items-center bg-yellow-300 rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow">
+      <div className="w-full h-24 flex items-center justify-center">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-contain p-2"
+        />
+      </div>
+      <div className="w-full bg-yellow-600 bg-opacity-20 py-1 text-center">
+        <span className="text-gray-800 font-medium">{title}</span>
+      </div>
+    </div>
+  );
+};
+
+// Button data definition that was missing
 const buttonData = [
-  { id: 0, title: "Jili", imgSrc: jiliImg, activeImgSrc: jiliActiveImg },
-  { id: 1, title: "CQ9", imgSrc: cq9Img, activeImgSrc: cq9ActiveImg },
-  { id: 2, title: "MG", imgSrc: mgImg, activeImgSrc: mgActiveImg },
-  { id: 3, title: "PG", imgSrc: pgImg, activeImgSrc: pgActiveImg },
-  { id: 4, title: "EVO", imgSrc: evoImg, activeImgSrc: evoActiveImg },
+  { id: 0, name: "JILI", image: jiliImg, activeImage: jiliActiveImg },
+  { id: 1, name: "CQ9", image: cq9Img, activeImage: cq9ActiveImg },
+  { id: 2, name: "MG", image: mgImg, activeImage: mgActiveImg },
+  { id: 3, name: "PG", image: pgImg, activeImage: pgActiveImg },
+  { id: 4, name: "EVO", image: evoImg, activeImage: evoActiveImg },
 ];
 
 function Home() {
@@ -182,7 +252,7 @@ function Home() {
   };
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -321,6 +391,17 @@ function Home() {
       { id: 4, image: quicknessSpinsImg, name: "QUICKNESS SPINS" },
       { id: 5, image: fishShrimpImg, name: "Fish Shrimp" },
     ],
+    EVO_Video: [
+      // Added missing data for other tabs
+      { id: 1, image: baccaratImg, name: "EVO Baccarat" },
+      { id: 2, image: threeCardsImg, name: "EVO THREE CARDS" },
+      { id: 3, image: sedieImg, name: "EVO Sedie" },
+    ],
+    SEXY_Video: [
+      { id: 1, image: baccaratImg, name: "SEXY Baccarat" },
+      { id: 2, image: threeCardsImg, name: "SEXY THREE CARDS" },
+      { id: 3, image: sedieImg, name: "SEXY Sedie" },
+    ],
   };
 
   const handleTabChange = (tab) => {
@@ -380,16 +461,16 @@ function Home() {
       <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
         <div className="container">
           <div className="relative">
-            {/* Fixed image carousel - removed scrolling behavior */}
+            {/* Fixed image carousel - made responsive for mobile */}
             <div
               id="image-carousel"
-              className="flex justify-between py-4"
+              className="flex justify-between py-4 overflow-x-auto"
             >
               <Link
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092552pj7d.png"
@@ -401,7 +482,7 @@ function Home() {
                 to="section3"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092542sh85.png"
@@ -413,7 +494,7 @@ function Home() {
                 to="section1"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092452swfv.png"
@@ -425,7 +506,7 @@ function Home() {
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092502uryl.png"
@@ -437,7 +518,7 @@ function Home() {
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092524eyc6.png"
@@ -449,92 +530,62 @@ function Home() {
           </div>
         </div>
       </div>
-      
-      <div className="bg-custom-light-gray p-4 w-full max-w-md h-full mt-0 flex flex-col justify-center">
-        <h2 className="text-2xl text-white">Slots</h2>
-        <p className="text-sm text-gray-400">
-          Online real-time game dealers, all verified fair games
-        </p>
-      </div>
-      
-      <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mb-0 flex flex-col justify-center">
-        {/* Button Container */}
-        <div className="bg-gray-900 rounded-lg shadow-md mb-4">
-          <div className="button-container justify-center flex" style={{ gap: "0px" }}>
-            {buttonData.map((button) => (
-              <button
-                key={button.id}
-                onClick={() => handleButtonClick(button.id)}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  width: "120px",
-                  padding: "10px 0",
-                  borderRadius: "8px",
-                  border: "none",
-                  backgroundColor: activeButton === button.id ? "#ffa31a" : "#f5f5f5",
-                  color: "#333",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  if (activeButton !== button.id) e.target.style.backgroundColor = "#ffa31a";
-                }}
-                onMouseLeave={(e) => {
-                  if (activeButton !== button.id) e.target.style.backgroundColor = "#f5f5f5";
-                }}
-              >
-                <img
-                  src={activeButton === button.id ? button.activeImgSrc : button.imgSrc}
-                  alt={button.title}
-                  style={{
-                    width: activeButton === button.id ? "40px" : "30px",
-                    height: activeButton === button.id ? "40px" : "30px",
-                    objectFit: "contain",
-                    marginBottom: "2px",
-                    transition: "all 0.3s ease",
-                  }}
-                />
-                <span style={{ fontSize: "16px", fontWeight: "bold" }}>
-                  {button.title}
-                </span>
-              </button>
+
+      <div className="shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center bg-custom-light-gray">
+        <div className="p-4">
+          {/* First row - 3 items */}
+          <div className="grid grid-cols-3 gap-4 mb-4">
+            {gameCategories.slice(0, 3).map((category) => (
+              <GameCategory
+                key={category.id}
+                title={category.title}
+                image={category.image}
+              />
+            ))}
+          </div>
+
+          {/* Second row - 3 items */}
+          <div className="grid grid-cols-3 gap-4 mb-4">
+            {gameCategories.slice(3, 6).map((category) => (
+              <GameCategory
+                key={category.id}
+                title={category.title}
+                image={category.image}
+              />
+            ))}
+          </div>
+
+          {/* Third row - 2 items */}
+          <div className="grid grid-cols-2 gap-4">
+            {gameCategories.slice(6, 8).map((category) => (
+              <GameCategory
+                key={category.id}
+                title={category.title}
+                image={category.image}
+              />
             ))}
           </div>
         </div>
-
-        {/* Card Grid */}
-        <div className="grid grid-cols-3 gap-4 rounded-lg">
-          {cardgridData[activeButton]?.map((card, index) => (
-            <div
-              key={index}
-              className="rounded-lg text-center hover:shadow-lg transition-all duration-300"
-            >
-              <img
-                src={card.image}
-                alt={card.title}
-                className="w-full h-auto object-cover rounded-md mb-2"
-              />
-            </div>
-          ))}
-        </div>
       </div>
+
+     
+       
+        
 
       <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
         <div className="bg-custom-light-gray max-w-md h-full mt-0 flex flex-col justify-center">
-          <h2 className="text-2xl text-white">Lottery</h2>
-          <p className="text-sm text-gray-400">
+          <h2 className="text-2xl text-white px-2">Lottery</h2>
+          <p className="text-sm text-gray-400 px-2">
             when you win a super jackpot, you will receive additional rewards
           </p>
         </div>
 
+        {/* Fixed lottery card layout for mobile */}
         <div className="w-full py-4 bg-custom-light-gray">
-          <div className="container mx-auto flex flex-col items-center gap-6">
-            <div className="flex justify-center gap-6">
+          <div className="container mx-auto px-2">
+            <div className="grid grid-cols-3 gap-2">
               {lotterycardData.slice(0, 3).map((slide) => (
-                <div key={slide.id} className="w-[120px]">
+                <div key={slide.id} className="w-full">
                   <img
                     src={slide.imgSrc}
                     alt={slide.alt}
@@ -543,17 +594,17 @@ function Home() {
                 </div>
               ))}
             </div>
-            <div className="w-[120px] self-start">
+            <div className="mt-2">
               <img
                 src={lotterycardData[3].imgSrc}
                 alt={lotterycardData[3].alt}
-                className="w-full object-cover rounded-lg shadow-lg ml-2"
+                className="w-1/3 object-cover rounded-lg shadow-lg"
               />
             </div>
           </div>
         </div>
-        
-        <div className="w-full py-6">
+
+        <div className="w-full py-6 px-2">
           <div className="container mx-auto">
             {/* Title */}
             <div className="mb-4">
@@ -568,7 +619,7 @@ function Home() {
             </div>
 
             {/* Fixed Original Games Grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2">
               {originalGames.map((game, index) => (
                 <div key={index} className="relative">
                   <img
@@ -581,8 +632,8 @@ function Home() {
             </div>
           </div>
         </div>
-        
-        <div className="w-full py-6">
+
+        <div className="w-full py-6 px-2">
           <div className="container mx-auto">
             {/* Title */}
             <div className="mb-4">
@@ -596,7 +647,7 @@ function Home() {
             </div>
 
             {/* Fixed Fishing Games Grid */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2">
               {fishingGames.map((game, index) => (
                 <div key={index} className="relative">
                   <img
@@ -622,54 +673,55 @@ function Home() {
             </p>
           </div>
 
-          {/* Tabs */}
-          <div className="flex mb-4 bg-gray-900 rounded-lg p-1">
+          {/* Tabs - Made more responsive for mobile */}
+          <div className="flex mb-2 bg-gray-900 rounded-lg p-1 overflow-x-auto">
             <button
               onClick={() => handleTabChange("DG")}
-              className={`flex-1 py-2 px-4 rounded-lg flex items-center justify-center ${
+              className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
                 activeTab === "DG" ? "bg-green-500 text-white" : "text-gray-400"
               }`}
             >
-              <span className="font-bold">DG</span>
+              <span className="font-bold text-sm">DG</span>
             </button>
             <button
               onClick={() => handleTabChange("EVO_Video")}
-              className={`flex-1 py-2 px-4 rounded-lg flex items-center justify-center ${
+              className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
                 activeTab === "EVO_Video"
                   ? "bg-blue-500 text-white"
                   : "text-gray-400"
               }`}
             >
-              <span>EVO_Video</span>
+              <span className="text-sm">EVO_Video</span>
             </button>
             <button
               onClick={() => handleTabChange("SEXY_Video")}
-              className={`flex-1 py-2 px-4 rounded-lg flex items-center justify-center ${
+              className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
                 activeTab === "SEXY_Video"
                   ? "bg-purple-500 text-white"
                   : "text-gray-400"
               }`}
             >
-              <span>SEXY_Video</span>
+              <span className="text-sm">SEXY_Video</span>
             </button>
           </div>
 
-          {/* Fixed Game Grid */}
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-3 mb-10">
-            {gameData[activeTab]?.map((game) => (
-              <div
-                key={game.id}
-                className="relative overflow-hidden rounded-lg"
-              >
-                <div className="relative h-40 w-full overflow-hidden rounded-lg">
+          <div className="pb-10">
+            {" "}
+            {/* Increased padding to prevent images from hiding */}
+            {/* Game Grid with Reduced Gaps */}
+            <div className="grid grid-cols-3 gap-2">
+              {" "}
+              {/* Reduced gap for better alignment */}
+              {gameData[activeTab]?.map((game, index) => (
+                <div key={index} className="relative">
                   <img
                     src={game.image}
                     alt={game.name || "Casino game"}
-                    className="w-full h-full object-contain"
+                    className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -678,5 +730,4 @@ function Home() {
     </div>
   );
 }
-
 export default Home;
