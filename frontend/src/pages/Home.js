@@ -14,27 +14,18 @@ import cricketImg from "../Assets/cricket.png";
 import limboImg from "../Assets/limbo.png";
 import boomImg from "../Assets/boom.png";
 import MinesProImg from "../Assets/Minespro.png";
-// import originalImg from "../Assets/original.png";
 
 import Fishingwars from "../Assets/Fishingwars.png";
 import royalfishing from "../Assets/royalfishing.png";
 import allstarfishing from "../Assets/allstarfishing.png";
 import bombingfishing from "../Assets/bombingfishing.png";
 import dinasaurtycoon from "../Assets/dinasaurtycoon.png";
-// import from "../Assets/"
 
 import baccaratImg from "../Assets/casino11.png";
 import threeCardsImg from "../Assets/casino12.png";
 import sedieImg from "../Assets/casino13.png";
 import quicknessSpinsImg from "../Assets/casino14.png";
 import fishShrimpImg from "../Assets/casino15.png";
-// import detailImg from "../Assets/detail.png";
-// import rouletteImg from "../Assets/roulette.png";
-// import blackjackImg from "../Assets/blackjack.png";
-// import pokerImg from "../Assets/poker.png";
-// import baccaratSexyImg from "../Assets/baccarat_sexy.png";
-// import rouletteSexyImg from "../Assets/roulette_sexy.png";
-// import diceSexyImg from "../Assets/dice_sexy.png";
 
 import jiliImg from "../gamesnav/C1.png";
 import cq9Img from "../gamesnav/C2.png";
@@ -42,8 +33,8 @@ import mgImg from "../gamesnav/C3.png";
 import pgImg from "../gamesnav/C4.png";
 import evoImg from "../gamesnav/C5.png";
 
-import jiliActiveImg from "../gamesnav/c6.png"; // Create these active versions
-import cq9ActiveImg from "../gamesnav/c7.png"; 
+import jiliActiveImg from "../gamesnav/c6.png";
+import cq9ActiveImg from "../gamesnav/c7.png";
 import mgActiveImg from "../gamesnav/c8.png";
 import pgActiveImg from "../gamesnav/c9.png";
 import evoActiveImg from "../gamesnav/c10.png";
@@ -62,67 +53,67 @@ function Home() {
     {
       id: 1,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 1 Image",
     },
     {
       id: 2,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240828152235lvxc.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240828152235lvxc.png",
       alt: "Slide 2 Image",
     },
     {
       id: 3,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
     {
       id: 4,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175355rwqi.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175355rwqi.png",
       alt: "Slide 3 Image",
     },
     {
       id: 5,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240826140214u7o9.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240826140214u7o9.png",
       alt: "Slide 3 Image",
     },
     {
       id: 6,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
     {
       id: 7,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
     {
       id: 8,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
     {
       id: 9,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
     {
       id: 10,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
     {
       id: 11,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/banner/Banner_20240827175238lien.png",
       alt: "Slide 3 Image",
     },
   ]);
@@ -130,52 +121,52 @@ function Home() {
   const [cardData, setCardData] = useState([
     {
       id: 1,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/TB_Chess/810.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/TB_Chess/810.png",
       alt: "Slide 1 Image",
     },
     {
       id: 2,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/45.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/45.png",
       alt: "Slide 2 Image",
     },
     {
       id: 3,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/51.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/51.png",
       alt: "Slide 3 Image",
     },
     {
       id: 4,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/TB_Chess/100.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/TB_Chess/100.png",
       alt: "Slide 3 Image",
     },
     {
       id: 5,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/51.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/51.png",
       alt: "Slide 3 Image",
     },
     {
       id: 6,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/45.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/45.png",
       alt: "Slide 3 Image",
     },
     {
       id: 7,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/223.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/223.png",
       alt: "Slide 3 Image",
     },
     {
       id: 8,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/51.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/51.png",
       alt: "Slide 3 Image",
     },
     {
       id: 9,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/119.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/JILI/119.png",
       alt: "Slide 3 Image",
     },
     {
       id: 10,
-      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/TB_Chess/106.png", // Replace with your image URL
+      imgSrc: "https://ossimg.diuacting.com/DiuWin/gamelogo/TB_Chess/106.png",
       alt: "Slide 3 Image",
     },
   ]);
@@ -183,11 +174,11 @@ function Home() {
   const slidesettings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Show 3 slides at once
-    slidesToScroll: 3, // Scroll 3 slides at once
+    slidesToShow: 3,
+    slidesToScroll: 3,
     arrows: false,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 2000, // Set autoplay speed
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
   const settings = {
@@ -197,38 +188,38 @@ function Home() {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-    autoplay: true, // Automatically change slides
-    autoplaySpeed: 2000, // Change slide every 2 seconds
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
   // Function to handle button click
   const handleButtonClick = (buttonId) => {
-    setActiveButton(buttonId); // Update the active button state
+    setActiveButton(buttonId);
   };
 
   const [lotterycardData, setlotteryCardData] = useState([
     {
       id: 1,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_20240730135644c9au.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_20240730135644c9au.png",
       alt: "Slide 1 Image",
     },
     {
       id: 2,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_20240730135652xdlu.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_20240730135652xdlu.png",
       alt: "Slide 2 Image",
     },
     {
       id: 3,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_202407301356593l49.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_202407301356593l49.png",
       alt: "Slide 3 Image",
     },
     {
       id: 4,
       imgSrc:
-        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_2024073013570787wd.png", // Replace with your image URL
+        "https://ossimg.diuacting.com/DiuWin/lotterycategory/lotterycategory_2024073013570787wd.png",
       alt: "Slide 3 Image",
     },
   ]);
@@ -244,7 +235,6 @@ function Home() {
         image:
           "https://thumbs.dreamstime.com/b/view-more-icon-white-background-button-sign-flat-style-264179681.jpg",
       },
-      // { title: "Home Card 6", image: "https://via.placeholder.com/150" },
     ],
     1: [
       { image: "https://ossimg.diuacting.com/DiuWin/gamelogo/CQ9/19.png" },
@@ -353,7 +343,6 @@ function Home() {
     { name: "allstarfishing", img: allstarfishing },
     { name: "bombingfishing", img: bombingfishing },
     { name: "dinasaurtycoon", img: dinasaurtycoon },
-    // { name: "Original", img: originalImg },
   ];
 
   return (
@@ -391,23 +380,16 @@ function Home() {
       <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
         <div className="container">
           <div className="relative">
-            {/* Image carousel with images starting from left */}
+            {/* Fixed image carousel - removed scrolling behavior */}
             <div
               id="image-carousel"
-              className="flex overflow-x-auto scrollbar-hidden snap-x snap-mandatory scroll-smooth py-4 gap-4 hide-scrollbar"
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-                WebkitOverflowScrolling: "touch",
-                scrollSnapType: "x mandatory",
-              }}
+              className="flex justify-between py-4"
             >
-              {/* Removed empty placeholder div */}
               <Link
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092552pj7d.png"
@@ -419,7 +401,7 @@ function Home() {
                 to="section3"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092542sh85.png"
@@ -431,7 +413,7 @@ function Home() {
                 to="section1"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092452swfv.png"
@@ -443,7 +425,7 @@ function Home() {
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092502uryl.png"
@@ -455,7 +437,7 @@ function Home() {
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092524eyc6.png"
@@ -463,90 +445,65 @@ function Home() {
                   className="w-16 h-16 rounded-lg object-cover shadow-md"
                 />
               </Link>
-              <Link
-                to="section2"
-                smooth={true}
-                duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
-              >
-                <img
-                  src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092533461f.png"
-                  alt="Go to Section 2"
-                  className="w-16 h-16 rounded-lg object-cover shadow-md"
-                />
-              </Link>
-              <Link
-                to="section3"
-                smooth={true}
-                duration={500}
-                className="flex-shrink-0 w-16 h-16 snap-center transform transition hover:scale-110"
-              >
-                <img
-                  src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092510alv1.png"
-                  alt="Go to Section 3"
-                  className="w-16 h-16 rounded-lg object-cover shadow-md"
-                />
-              </Link>
             </div>
           </div>
         </div>
       </div>
+      
       <div className="bg-custom-light-gray p-4 w-full max-w-md h-full mt-0 flex flex-col justify-center">
         <h2 className="text-2xl text-white">Slots</h2>
         <p className="text-sm text-gray-400">
           Online real-time game dealers, all verified fair games
         </p>
       </div>
+      
       <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mb-0 flex flex-col justify-center">
         {/* Button Container */}
         <div className="bg-gray-900 rounded-lg shadow-md mb-4">
-  <div className="button-container justify-center flex" style={{ gap: "0px" }}>
-    {buttonData.map((button) => (
-      <button
-        key={button.id}
-        onClick={() => handleButtonClick(button.id)}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "120px",
-          padding: "10px 0",
-          borderRadius: "8px",
-          border: "none",
-          backgroundColor: activeButton === button.id ? "#ffa31a" : "#f5f5f5", // Golden when active
-          color: "#333",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-        }}
-        onMouseEnter={(e) => {
-          if (activeButton !== button.id) e.target.style.backgroundColor = "#ffa31a";
-        }}
-        onMouseLeave={(e) => {
-          if (activeButton !== button.id) e.target.style.backgroundColor = "#f5f5f5";
-        }}
-      >
-        <img
-          src={activeButton === button.id ? button.activeImgSrc : button.imgSrc}
-          alt={button.title}
-          style={{
-            width: activeButton === button.id ? "40px" : "30px", // Increase image size when active
-            height: activeButton === button.id ? "40px" : "30px",
-            objectFit: "contain",
-            marginBottom: "2px",
-            transition: "all 0.3s ease",
-          }}
-        />
-        <span style={{ fontSize: "16px", fontWeight: "bold" }}>
-          {button.title}
-        </span>
-      </button>
-    ))}
-  </div>
-</div>
-
-
-
+          <div className="button-container justify-center flex" style={{ gap: "0px" }}>
+            {buttonData.map((button) => (
+              <button
+                key={button.id}
+                onClick={() => handleButtonClick(button.id)}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "120px",
+                  padding: "10px 0",
+                  borderRadius: "8px",
+                  border: "none",
+                  backgroundColor: activeButton === button.id ? "#ffa31a" : "#f5f5f5",
+                  color: "#333",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  if (activeButton !== button.id) e.target.style.backgroundColor = "#ffa31a";
+                }}
+                onMouseLeave={(e) => {
+                  if (activeButton !== button.id) e.target.style.backgroundColor = "#f5f5f5";
+                }}
+              >
+                <img
+                  src={activeButton === button.id ? button.activeImgSrc : button.imgSrc}
+                  alt={button.title}
+                  style={{
+                    width: activeButton === button.id ? "40px" : "30px",
+                    height: activeButton === button.id ? "40px" : "30px",
+                    objectFit: "contain",
+                    marginBottom: "2px",
+                    transition: "all 0.3s ease",
+                  }}
+                />
+                <span style={{ fontSize: "16px", fontWeight: "bold" }}>
+                  {button.title}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Card Grid */}
         <div className="grid grid-cols-3 gap-4 rounded-lg">
@@ -555,10 +512,9 @@ function Home() {
               key={index}
               className="rounded-lg text-center hover:shadow-lg transition-all duration-300"
             >
-              {/* Access the specific properties of the object */}
               <img
-                src={card.image} // Access the 'image' property
-                alt={card.title} // Access the 'title' property for alt text
+                src={card.image}
+                alt={card.title}
                 className="w-full h-auto object-cover rounded-md mb-2"
               />
             </div>
@@ -596,6 +552,7 @@ function Home() {
             </div>
           </div>
         </div>
+        
         <div className="w-full py-6">
           <div className="container mx-auto">
             {/* Title */}
@@ -610,22 +567,21 @@ function Home() {
               </p>
             </div>
 
-            {/* Cards Grid - Using properly imported image variables */}
+            {/* Fixed Original Games Grid */}
             <div className="grid grid-cols-3 gap-4">
               {originalGames.map((game, index) => (
                 <div key={index} className="relative">
-                  {/* Background Image - Using the imported image variables */}
                   <img
                     src={game.img}
                     alt={game.name}
-                    className="w-[250px] h-[180px] object-contain rounded-lg "
+                    className="w-full h-auto object-contain rounded-lg"
                   />
-                  {/* Text Overlay */}
                 </div>
               ))}
             </div>
           </div>
         </div>
+        
         <div className="w-full py-6">
           <div className="container mx-auto">
             {/* Title */}
@@ -639,15 +595,14 @@ function Home() {
               </p>
             </div>
 
-            {/* Cards Grid - Using properly imported image variables */}
+            {/* Fixed Fishing Games Grid */}
             <div className="grid grid-cols-3 gap-4">
               {fishingGames.map((game, index) => (
-                <div key={index} className="relative ">
-                  {/* Background Image - Using the imported image variables */}
+                <div key={index} className="relative">
                   <img
                     src={game.img}
                     alt={game.name}
-                    className="   w-[250px] h-[180px] object-contain rounded-lg"
+                    className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
               ))}
@@ -699,21 +654,18 @@ function Home() {
             </button>
           </div>
 
-          {/* Game Grid */}
+          {/* Fixed Game Grid */}
           <div className="grid grid-cols-2 gap-2 md:grid-cols-3 mb-10">
             {gameData[activeTab]?.map((game) => (
               <div
                 key={game.id}
                 className="relative overflow-hidden rounded-lg"
               >
-                <div
-                  className="relative h-40 w-full overflow-hidden rounded-lg"
-                  style={{ backgroundColor: game.color }}
-                >
+                <div className="relative h-40 w-full overflow-hidden rounded-lg">
                   <img
                     src={game.image}
                     alt={game.name || "Casino game"}
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
