@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom"; // Import useLocation
+import { useNavigate, useLocation } from "react-router-dom";
 
 // Import icons
 import icons8Activity from "./../Assets/icons8-activity.png";
@@ -16,9 +16,8 @@ import icons8manActive from "../Icons/icons8-man-48.png";
 
 function Footer() {
   const navigate = useNavigate();
-  const location = useLocation(); // Get current location
-  
-  // Define tab data with mapping to paths
+  const location = useLocation();
+
   const tabs = [
     { id: "promotion", path: "/promotionPage", icon: icons8Diamond, activeIcon: icons8DiamondActive, label: "Promotion" },
     { id: "activity", path: "/activityPage", icon: icons8Activity, activeIcon: icons8ActivityActive, label: "Activity" },
@@ -27,16 +26,13 @@ function Footer() {
     { id: "account", path: "/ProfilePage", icon: icons8man, activeIcon: icons8manActive, label: "Account" }
   ];
 
-  // Determine active tab based on current path
   const getActiveTabFromPath = (pathname) => {
     const tab = tabs.find(tab => pathname === tab.path);
     return tab ? tab.id : "home"; // Default to home if no match
   };
 
-  // Set active tab based on current location
   const [activeTab, setActiveTab] = useState(getActiveTabFromPath(location.pathname));
 
-  // Update active tab when location changes
   useEffect(() => {
     setActiveTab(getActiveTabFromPath(location.pathname));
   }, [location.pathname]);
@@ -50,7 +46,7 @@ function Footer() {
   };
 
   return (
-    <div className="fixed bottom-0 w-full max-w-[440px] mt-10 space-x-10 bg-custom-light-gray shadow-lg flex justify-between p-2 mx-auto">
+    <div className="fixed bottom-0 w-full max-w-[445px] mt-10 space-x-10 bg-[#242424] shadow-lg flex justify-between p-2 mx-auto rounded-t-2xl">
       {tabs.map((tab) => (
         <button
           key={tab.id}

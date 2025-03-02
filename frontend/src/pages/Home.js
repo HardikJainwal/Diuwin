@@ -93,7 +93,9 @@ const gameCategories = [
 // GameCategory component for the gaming platform menu
 const GameCategory = ({ title, image }) => {
   return (
-    <div className="flex flex-col items-center bg-yellow-300 rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow">
+    <div className="flex flex-col items-center rounded-lg overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow"
+      style={{ background: "linear-gradient(180deg, #FAE59F 0%, #C4933F 100%)" }}
+    >
       <div className="w-full h-24 flex items-center justify-center">
         <img
           src={image}
@@ -107,6 +109,7 @@ const GameCategory = ({ title, image }) => {
     </div>
   );
 };
+
 
 // Button data definition that was missing
 const buttonData = [
@@ -574,7 +577,10 @@ function Home() {
 
       <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
         <div className="bg-custom-light-gray max-w-md h-full mt-0 flex flex-col justify-center">
-          <h2 className="text-2xl text-white px-2">Lottery</h2>
+        <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
+                <span className="w-2 h-6 bg-green-500 inline-block rounded-sm"></span>{" "}
+                Lottery
+              </h2>
           <p className="text-sm text-gray-400 px-2">
             when you win a super jackpot, you will receive additional rewards
           </p>
@@ -707,11 +713,10 @@ function Home() {
 
           <div className="pb-10">
             {" "}
-            {/* Increased padding to prevent images from hiding */}
-            {/* Game Grid with Reduced Gaps */}
+            
             <div className="grid grid-cols-3 gap-2">
               {" "}
-              {/* Reduced gap for better alignment */}
+              
               {gameData[activeTab]?.map((game, index) => (
                 <div key={index} className="relative">
                   <img
