@@ -60,6 +60,7 @@ import NewSubordinate from "./pages/Promotion/NewSubordinate";
 import InvitePage from "./pages/Promotion/InvitePage";
 // import WithdrawHistory from "./pages/Wallet/WithdrawHistory";
 import Settings from "./pages/Settings";
+import DepositHistory from "./pages/Wallet/depositHistory";
 
 function App() {
   return (
@@ -113,6 +114,7 @@ function App() {
           <Route path="/withdraw" element={<Withdraw />} />
           {/* <Route path="/depositHistory" element={<DepositHistory/>} /> */}
           {/* <Route path="/withdrawHistory" element={<WithdrawHistory />} /> */}
+          <Route path="/deposit-history" element={<DepositHistory />} />
 
           {/* Profile Pages */}
           <Route path="/aboutusprofile" element={<AboutusProfile />} />

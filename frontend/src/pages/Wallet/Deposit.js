@@ -2,28 +2,29 @@ import React from 'react'
 import DepositHeader from '../../components/DepositHeader';
 import { AiOutlineFileText } from "react-icons/ai";
 import { BsDiamondFill } from "react-icons/bs";
+import bgImage from '../../Assets/wcard.png';
+import balanceIcon from "../../Assets/wbal.png"; // Icon before "Balance"
+
 
 
 const Deposit = () => {
   return (
-    <div className='bg-[#333332] min-h-screen flex flex-col items-center justify-center"'>
-      <DepositHeader/>
-   <div className="w-[410px] min-h-screen mt-8 bg-[#242424] p-3  text-[#8f5206] font-sans">
-    {/* Balance Card */}
-    <div className="bg-gradient-to-r from-[#fae59f] to-[#c4933f] p-4 rounded-xl mb-4">
-      <div className="flex items-center justify-between">
-        <span className="text-sm">Balance</span>
-        <span className="material-symbols-outlined hover:rotate-180 transition-transform cursor-pointer">
-          sync
-        </span>
+    <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center mt-4">
+    <DepositHeader />
+    <div className="w-[410px] min-h-screen mt-8 bg-[#242424] p-3 text-[#8f5206] font-sans">
+      {/* Balance Card */}
+      <div
+        style={{ backgroundImage: `url(${bgImage})` }}
+        className="bg-cover bg-center p-4 rounded-xl mb-4 h-[145px] flex flex-col justify-between relative"
+      >
+        <div className="flex items-center space-x-2">
+          <img src={balanceIcon} alt="Balance Icon" className="w-4 h-4" />
+          <span className="text-sm">Balance</span>
+        </div>
+        <div className="text-3xl font-bold absolute top-[30%]">₹115.41</div>
       </div>
-      <div className="text-3xl font-bold mt-1">₹115.49</div>
-      <div className="flex gap-2 mt-4">
-        <span className="material-symbols-outlined mt-2 ">credit_card</span>
-        <div className="flex-1 mt-2 text-right">•••• ••••</div>
-      </div>
-    </div>
-
+    
+    
     {/* ARPay Section */}
     <div className="bg-[#333332] p-3 rounded-xl mb-4">
       <div className="flex items-center gap-2">
