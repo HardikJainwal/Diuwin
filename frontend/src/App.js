@@ -61,6 +61,7 @@ import InvitePage from "./pages/Promotion/InvitePage";
 // import WithdrawHistory from "./pages/Wallet/WithdrawHistory";
 import Settings from "./pages/Settings";
 import DepositHistory from "./pages/Wallet/depositHistory";
+import WithdrawHistory from "./pages/Wallet/withdrawHistory";
 
 function App() {
   return (
@@ -113,7 +114,7 @@ function App() {
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/withdraw" element={<Withdraw />} />
           {/* <Route path="/depositHistory" element={<DepositHistory/>} /> */}
-          {/* <Route path="/withdrawHistory" element={<WithdrawHistory />} /> */}
+          <Route path="/withdraw-history" element= {<WithdrawHistory/>} />
           <Route path="/deposit-history" element={<DepositHistory />} />
 
           {/* Profile Pages */}

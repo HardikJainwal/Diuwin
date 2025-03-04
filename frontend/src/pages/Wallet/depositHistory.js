@@ -106,7 +106,7 @@ function DepositHistory() {
                   <MdContentCopy className="text-lg cursor-pointer hover:text-zinc-200 transition-colors" />
                 </div>
               </div>
-              <button className="w-full bg-amber-500 hover:bg-amber-600 py-3 rounded-xl mt-4 transition-colors">
+              <button className="w-full bg-[#d9ac4f] text-white py-3 rounded-xl mt-4 transition-colors">
                 Submit Receipt
               </button>
             </div>

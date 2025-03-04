@@ -54,7 +54,7 @@ function ActivityPage() {
   };
 
   return (
-    <div className="bg-[#242424] min-h-screen w-[412px] flex flex-col items-center justify-center">
+    <div className="bg-[#242424] min-h-screen w-[445px] flex flex-col items-center justify-center">
       <ActivityHeader />
       <div className="text-left mb-0 w-full max-w-md px-4 mt-16">
         <h1 className="text-xl text-white mb-1">Activity</h1>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DepositIcon from "./../Assets/icondeposit.png";
 import DepositHistory from "./../Assets/icondeposithistory.png";
@@ -17,33 +17,31 @@ import Footer from "../components/Footer";
 import WalletHeader from "../components/WalletHeader";
 
 function Wallet() {
+  const [countdown, setCountdown] = useState(null);
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [verificationCode, setverificationCode] = useState("");
+  const [verificationCode, setVerificationCode] = useState("");
   const [privacyAgreement, setPrivacyAgreement] = useState(false);
   const [rememberPassword, setRememberPassword] = useState(false);
 
-  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value);
-  const handleEmailChange = (event) => setEmail(event.target.value);
-  const handlePasswordChange = (event) => setPassword(event.target.value);
-  const handleConfirmPasswordChange = (event) =>
-    setConfirmPassword(event.target.value);
-  const handleverificationCodeChange = (event) =>
-    setverificationCode(event.target.value);
-  const handlePrivacyAgreementChange = (event) =>
-    setPrivacyAgreement(event.target.checked);
-  const handleRememberPasswordChange = (event) =>
-    setRememberPassword(event.target.checked);
-
-  const handleSendVerificationCode = () => {
-    // Logic to send verification code
-    console.log("Verification code sent!");
+  const handleTransferClick = () => {
+    setCountdown(5);
   };
 
-  const progressValue = 75; // Example percentage value
+  useEffect(() => {
+    if (countdown === null) return;
+    if (countdown > 0) {
+      const timer = setTimeout(() => {
+        setCountdown(countdown - 1);
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else {
+      setCountdown(null);
+    }
+  }, [countdown]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -56,12 +54,12 @@ function Wallet() {
       : { email, password };
     console.log("Login data:", loginData);
     console.log("Remember password:", rememberPassword);
-    console.log("verification code:", verificationCode);
+    console.log("Verification code:", verificationCode);
     console.log("Privacy agreement accepted:", privacyAgreement);
   };
 
   return (
-    <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center pb-20">
       <WalletHeader />
       <div className="text-center mb-0 w-full max-w-md px-8  flex flex-col items-center">
         <h1 className="text-xl font-bold  mb-6">Wallet</h1>
@@ -71,7 +69,7 @@ function Wallet() {
         <p className="text-white text-sm sm:text-base">Total Balance</p>
       </div>
 
-      <div className="bg-[#242424] p-4 shadow-md w-full max-w-md h-full mt-4 flex flex-col justify-center">
+      <div className="bg-[#242424] p-4 shadow-md w-full max-w-md flex-1 mt-4 flex flex-col justify-center">
         <div className="bg-[#333332] p-2 rounded-lg shadow-md">
           <div className="flex justify-center space-x-20 p-4">
             {/* Main Wallet - Yellow */}
@@ -122,39 +120,66 @@ function Wallet() {
           </div>
 
           {/* Transfer Button */}
-          <button className="w-full py-2 font-sm font-semibold bg-gradient-to-r from-[#fae59f] to-[#c4933f] p-4 rounded-full text-white  font-semibold">
-            Main wallet transfer
+          <button
+            onClick={handleTransferClick}
+            disabled={countdown !== null}
+            className={`w-full py-2 font-sm font-semibold bg-gradient-to-r from-[#fae59f] to-[#c4933f] p-4 rounded-full text-white 
+             ${countdown !== null ? "opacity-50 cursor-not-allowed" : ""}`}
+          >
+            {countdown !== null
+              ? `Recalling ${countdown}s`
+              : "Main wallet transfer"}
           </button>
 
           <div className="grid grid-cols-4 gap-4 mt-4 text-center">
-  <Link to="/deposit" className="flex flex-col items-center">
-    <div>
-      <img src={DepositIcon} alt="File Icon" className="w-[70px] h-[70px]" />
-    </div>
-    <span className="text-[#a8a5a1] text-sm mt-0">Deposit</span>
-  </Link>
+            <Link to="/deposit" className="flex flex-col items-center">
+              <div>
+                <img
+                  src={DepositIcon}
+                  alt="File Icon"
+                  className="w-[70px] h-[70px]"
+                />
+              </div>
+              <span className="text-[#a8a5a1] text-sm mt-0">Deposit</span>
+            </Link>
 
-  <Link to="/withdraw" className="flex flex-col items-center">
-    <div>
-      <img src={Withdraw} alt="File Icon" className="w-[70px] h-[70px]" />
-    </div>
-    <span className="text-[#a8a5a1] text-sm mt-0">Withdraw</span>
-  </Link>
+            <Link to="/withdraw" className="flex flex-col items-center">
+              <div>
+                <img
+                  src={Withdraw}
+                  alt="File Icon"
+                  className="w-[70px] h-[70px]"
+                />
+              </div>
+              <span className="text-[#a8a5a1] text-sm mt-0">Withdraw</span>
+            </Link>
 
-  <Link to="/deposithistory" className="flex flex-col items-center">
-    <div>
-      <img src={DepositHistory} alt="File Icon" className="w-[70px] h-[70px]" />
-    </div>
-    <span className="text-[#a8a5a1] text-sm mt-0">Deposit history</span>
-  </Link>
+            <Link to="/deposit-history" className="flex flex-col items-center">
+              <div>
+                <img
+                  src={DepositHistory}
+                  alt="File Icon"
+                  className="w-[70px] h-[70px]"
+                />
+              </div>
+              <span className="text-[#a8a5a1] text-sm mt-0">
+                Deposit history
+              </span>
+            </Link>
 
-  <Link to="/withdrawhistory" className="flex flex-col items-center">
-    <div>
-      <img src={WithdrawHistory} alt="File Icon" className="w-[70px] h-[70px]" />
-    </div>
-    <span className="text-[#a8a5a1] text-sm mt-0">Withdrawal history</span>
-  </Link>
-</div>
+            <Link to="/withdraw-history" className="flex flex-col items-center">
+              <div>
+                <img
+                  src={WithdrawHistory}
+                  alt="File Icon"
+                  className="w-[70px] h-[70px]"
+                />
+              </div>
+              <span className="text-[#a8a5a1] text-sm mt-0">
+                Withdrawal history
+              </span>
+            </Link>
+          </div>
         </div>
         <div className="grid grid-cols-3 text-[#a8a5a1] text-sm mt-4 grid-rows-2 gap-3">
           <div className="bg-gradient-to-r from-[#fae59f] to-[#c4933f] text-[#8f5206] p-6 h-[85px] rounded-lg shadow-md flex flex-col justify-center items-center">
