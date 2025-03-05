@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdExpandMore } from "react-icons/md";
-import { AiOutlineInfoCircle, AiOutlineClockCircle } from "react-icons/ai";
+import { AiOutlineClockCircle, AiOutlineInfoCircle } from "react-icons/ai";
 import { BsCurrencyRupee } from "react-icons/bs";
 import TransactionHistoryHeader from "../../components/TransactionHistoryHeader";
 
@@ -31,6 +31,7 @@ function TransactionProfile() {
     <div className="bg-[#242424] w-[412px] min-h-screen flex flex-col">
       <TransactionHistoryHeader />
       <div className="bg-[#242424] min-h-screen flex flex-col items-center justify-start mt-12">
+        
         {/* Filter Options */}
         <div className="flex w-full p-3 gap-3 mb-4 text-[#f5f3f0]">
           <details className="relative w-1/2">
@@ -54,48 +55,76 @@ function TransactionProfile() {
           </details>
         </div>
 
-        <div className=" bg-[#333332] w-[390px] rounded-md p-4 shadow-lg">
-        {/* Header Section */}
-        <div className="bg-gray-700 rounded-md px-4 py-3 mb-4 flex items-center justify-between">
-          <h2 className="text-white font-semibold text-lg">Agent Commission</h2>
-          <AiOutlineInfoCircle className="text-white text-xl" />
+        {/* Win Transaction Card */}
+        <div className="bg-[#333332] w-[390px] rounded-md p-4 shadow-lg border border-gray-700 mb-4">
+          <div className="bg-gray-700 rounded-md px-4 py-2 mb-3 flex items-center justify-between">
+            <h2 className="text-white font-semibold text-sm">Win</h2>
+          </div>
+
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between text-gray-400 border-b border-gray-600 pb-1">
+              <span className="flex items-center space-x-2">
+                <AiOutlineInfoCircle className="text-lg" />
+                <span>Detail</span>
+              </span>
+              <span className="text-gray-300">Win</span>
+            </div>
+
+            <div className="flex justify-between text-gray-400 border-b border-gray-600 pb-1">
+              <span className="flex items-center space-x-2">
+                <AiOutlineClockCircle className="text-lg" />
+                <span>Time</span>
+              </span>
+              <span className="text-gray-300">2025-03-05 10:38:27</span>
+            </div>
+
+            <div className="flex justify-between text-gray-400">
+              <span className="flex items-center space-x-2">
+                <BsCurrencyRupee className="text-lg text-green-500" />
+                <span>Balance</span>
+              </span>
+              <span className="text-green-500 font-semibold">₹19.60</span>
+            </div>
+          </div>
+
+          <div className="bg-gray-800 rounded-md p-4 mt-3 min-h-[50px]"></div>
         </div>
 
-        {/* Details Section */}
-        <div className="space-y-4">
-          <div className="flex justify-between items-center text-gray-400">
-            <div className="flex items-center space-x-2">
-              <AiOutlineInfoCircle className="text-lg" />
-              <span>Detail</span>
+        {/* Bet Transaction Card */}
+        <div className="bg-[#333332] w-[390px] rounded-md p-4 shadow-lg border border-gray-700">
+          <div className="bg-gray-700 rounded-md px-4 py-2 mb-3 flex items-center justify-between">
+            <h2 className="text-white font-semibold text-sm">Bet</h2>
+          </div>
+
+          <div className="space-y-2 text-sm">
+            <div className="flex justify-between text-gray-400 border-b border-gray-600 pb-1">
+              <span className="flex items-center space-x-2">
+                <AiOutlineInfoCircle className="text-lg" />
+                <span>Detail</span>
+              </span>
+              <span className="text-gray-300">Bet</span>
             </div>
-            <span className="text-gray-300">Agent commission</span>
-          </div>
 
-          <div className="flex justify-between items-center text-gray-400">
-            <div className="flex items-center space-x-2">
-              <AiOutlineClockCircle className="text-lg" />
-              <span>Time</span>
+            <div className="flex justify-between text-gray-400 border-b border-gray-600 pb-1">
+              <span className="flex items-center space-x-2">
+                <AiOutlineClockCircle className="text-lg" />
+                <span>Time</span>
+              </span>
+              <span className="text-gray-300">2025-03-05 11:00:15</span>
             </div>
-            <span className="text-gray-300">2025-02-26 02:16:08</span>
-          </div>
 
-          <div className="flex justify-between items-center text-gray-400">
-            <div className="flex items-center space-x-2">
-              <BsCurrencyRupee className="text-lg text-green-500" />
-              <span>Balance</span>
+            <div className="flex justify-between text-gray-400">
+              <span className="flex items-center space-x-2">
+                <BsCurrencyRupee className="text-lg text-red-500" />
+                <span>Balance</span>
+              </span>
+              <span className="text-red-500 font-semibold">₹-5.00</span>
             </div>
-            <span className="text-green-500">₹0.03</span>
           </div>
 
-          {/* Clickable Section */}
-          <div className="bg-gray-800 rounded-md p-4 min-h-[60px] transition-all duration-300 hover:bg-gray-700 cursor-pointer"></div>
-
-          {/* Footer */}
-          <div className="text-center text-gray-300 mt-2">
-            <span className="text-sm">No more</span>
-          </div>
+          <div className="bg-gray-800 rounded-md p-4 mt-3 min-h-[50px]"></div>
         </div>
-      </div>
+
       </div>
     </div>
   );

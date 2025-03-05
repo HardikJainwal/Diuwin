@@ -7,7 +7,7 @@ function GameStatistics() {
 
   // Data mapping for each button
   const data = {
-    Today: { amount: "₹0.00", description: "Total bet for today" },
+    "Today": { amount: "₹19.00", description: "Total bet for today" },
     Yesterday: { amount: "₹0.00", description: "Total bet for yesterday" },
     "This week": { amount: "₹19.00", description: "Total bet this week" },
     "This month": { amount: "₹24.00", description: "Total bet this month" },

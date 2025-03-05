@@ -256,7 +256,7 @@ const Withdraw = () => {
           <div className="flex items-center justify-between">
             <span className="text-sm">Balance</span>
             <span className="material-symbols-outlined hover:rotate-180 transition-transform cursor-pointer">
-              sync
+              
             </span>
           </div>
           <div className="text-3xl font-bold mt-1">₹115.49</div>

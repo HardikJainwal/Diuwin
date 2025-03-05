@@ -18,6 +18,7 @@ import WalletHeader from "../components/WalletHeader";
 
 function Wallet() {
   const [countdown, setCountdown] = useState(null);
+  const [isGreyedOut, setIsGreyedOut] = useState(false);
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
@@ -29,17 +30,18 @@ function Wallet() {
 
   const handleTransferClick = () => {
     setCountdown(5);
+    setIsGreyedOut(true);
   };
 
   useEffect(() => {
-    if (countdown === null) return;
-    if (countdown > 0) {
+    if (countdown !== null && countdown > 0) {
       const timer = setTimeout(() => {
         setCountdown(countdown - 1);
       }, 1000);
       return () => clearTimeout(timer);
-    } else {
+    } else if (countdown === 0) {
       setCountdown(null);
+      setIsGreyedOut(false); // Revert button color
     }
   }, [countdown]);
 
@@ -123,12 +125,11 @@ function Wallet() {
           <button
             onClick={handleTransferClick}
             disabled={countdown !== null}
-            className={`w-full py-2 font-sm font-semibold bg-gradient-to-r from-[#fae59f] to-[#c4933f] p-4 rounded-full text-white 
-             ${countdown !== null ? "opacity-50 cursor-not-allowed" : ""}`}
+            className={`w-full py-2 font-sm font-semibold p-4 rounded-full text-white transition-all duration-300 
+              ${isGreyedOut ? "bg-[#6f7381]" : "bg-gradient-to-r from-[#fae59f] to-[#c4933f]"} 
+              ${countdown !== null ? "opacity-50 cursor-not-allowed" : ""}`}
           >
-            {countdown !== null
-              ? `Recalling ${countdown}s`
-              : "Main wallet transfer"}
+            {countdown !== null ? `Recalling ${countdown}s` : "Main wallet transfer"}
           </button>
 
           <div className="grid grid-cols-4 gap-4 mt-4 text-center">
