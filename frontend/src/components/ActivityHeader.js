@@ -2,7 +2,7 @@ import React from "react";
 
 const ActivityHeader = () => {
   return (
-    <header className="bg-custom-light-gray fixed top-0 w-[445px] flex items-center justify-between  ">
+    <header className="bg-custom-light-gray fixed top-0 w-[380px] flex items-center justify-between mb-8 ">
       <div className="flex-1"></div>
 
       {/* Center with logo */}

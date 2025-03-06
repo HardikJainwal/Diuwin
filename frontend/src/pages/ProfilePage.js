@@ -42,14 +42,14 @@ import safe from "../Assets/safe.png";
 function ProfilePage() {
   return (
     <div className="min-h-screen flex flex-col items-center pb-10">
-    <div
-  className="w-full flex flex-col items-center rounded-b-[30px] pb-20 h-[250px]" // Increased height
-  style={{
-    background: "linear-gradient(90deg, #FAE59F 0%, #C4933F 100%)", // Keep existing gradient
-    // Or try a different gradient:
-    // background: "linear-gradient(135deg, #FFC371 0%, #FF5F6D 100%)",
-  }}
->
+      <div
+        className="w-full flex flex-col items-center rounded-b-[30px] pb-20 h-[250px]" // Increased height
+        style={{
+          background: "linear-gradient(90deg, #FAE59F 0%, #C4933F 100%)", // Keep existing gradient
+          // Or try a different gradient:
+          // background: "linear-gradient(135deg, #FFC371 0%, #FF5F6D 100%)",
+        }}
+      >
         {/* Profile Box */}
         <div className="text-left mb-0 w-full max-w-md px-8 mt-10">
           <div className="flex items-center space-x-3">
@@ -76,8 +76,9 @@ function ProfilePage() {
         </div>
       </div>
       {/* Balance Box - Now below the Yellow Background */}
-      <div className="bg-[#242424] p-4 shadow-md max-w-md h-full flex flex-col justify-center -mt-10 rounded-lg w-[445px]"> {/* Increased negative margin */}
-
+      <div className="bg-[#242424] p-4 shadow-md max-w-md h-full flex flex-col justify-center -mt-10 rounded-lg w-[400px]">
+        {" "}
+        {/* Increased negative margin */}
         <div className="bg-[#333332] p-4 rounded-lg shadow-md -mt-14">
           <div className="flex justify-between items-center">
             <div>
@@ -89,28 +90,39 @@ function ProfilePage() {
             </div>
           </div>
           <div className="grid grid-cols-4 gap-4 mt-8">
-   <Link to="/ar-wallet" className="flex flex-col items-center cursor-pointer">
-     <img src={wallet} alt="AR Wallet" className="w-8 h-8" />
-     <p className="text-[#a8a5a1] text-sm">AR Wallet</p>
-   </Link>
+            <Link
+              to="/ar-wallet"
+              className="flex flex-col items-center cursor-pointer"
+            >
+              <img src={wallet} alt="AR Wallet" className="w-8 h-8" />
+              <p className="text-[#a8a5a1] text-sm">AR Wallet</p>
+            </Link>
 
-   <Link to="/deposit" className="flex flex-col items-center cursor-pointer">
-     <img src={rechargeIcon} alt="Deposit" className="w-8 h-8" />
-     <p className="text-[#a8a5a1] text-sm">Deposit</p>
-   </Link>
+            <Link
+              to="/deposit"
+              className="flex flex-col items-center cursor-pointer"
+            >
+              <img src={rechargeIcon} alt="Deposit" className="w-8 h-8" />
+              <p className="text-[#a8a5a1] text-sm">Deposit</p>
+            </Link>
 
-   <Link to="/withdraw" className="flex flex-col items-center cursor-pointer">
-     <img src={widthdraw} alt="Withdraw" className="w-8 h-8" />
-     <p className="text-[#a8a5a1] text-sm">Withdraw</p>
-   </Link>
+            <Link
+              to="/withdraw"
+              className="flex flex-col items-center cursor-pointer"
+            >
+              <img src={widthdraw} alt="Withdraw" className="w-8 h-8" />
+              <p className="text-[#a8a5a1] text-sm">Withdraw</p>
+            </Link>
 
-   <Link to="/vipprofile" className="flex flex-col items-center cursor-pointer">
-     <img src={VIP} alt="VIP" className="w-8 h-8" />
-     <p className="text-[#a8a5a1] text-sm">VIP</p>
-   </Link>
-</div>
-</div>
-
+            <Link
+              to="/vipprofile"
+              className="flex flex-col items-center cursor-pointer"
+            >
+              <img src={VIP} alt="VIP" className="w-8 h-8" />
+              <p className="text-[#a8a5a1] text-sm">VIP</p>
+            </Link>
+          </div>
+        </div>
         <div className="bg-[#333332] p-4 rounded-lg shadow-md mt-4">
           <div className="flex justify-between items-center mb-2">
             <div className="flex">
@@ -131,7 +143,6 @@ function ProfilePage() {
             <div></div>
           </div>
         </div>
-
         {/* 2x2 grid layout */}
         <div className="grid grid-cols-2 gap-4 mt-4">
           <Link
@@ -186,70 +197,80 @@ function ProfilePage() {
             </div>
           </Link>
         </div>
-
         <div className="bg-[#333332] p-4 rounded-lg shadow-md mt-4">
-      <div className="space-y-4">
-        {/* Notification Button */}
-        <div>
-          <Link
-            to="/notificationProfile"
-            className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
-          >
-            <div className="flex items-center gap-2">
-              <img src={NotifyIcon} alt="Notification Icon" className="w-8 h-8" />
-              Notification
+          <div className="space-y-4">
+            {/* Notification Button */}
+            <div>
+              <Link
+                to="/notificationProfile"
+                className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <img
+                    src={NotifyIcon}
+                    alt="Notification Icon"
+                    className="w-8 h-8"
+                  />
+                  Notification
+                </div>
+                <AiOutlineRight className="text-gray-500 text-lg" />
+              </Link>
+              <hr className="my-4 border-gray-300" />
             </div>
-            <AiOutlineRight className="text-gray-500 text-lg" />
-          </Link>
-          <hr className="my-4 border-gray-300" />
-        </div>
 
-        {/* Gifts Button */}
-        <div>
-          <Link
-            to="/giftsProfile"
-            className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
-          >
-            <div className="flex items-center gap-2">
-              <img src={gift} alt="Gift Icon" className="w-8 h-8" />
-              Gifts
+            {/* Gifts Button */}
+            <div>
+              <Link
+                to="/giftsProfile"
+                className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <img src={gift} alt="Gift Icon" className="w-8 h-8" />
+                  Gifts
+                </div>
+                <AiOutlineRight className="text-gray-500 text-lg" />
+              </Link>
+              <hr className="my-4 border-gray-300" />
             </div>
-            <AiOutlineRight className="text-gray-500 text-lg" />
-          </Link>
-          <hr className="my-4 border-gray-300" />
-        </div>
 
-        {/* Game Statistics Button */}
-        <div>
-          <Link
-            to="/gamestatistics"
-            className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
-          >
-            <div className="flex items-center gap-2">
-              <img src={gameStatistics} alt="Game Statistics Icon" className="w-8 h-8" />
-              Game Statistics
+            {/* Game Statistics Button */}
+            <div>
+              <Link
+                to="/gamestatistics"
+                className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <img
+                    src={gameStatistics}
+                    alt="Game Statistics Icon"
+                    className="w-8 h-8"
+                  />
+                  Game Statistics
+                </div>
+                <AiOutlineRight className="text-gray-500 text-lg" />
+              </Link>
+              <hr className="my-4 border-gray-300" />
             </div>
-            <AiOutlineRight className="text-gray-500 text-lg" />
-          </Link>
-          <hr className="my-4 border-gray-300" />
-        </div>
 
-        {/* Language Button */}
-        <div>
-          <Link
-            to="/language"
-            className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
-          >
-            <div className="flex items-center gap-2">
-              <img src={languageIcon} alt="Language Icon" className="w-8 h-8" />
-              Language
+            {/* Language Button */}
+            <div>
+              <Link
+                to="/language"
+                className="w-full text-base font-medium text-[#a8a5a1] flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <img
+                    src={languageIcon}
+                    alt="Language Icon"
+                    className="w-8 h-8"
+                  />
+                  Language
+                </div>
+                <AiOutlineRight className="text-gray-500 text-lg" />
+              </Link>
             </div>
-            <AiOutlineRight className="text-gray-500 text-lg" />
-          </Link>
+          </div>
         </div>
-      </div>
-    </div>
-
         <div className="bg-[#333332] text-[#a8a5a1] p-4 rounded-lg shadow-md mt-4">
           {/* Title aligned to the left */}
           <p className="text-sm font-semibold mb-4 text-[#f5f3f0] text-left">
@@ -258,43 +279,73 @@ function ProfilePage() {
 
           {/* Grid layout */}
           <div className="grid grid-cols-3 gap-4">
-      {/* Settings */}
-      <Link to="/settings" className="symbol flex flex-col items-center cursor-pointer">
-        <img src={SettingCenter} alt="Settings" className="w-8 h-8" />
-        <p className="mt-2 text-sm">Settings</p>
-      </Link>
+            {/* Settings */}
+            <Link
+              to="/settings"
+              className="symbol flex flex-col items-center cursor-pointer"
+            >
+              <img src={SettingCenter} alt="Settings" className="w-8 h-8" />
+              <p className="mt-2 text-sm">Settings</p>
+            </Link>
 
-      {/* Feedback */}
-      <Link to="/feedbackProfile" className="symbol flex flex-col items-center cursor-pointer">
-        <img src={service_feedback} alt="Feedback" className="w-8 h-8" />
-        <p className="mt-2 text-sm">Feedback</p>
-      </Link>
+            {/* Feedback */}
+            <Link
+              to="/feedbackProfile"
+              className="symbol flex flex-col items-center cursor-pointer"
+            >
+              <img src={service_feedback} alt="Feedback" className="w-8 h-8" />
+              <p className="mt-2 text-sm">Feedback</p>
+            </Link>
 
-      {/* Notification */}
-      <Link to="/notificationsService" className="symbol flex flex-col items-center cursor-pointer">
-        <img src={service_notification} alt="Notification" className="w-8 h-8" />
-        <p className="mt-2 text-sm">Notification</p>
-      </Link>
+            {/* Notification */}
+            <Link
+              to="/notificationsService"
+              className="symbol flex flex-col items-center cursor-pointer"
+            >
+              <img
+                src={service_notification}
+                alt="Notification"
+                className="w-8 h-8"
+              />
+              <p className="mt-2 text-sm">Notification</p>
+            </Link>
 
-      {/* Customer Service */}
-      <Link to="/customer-service" className="symbol flex flex-col items-center cursor-pointer">
-        <img src={CustomerService} alt="Customer Service" className="w-8 h-8" />
-        <p className="mt-2 text-sm text-center">Customer Service</p>
-      </Link>
+            {/* Customer Service */}
+            <Link
+              to="/customer-service"
+              className="symbol flex flex-col items-center cursor-pointer"
+            >
+              <img
+                src={CustomerService}
+                alt="Customer Service"
+                className="w-8 h-8"
+              />
+              <p className="mt-2 text-sm text-center">Customer Service</p>
+            </Link>
 
-      {/* Beginner's Guide */}
-      <Link to="/beginnerguide" className="symbol flex flex-col items-center cursor-pointer">
-        <img src={service_guide} alt="Beginner's Guide" className="w-8 h-8" />
-        <p className="mt-2 text-sm text-center">Beginner's Guide</p>
-      </Link>
+            {/* Beginner's Guide */}
+            <Link
+              to="/beginnerguide"
+              className="symbol flex flex-col items-center cursor-pointer"
+            >
+              <img
+                src={service_guide}
+                alt="Beginner's Guide"
+                className="w-8 h-8"
+              />
+              <p className="mt-2 text-sm text-center">Beginner's Guide</p>
+            </Link>
 
-      {/* About Us */}
-      <Link to="/aboutusprofile" className="symbol flex flex-col items-center cursor-pointer">
-        <img src={about} alt="About Us" className="w-8 h-8" />
-        <p className="mt-2 text-sm">About us</p>
-      </Link>
-    </div>
-</div>
+            {/* About Us */}
+            <Link
+              to="/aboutusprofile"
+              className="symbol flex flex-col items-center cursor-pointer"
+            >
+              <img src={about} alt="About Us" className="w-8 h-8" />
+              <p className="mt-2 text-sm">About us</p>
+            </Link>
+          </div>
+        </div>
         <form
           // onSubmit={handleSubmit}
           className="space-y-4 md:space-y-6 mt-2 mb-14"

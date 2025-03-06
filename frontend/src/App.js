@@ -127,7 +127,7 @@ function App() {
           <Route path="/feedbackProfile" element={<FeedbackProfile/>} />
           <Route path="/gamehistoryProfile" element={<GameHistoryProfile />} />
           <Route path="/gamestatistics" element={<GameStatistics />} />
-          <Route path="/giftsProfile" element={<GiftsProfile/>} />
+          <Route path="/giftsProfile" element={<Gift/>} />
           <Route path="/notificationProfile" element={<NotificationProfile/>} />
           <Route path="/notificationsService" element={<Notifications/>} />
           <Route path="/safeProfile" element={<SafeProfile />} />

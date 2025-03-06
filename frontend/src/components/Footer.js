@@ -46,7 +46,7 @@ function Footer() {
   };
 
   return (
-    <div className="fixed bottom-0 w-full max-w-[445px] mt-10 space-x-10 bg-[#242424] shadow-lg flex justify-between p-2 mx-auto rounded-t-2xl">
+    <div className="fixed bottom-0 w-full max-w-[400px] mt-10 space-x-10 bg-[#242424] shadow-lg flex justify-between p-2 mx-auto rounded-t-2xl">
       {tabs.map((tab) => (
         <button
           key={tab.id}

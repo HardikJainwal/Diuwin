@@ -10,6 +10,10 @@ import {
 import Footer from "../components/Footer";
 import invitationBonus from "./../Assets/invitationBonus.png";
 import ActivityHeader from "../components/ActivityHeader";
+import signInBanner from '../Assets/signInBanner.png'
+import giftRedeem from '../Assets/giftRedeem.png'
+import BettingRebate from '../Assets/BettingRebate.png'
+import superJackpot from '../Assets/superJackpot.png'
 
 function ActivityPage() {
   const [isPhoneLogin, setIsPhoneLogin] = useState(true);
@@ -82,7 +86,7 @@ function ActivityPage() {
           <div className="text-center">
             <Link to="/rebate">
               <img
-                src="https://diuwin.net/assets/png/BettingRebate-17d35455.png"
+                src={superJackpot}
                 alt="Idea"
                 className="w-12 h-12 mx-auto"
               />
@@ -96,7 +100,7 @@ function ActivityPage() {
           <div className="text-center">
             <Link to="/jackpot">
               <img
-                src="https://diuwin.net/assets/png/superJackpot-ecb648b4.png"
+                src={BettingRebate}
                 alt="Idea"
                 className="w-12 h-12 mx-auto"
               />
@@ -116,7 +120,7 @@ function ActivityPage() {
                 <Link to="/Gift">
                   <div className="w-full h-2/4 mb-2">
                     <img
-                      src="https://diuwin.net/assets/png/signInBanner-33f86d3f.png"
+                      src={signInBanner}
                       alt="description"
                       className="w-full h-80% object-cover rounded-t-lg"
                     />
@@ -136,7 +140,7 @@ function ActivityPage() {
                 <Link to="/AttendanceBonus">
                   <div className="w-full h-2/4 mb-2">
                     <img
-                      src="https://diuwin.net/assets/png/giftRedeem-45917887.png"
+                      src={giftRedeem}
                       alt="description"
                       className="w-full h-80% object-cover rounded-t-lg"
                     />

@@ -61,7 +61,7 @@ function Wallet() {
   };
 
   return (
-    <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center pb-20">
+    <div className="bg-[#333332] min-h-screen flex flex-col items-center justify-center pb-20" style={{ width: "400px", margin: "0 auto" }}>
       <WalletHeader />
       <div className="text-center mb-0 w-full max-w-md px-8  flex flex-col items-center">
         <h1 className="text-xl font-bold  mb-6">Wallet</h1>
