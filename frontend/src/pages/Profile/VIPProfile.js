@@ -71,7 +71,7 @@ const CardCarousel = ({ selectedIndex, setSelectedIndex, userExp }) => {
         onDragEnd={handleDragEnd}
         whileTap={{ cursor: "grabbing" }}
       >
-     <div 
+    <div 
   className="relative w-full max-w-md h-55 rounded-lg overflow-hidden p-2 text-white"
   style={{ 
     position: "relative",
@@ -81,93 +81,84 @@ const CardCarousel = ({ selectedIndex, setSelectedIndex, userExp }) => {
     backgroundBlendMode: "overlay"
   }}
 >
-  {/* Blue Overlay with Reduced Opacity */}
+  {/* Blue Overlay with High Opacity */}
   <div 
     className="absolute inset-0" 
     style={{ 
-      background: "linear-gradient(117.29deg, rgba(166, 183, 208, 0.7) 21.85%, rgba(136, 158, 190, 0.7) 67.02%)", 
-      opacity: 0.9 
+      background: "linear-gradient(117.29deg, rgba(166, 183, 208, 0.9) 21.85%, rgba(136, 158, 190, 0.9) 67.02%)"
     }} 
   ></div>
 
-
-
-          {/* VIP Title & Icon */}
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
-              <div className="w-10 h-10 flex items-center justify-center rounded">
-                <div className="w-6 h-6">
-                  <img src={crown} alt="VIP Icon" />
-                </div>
-              </div>
-              <span className="text-white text-2xl font-bold font-['Roboto',sans-serif]">
-                {dummyCards[selectedIndex].label}
-              </span>
-              <div className="flex items-center bg-opacity-50 px-4 py-2 rounded-full">
-                <span className="text-white text-xs font-['Roboto',sans-serif]">Not open yet</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Info text */}
-          <div className="mb-4">
-            <p className="text-white font-['Roboto',sans-serif] text-sm ml-2">
-              Upgrading {dummyCards[selectedIndex].label} requires
-            </p>
-            <span className="flex items-center font-['Roboto',sans-serif] text-white text-sm ml-2 leading-none">
-              <span className="font-['Roboto',sans-serif]">
-                {dummyCards[selectedIndex].expRequired} EXP
-              </span>
-            </span>
-          </div>
-
-          {/* Bet button */}
-          <div className="mb-4">
-            <button className="border border-white text-xs font-['Roboto',sans-serif] text-white px-1 rounded-sm ml-2">
-              Bet ₹1=1EXP
-            </button>
-          </div>
-
-          {/* Progress bar section - ADDED */}
-          <div className="mb-8 mx-2">
-            <div className="h-2 bg-[#748AAA] bg-opacity-50 rounded-full relative">
-              {/* Progress indicator */}
-              <div 
-                className="absolute left-0 top-0 h-full bg-yellow-200 rounded-l-full"
-                style={{ width: `${calculateProgress()}%` }}
-              >
-                {/* Small circle at the end of progress */}
-                <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
-              </div>
-              {/* Progress text */}
-              <div className="absolute left-1 top-3 px-1  mt-1 rounded-full bg-gradient-to-r from-[#899fbf] to-[#6f85a5] flex items-center text-white text-xs font-['Roboto',sans-serif]">
-                {userExp}/{dummyCards[selectedIndex].expRequired}
-              </div>
-            </div>
-          </div>
-
-          
-
-          {/* VIP watermark in bottom right */}
-          <div className="absolute bottom-14 right-8 text-white text-sm font-['Roboto',sans-serif] font-medium">
-            {dummyCards[selectedIndex].label}
-    
-          </div>
-
-          <div className="absolute bottom-4 right-4 text-white text-xs font-['Roboto',sans-serif] font-medium">
-  {dummyCards[selectedIndex].expRequired} Experience can be leveled up
-</div>
-          {/* Right Side Image */}
-          <div className="absolute top-4 right-4">
-            <div className="w-8 h-8 md:w-14 md:h-12 rounded-full flex items-center justify-center">
-              <img 
-                src={dummyCards[selectedIndex].icon} 
-                alt="VIP Badge" 
-                className="w-full h-full object-cover"
-              />
-            </div>
+  {/* Content (Ensured All Text is White) */}
+  <div className="relative z-10">
+    <div className="flex justify-between items-center">
+      <div className="flex items-center">
+        <div className="w-10 h-10 flex items-center justify-center rounded">
+          <div className="w-6 h-6">
+            <img src={crown} alt="VIP Icon" />
           </div>
         </div>
+        <span className="text-white text-2xl font-bold font-['Roboto',sans-serif]">
+          {dummyCards[selectedIndex].label}
+        </span>
+        <div className="flex items-center bg-opacity-50 px-4 py-2 rounded-full">
+          <span className="text-white text-xs font-['Roboto',sans-serif]">Not open yet</span>
+        </div>
+      </div>
+    </div>
+
+    <div className="mb-4">
+      <p className="text-white text-sm ml-2">
+        Upgrading {dummyCards[selectedIndex].label} requires
+      </p>
+      <span className="flex items-center text-white text-sm ml-2 leading-none">
+        <span>{dummyCards[selectedIndex].expRequired} EXP</span>
+      </span>
+    </div>
+
+    <div className="mb-4">
+      <button className="border border-white text-xs text-white px-1 rounded-sm ml-2">
+        Bet ₹1=1EXP
+      </button>
+    </div>
+
+    {/* Progress Bar */}
+    <div className="mb-8 mx-2">
+      <div className="h-2 bg-[#748AAA] bg-opacity-50 rounded-full relative">
+        <div 
+          className="absolute left-0 top-0 h-full bg-yellow-200 rounded-l-full"
+          style={{ width: `${calculateProgress()}%` }}
+        >
+          <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
+        </div>
+        <div className="absolute left-1 top-3 px-1 mt-1 rounded-full bg-gradient-to-r from-[#899fbf] to-[#6f85a5] text-white text-xs">
+          {userExp}/{dummyCards[selectedIndex].expRequired}
+        </div>
+      </div>
+    </div>
+
+    {/* White Text VIP Labels */}
+    <div className="absolute bottom-14 right-8 text-white text-sm font-medium">
+      {dummyCards[selectedIndex].label}
+    </div>
+
+    <div className="absolute bottom-4 right-4 text-white text-xs font-medium">
+      {dummyCards[selectedIndex].expRequired} Experience can be leveled up
+    </div>
+
+    {/* Right Side Image */}
+    <div className="absolute top-4 right-4">
+      <div className="w-8 h-8 md:w-14 md:h-12 rounded-full flex items-center justify-center">
+        <img 
+          src={dummyCards[selectedIndex].icon} 
+          alt="VIP Badge" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
       </motion.div>
       
       {/* Card indicators */}
@@ -330,8 +321,11 @@ function VIPProfile() {
             userExp={userExp}
           />
 
+          {/* VIP Benefits Section that changes based on selected card */}
+          <div className="mt-5 rounded-lg text-white">
+            <VIPBenefits selectedCard={dummyCards[selectedIndex]} />
+          </div>
 
-         
           {/* Header Tabs */}
           <div className="bg-[#333332] mt-4 rounded-lg">
             <div className="flex text-center border-b border-gray-700">
