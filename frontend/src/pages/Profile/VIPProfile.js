@@ -5,6 +5,8 @@ import { MdOutlineTimer } from "react-icons/md";
 import { GiLaurelCrown } from "react-icons/gi";
 import { RiVipDiamondFill } from "react-icons/ri";
 import { FiClock } from "react-icons/fi";
+import { FaGem } from "react-icons/fa";
+
 import { motion } from "framer-motion";
 
 // Import images
@@ -15,15 +17,16 @@ import bg3 from '../../Assets/vip/bg3.png';
 import bg4 from '../../Assets/vip/bg4.png';
 
 import vipi from '../../Assets/vip/vipi.png';
-
-import giftreward from '../../Assets/vip/giftreward.png';
+import rebateicon from '../../Assets/vip/rebateicon.png'
+import cd from '../../Assets/vip/cd.png';
+import gifticon from '../../Assets/vip/gifticon.png';
 import wallets from '../../Assets/vip/wallets.png';
 import rebate from '../../Assets/vip/rebate.png';
 import crown from '../../Assets/vip/crown.png';
 
 // Enhanced card data with more information
 const dummyCards = [
-  { id: 1, image: bgcard, label: "VIP 1", icon: vipi, expRequired: 3000, benefits: { levelUpReward: 60, monthlyReward: 100, rebateRatio: 0.1 } },
+  { id: 1, image: bgcard, label: "VIP 1", icon: vipi, expRequired: 3000, benefits: { levelUpReward: 60, monthlyReward: 30, rebateRatio: 0.05 } },
   // { id: 2, image: bg2, label: "VIP 2", icon: vip2i, expRequired: 10000, benefits: { levelUpReward: 200, monthlyReward: 300, rebateRatio: 0.2 } },
   // { id: 3, image: bg3, label: "VIP 3", icon: vip3i, expRequired: 30000, benefits: { levelUpReward: 500, monthlyReward: 700, rebateRatio: 0.3 } },
   { id: 4, image: bg4, label: "VIP 4", icon: vipi, expRequired: 100000, benefits: { levelUpReward: 1000, monthlyReward: 1500, rebateRatio: 0.5 } },
@@ -64,7 +67,7 @@ const CardCarousel = ({ selectedIndex, setSelectedIndex, userExp }) => {
     <div className="relative flex items-center justify-center overflow-hidden my-4 mx-auto">
       <motion.div
         key={selectedIndex}
-        className="p-4 rounded-lg shadow-lg w-full flex justify-center"
+        className="p-1 rounded-lg shadow-lg w-full flex justify-center"
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
         onDrag={handleDrag}
@@ -74,12 +77,11 @@ const CardCarousel = ({ selectedIndex, setSelectedIndex, userExp }) => {
     <div 
   className="relative w-full max-w-md h-55 rounded-lg overflow-hidden p-2 text-white"
   style={{ 
-    position: "relative",
-    background: `url(${dummyCards[selectedIndex].image})`,
+    backgroundImage: `url(${dummyCards[selectedIndex].image})`,
     backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundBlendMode: "overlay"
+    backgroundPosition: "center"
   }}
+  
 >
   {/* Blue Overlay with High Opacity */}
   <div 
@@ -122,29 +124,31 @@ const CardCarousel = ({ selectedIndex, setSelectedIndex, userExp }) => {
       </button>
     </div>
 
-    {/* Progress Bar */}
-    <div className="mb-8 mx-2">
-      <div className="h-2 bg-[#748AAA] bg-opacity-50 rounded-full relative">
-        <div 
-          className="absolute left-0 top-0 h-full bg-yellow-200 rounded-l-full"
-          style={{ width: `${calculateProgress()}%` }}
-        >
-          <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
-        </div>
-        <div className="absolute left-1 top-3 px-1 mt-1 rounded-full bg-gradient-to-r from-[#899fbf] to-[#6f85a5] text-white text-xs">
-          {userExp}/{dummyCards[selectedIndex].expRequired}
-        </div>
-      </div>
-    </div>
+ {/* VIP Label Above Progress Bar */}
+<div className="absolute top-24 right-2 text-white text-sm font-bold">
+  {dummyCards[selectedIndex].label}
+</div>
 
-    {/* White Text VIP Labels */}
-    <div className="absolute bottom-14 right-8 text-white text-sm font-medium">
-      {dummyCards[selectedIndex].label}
+{/* Progress Bar */}
+<div className="mb-8 mx-2 relative">
+  <div className="h-2 bg-[#748AAA] bg-opacity-50 rounded-full relative">
+    <div 
+      className="absolute left-0 top-0 h-full bg-yellow-200 rounded-l-full"
+      style={{ width: `${calculateProgress()}%` }}
+    >
+      <div className="absolute -right-1 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-yellow-400 rounded-full"></div>
     </div>
+    <div className="absolute left-1 top-3 px-1 mt-1 rounded-full bg-gradient-to-r from-[#899fbf] to-[#6f85a5] text-white text-xs">
+      {userExp}/{dummyCards[selectedIndex].expRequired}
+    </div>
+  </div>
 
-    <div className="absolute bottom-4 right-4 text-white text-xs font-medium">
-      {dummyCards[selectedIndex].expRequired} Experience can be leveled up
-    </div>
+  {/* EXP Requirement Below Progress Bar */}
+  <div className="absolute top-4 right-0 text-white text-xs font-medium">
+    {dummyCards[selectedIndex].expRequired} can be leveled up
+  </div>
+</div>
+
 
     {/* Right Side Image */}
     <div className="absolute top-4 right-4">
@@ -178,77 +182,75 @@ const CardCarousel = ({ selectedIndex, setSelectedIndex, userExp }) => {
 // VIP Benefits Component that changes based on selected card
 const VIPBenefits = ({ selectedCard }) => {
   return (
-    <div className="bg-[#333332] p-4 rounded-lg">
-      {/* Header */}
-      <div className="flex items-start gap-2 mb-4">
-        <FaStar className="w-6 h-6 text-yellow-400" />
-        <h2 className="text-lg font-bold flex items-center">
-          <span className="text-yellow-400 mr-1">{selectedCard.label}</span> Benefits level
-        </h2>
+    <div className="bg-[#333332] p-3 rounded-lg font-roboto">
+      {/* Header with diamond icon */}
+      <div className="mb-3 flex items-center">
+        <img src={gifticon} alt="VIP Icon" className="w-6 h-6 mr-2" />
+        <h2 className="text-base font-bold text-white">{selectedCard.label} Benefits Level</h2>
       </div>
 
-      {/* Benefits */}
+      {/* Divider */}
+      <div className="border-t border-gray-700 mb-3"></div>
+
+      {/* Benefits List */}
       <div className="space-y-4">
-        {/* Level up rewards */}
+        {/* Level Up Rewards */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src={giftreward} alt="Level Up Reward" className="w-14 h-14" /> 
+          <div className="flex items-center gap-3">
+            <img src={gifticon} alt="Level Up Reward" className="w-14 h-14" />
             <div>
-              <div className="font-medium">Level up rewards</div>
-              <div className="text-xs text-gray-400">
-                Each account can only receive 1 time
-              </div>
+              <div className="text-white text-sm font-medium">Level Up Rewards</div>
+              <div className="text-xs text-gray-400">Each account can receive once</div>
             </div>
           </div>
-
           {/* Points display */}
-          <div className="flex flex-col gap-1">
-            <div className="border border-yellow-700 rounded px-2 py-1 flex items-center justify-between min-w-[60px] hover:bg-gray-700 transition-colors">
-              <img src={wallets} alt="Coins" className="w-4 h-4" /> 
-              <span className="font-medium">{selectedCard.benefits.levelUpReward}</span>
+          <div className="flex flex-col gap-1 items-end">
+            <div className="border border-[#d9ac4f] bg-opacity-25 rounded min-w-[70px] flex items-center justify-center text-yellow-500 font-medium text-sm">
+              <img src={wallets} alt="Coin Icon" className="w-3 h-3 mr-1" />
+              {selectedCard.benefits.levelUpReward}
+            </div>
+            <div className="border border-[#d9ac4f] bg-opacity-25 rounded min-w-[70px] flex items-center justify-center text-yellow-400 font-medium text-sm">
+              <img src={cd} alt="Coin Icon" className="w-3 h-3 mr-1" />
+              0
             </div>
           </div>
         </div>
 
-        {/* Monthly reward */}
-        <div className="flex items-center justify-between mt-2">
-          <div className="flex items-center gap-2">
-            <img src={giftreward} alt="Monthly Reward" className="w-14 h-14" /> 
+        {/* Monthly Reward */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={gifticon} alt="Monthly Reward" className="w-14 h-14" />
             <div>
-              <div className="font-medium">Monthly reward</div>
-              <div className="text-xs text-gray-400">
-                Receive once per month
-              </div>
+              <div className="text-white text-sm font-medium">Monthly Reward</div>
+              <div className="text-xs text-gray-400">Each account gets 1 per month</div>
             </div>
           </div>
-
           {/* Points display */}
-          <div className="flex flex-col gap-1">
-            <div className="border border-yellow-700 rounded px-2 py-1 flex items-center justify-between min-w-[60px] hover:bg-gray-700 transition-colors">
-              <img src={wallets} alt="Coins" className="w-4 h-4" /> 
-              <span className="font-medium">{selectedCard.benefits.monthlyReward}</span>
+          <div className="flex flex-col gap-1 items-end">
+            <div className="border border-[#d9ac4f] bg-opacity-25 rounded min-w-[70px] flex items-center justify-center text-yellow-500 font-medium text-sm">
+              <img src={wallets} alt="Coin Icon" className="w-3 h-3 mr-1" />
+              {selectedCard.benefits.monthlyReward}
+            </div>
+            <div className="border border-[#d9ac4f] bg-opacity-25 rounded min-w-[70px] flex items-center justify-center text-yellow-400 font-medium text-sm">
+              <img src={cd} alt="Coin Icon" className="w-3 h-3 mr-1" />
+              0
             </div>
           </div>
         </div>
 
-        {/* Rebate Ratio */}
-        <div className="flex items-center justify-between mt-2">
-          <div className="flex items-center gap-2">
-            <img src={rebate} alt="Rebate Ratio" className="w-14 h-14" /> 
+        {/* Rebate Rate */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src={rebate} alt="Rebate Rate" className="w-14 h-14" />
             <div>
-              <div className="font-medium">Rebate Ratio</div>
-              <div className="text-xs text-gray-400">
-                Real-time rebate on all games
-              </div>
+              <div className="text-white text-sm font-medium">Rebate Rate</div>
+              <div className="text-xs text-gray-400">Increase rebate income</div>
             </div>
           </div>
-
           {/* Ratio display */}
-          <div className="flex flex-col gap-1">
-            <div className="border border-yellow-700 rounded px-2 py-1 flex items-center justify-between min-w-[60px] hover:bg-gray-700 transition-colors">
-              <img src={wallets} alt="Percentage" className="w-4 h-4" /> 
-              <span className="font-medium">{selectedCard.benefits.rebateRatio}%</span>
-            </div>
+          <div className="border border-[#d9ac4f] bg-opacity-25 rounded min-w-[70px] flex items-center justify-center text-yellow-500 font-medium text-sm">
+            <img src={rebateicon} alt="Coin Icon" className="w-3 h-3 mr-1" />
+            {selectedCard.benefits.rebateRatio}%
           </div>
         </div>
       </div>
@@ -328,66 +330,67 @@ function VIPProfile() {
 
           {/* Header Tabs */}
           <div className="bg-[#333332] mt-4 rounded-lg">
-            <div className="flex text-center border-b border-gray-700">
-              <div
-                className={`w-1/2 py-3 font-semibold cursor-pointer font-['Roboto',sans-serif] ${
-                  activeTab === "history"
-                    ? "text-yellow-500 border-b-2 border-yellow-500"
-                    : "text-gray-400"
-                }`}
-                onClick={() => setActiveTab("history")}
-              >
-                History
-              </div>
-              <div
-                className={`w-1/2 py-3 font-semibold cursor-pointer font-['Roboto',sans-serif] ${
-                  activeTab === "rules"
-                    ? "text-yellow-500 border-b-2 border-yellow-500"
-                    : "text-gray-400"
-                }`}
-                onClick={() => setActiveTab("rules")}
-              >
-                Rules
-              </div>
-            </div>
+          <div className="flex text-center border-b border-gray-700">
+  <div
+    className={`w-1/2 py-3 font-semibold cursor-pointer font-['Roboto',sans-serif] transition-all duration-300 ${
+      activeTab === "history"
+        ? "text-yellow-500 bg-[#444343] border-b-2 border-yellow-500"
+        : "text-gray-400 hover:bg-[#3a3a3a]"
+    }`}
+    onClick={() => setActiveTab("history")}
+  >
+    History
+  </div>
+  <div
+    className={`w-1/2 py-3 font-semibold cursor-pointer font-['Roboto',sans-serif] transition-all duration-300 ${
+      activeTab === "rules"
+        ? "text-yellow-500 bg-[#444343] border-b-2 border-yellow-500"
+        : "text-gray-400 hover:bg-[#3a3a3a]"
+    }`}
+    onClick={() => setActiveTab("rules")}
+  >
+    Rules
+  </div>
+</div>
 
-            {/* Content Section */}
-            <div className="space-y-4">
-              {activeTab === "history" ? (
-                // History Content
-                [
-                  { date: "2025-02-22 21:57:44", exp: 4 },
-                  { date: "2025-02-21 09:47:42", exp: 5 },
-                ].map((item, index) => (
-                  <div key={index} className="flex flex-col p-4">
-                    <span className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer font-['Roboto',sans-serif]">
-                      Experience Bonus
-                    </span>
-                    <span className="text-sm text-gray-400 font-['Roboto',sans-serif]">Betting EXP</span>
-                    <div className="flex justify-between items-center text-sm text-gray-500 mt-1">
-                      <span className="flex items-center gap-1 font-['Roboto',sans-serif]">
-                        <FiClock className="text-gray-400" />
-                        {item.date}
-                      </span>
-                      <span className="text-green-500 flex items-center gap-1 font-['Roboto',sans-serif]">
-                        {item.exp} EXP
-                      </span>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                // Rules Content - Abbreviated for brevity
-                <div className="bg-[#242424] mb-4 rounded-md text-gray-200 shadow-lg">
-                  <h2 className="text-amber-500 font-bold text-xl text-center mb-1 font-['Roboto',sans-serif]">
-                    VIP Privileges
-                  </h2>
-                  <p className="text-gray-400 text-sm text-center mb-4 font-['Roboto',sans-serif]">
-                    VIP rule description
-                  </p>
+            <div className="bg-[#242424]  rounded-md text-gray-200 shadow-lg">
+  {activeTab === "history" ? (
+    // History Content
+    <div className="space-y-4 p-4">
+      {[
+        { date: "2025-02-22 21:57:44", exp: 4 },
+        { date: "2025-02-21 09:47:42", exp: 5 },
+      ].map((item, index) => (
+        <div key={index} className="flex flex-col">
+          <span className="text-blue-400 hover:text-blue-300 transition-colors cursor-pointer font-['Roboto',sans-serif]">
+            Experience Bonus
+          </span>
+          <span className="text-sm text-gray-400 font-['Roboto',sans-serif]">Betting EXP</span>
+          <div className="flex justify-between items-center text-sm text-gray-500 mt-1">
+            <span className="flex items-center gap-1 font-['Roboto',sans-serif]">
+              <FiClock className="text-gray-400" />
+              {item.date}
+            </span>
+            <span className="text-green-500 flex items-center gap-1 font-['Roboto',sans-serif]">
+              {item.exp} EXP
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    // Rules Content (Already had the correct background)
+    <div className="space-y-4 p-4">
+      <h2 className="text-amber-500 font-bold text-xl text-center mb-1 font-['Roboto',sans-serif]">
+        VIP Privileges
+      </h2>
+      <p className="text-gray-400 text-sm text-center mb-4 font-['Roboto',sans-serif]">
+        VIP rule description
+      </p>
 
-                  <div className="space-y-4">
+                  <div className="space-y-4 ">
                     {/* Upgrade Standard */}
-                    <div className="bg-[#333332] bg-opacity-60 p-4 rounded-md hover:bg-opacity-70 transition-colors duration-300">
+                    <div className="bg-[#242424] bg-opacity-60 p-4 rounded-md hover:bg-opacity-70 transition-colors duration-300">
                       <h3 className="text-white text-center mb-2 font-medium font-['Roboto',sans-serif]">
                         Upgrade Standard
                       </h3>
@@ -477,7 +480,7 @@ function VIPProfile() {
 
             {/* View All Button */}
             {activeTab === "history" && (
-              <div className="p-4 pt-0">
+              <div className="p-4 pt-0 bg-[#242424]">
                 <button className="w-full py-2 bg-[linear-gradient(90deg,#FAE59F_0%,#C4933F_100%)] hover:opacity-90 rounded-full text-yellow-900 font-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] font-['Roboto',sans-serif]">
                   View All
                 </button>
