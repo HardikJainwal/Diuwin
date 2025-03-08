@@ -7,15 +7,15 @@ import Homeheader from "../components/Homeheader";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import speakar from '../Assets/Homeicon/speakar.png'
-import hot from '../Assets/Homeicon/hot.svg'
-
+import speakar from '../Assets/Homeicon/speakar.png';
+import hot from '../Assets/Homeicon/hot.svg';
+import smallbg from '../Assets/Homeicon/smallbg.png';
+import bg from '../Assets/Homeicon/bg.png';
 
 import wingo from "../Assets/wingo.png";
 import D from "../Assets/D.png";
 import K from '../Assets/K.png';
 import Tir from "../Assets/tir.png";
-
 
 import aviatorImg from "../Assets/Aviator.jpg";
 import cricketImg from "../Assets/cricket.png";
@@ -252,14 +252,38 @@ function Home() {
     },
   ]);
 
+  // Updated slider settings for better mobile experience
   const slidesettings = {
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 1,  // Changed to 1 for small screens
+    slidesToScroll: 1,
     arrows: false,
     autoplay: true,
     autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   const settings = {
@@ -438,55 +462,48 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-custom-light-gray">
+    <div className="flex flex-col items-center bg-custom-light-gray min-h-screen w-full">
       <Homeheader />
 
-      <div className="shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center bg-custom-light-gray">
-        <div className="w-full py-4 bg-custom-light-gray">
-          <div className="container mx-auto px-4">
-            <Slider {...settings}>
-              {sliderData.map((slide) => (
+      {/* Main container with fixed width for mobile */}
+      <div className="w-full max-w-md mx-auto flex flex-col">
+        {/* Main slider */}
+        <div className="w-full px-2 py-2">
+          <Slider {...settings}>
+            {sliderData.map((slide) => (
+              <div key={slide.id} className="px-1">
                 <img
-                  key={slide.id}
                   src={slide.imgSrc}
                   alt={slide.alt}
                   className="w-full h-auto object-cover rounded-lg shadow-lg"
                 />
-              ))}
-            </Slider>
+              </div>
+            ))}
+          </Slider>
+        </div>
+
+        {/* Speaker section */}
+        <div className="w-full px-2 py-2">
+          <div className="bg-white p-2 rounded-full shadow-md">
+            <div className="flex justify-between items-center w-full">
+              <img src={speakar} alt="Speaker Icon" className="w-8 h-8 ml-2" />
+              <button className="bg-gradient-to-r from-[#FAE59F] to-[#C4933F] p-1 rounded-lg flex items-center space-x-2">
+                <img src={hot} alt="Hot Icon" className="w-4 h-4" />
+                <span>Detail</span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="bg-custom-light-gray p-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
-  <div className="bg-white p-2 rounded-full shadow-md mt-0">
-    <div className="flex justify-between items-center w-full">
-      {/* Speaker Icon */}
-      <img src={speakar} alt="Speaker Icon" className="w-8 h-8 ml-2" />
-
-      {/* Detail Button with Hot Image inside */}
-      <button className="bg-gradient-to-r from-[#FAE59F] to-[#C4933F] p-1 rounded-lg flex items-center space-x-2">
-        <img src={hot} alt="Hot Icon" className="w-4 h-4" /> {/* Small hot image */}
-        <span >Detail</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-
-      <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
-        <div className="container">
-          <div className="relative">
-            {/* Fixed image carousel - made responsive for mobile */}
-            <div
-              id="image-carousel"
-              className="flex justify-between py-4 overflow-x-auto"
-            >
+        {/* Category carousel */}
+        <div className="w-full px-2 py-2">
+          <div className="overflow-x-auto">
+            <div className="flex space-x-2 py-2">
               <Link
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092552pj7d.png"
@@ -498,7 +515,7 @@ function Home() {
                 to="section3"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092542sh85.png"
@@ -510,7 +527,7 @@ function Home() {
                 to="section1"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092452swfv.png"
@@ -522,7 +539,7 @@ function Home() {
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092502uryl.png"
@@ -534,7 +551,7 @@ function Home() {
                 to="section2"
                 smooth={true}
                 duration={500}
-                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110 mx-1"
+                className="flex-shrink-0 w-16 h-16 transform transition hover:scale-110"
               >
                 <img
                   src="https://ossimg.diuacting.com/DiuWin/gamecategory/gamecategory_20240722092524eyc6.png"
@@ -545,275 +562,281 @@ function Home() {
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center bg-custom-light-gray">
-  <div className="p-4">
-    {/* First row - 3 items with gaps */}
-    <div className="flex w-full gap-4 mb-4">
-      {gameCategories.slice(0, 3).map((category, index) => (
-        <div
-          key={category.id}
-          className="flex-1"
-        >
-          <div
-            className={`flex flex-col items-center overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow h-full rounded-lg`}
-            style={{
-              backgroundImage: `url(${require('../Assets/Homeicon/smallbg.png')})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          >
-            <div className="w-full h-24 flex items-center justify-center">
-              <img
-                src={category.image}
-                alt={category.title}
-                className="w-full h-full object-contain p-2"
-              />
-            </div>
-            <div className="w-full py-1 text-center bg-opacity-30">
-              <span className="text-gray-800  font-bold">{category.title}</span>
-            </div>
+        {/* Game categories */}
+        <div className="w-full px-2 py-2">
+          {/* First row - 3 items with gaps */}
+          <div className="flex w-full gap-2 mb-2">
+            {gameCategories.slice(0, 3).map((category, index) => (
+              <div
+                key={category.id}
+                className="flex-1"
+              >
+                <div
+                  className="flex flex-col items-center overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow h-full rounded-lg"
+                  style={{
+                    backgroundImage: `url(${smallbg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <div className="w-full h-16 flex items-center justify-center">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                  <div className="w-full py-1 text-center bg-opacity-30">
+                    <span className="text-gray-800 text-xs font-bold">{category.title}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Second row - 3 items */}
+          <div className="flex w-full mb-2">
+            {gameCategories.slice(3, 6).map((category, index) => (
+              <div
+                key={category.id}
+                className="flex-1"
+              >
+                <div
+                  className={`flex flex-col items-center overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow h-full ${
+                    index === 0 ? 'rounded-l-lg' : 
+                    index === gameCategories.slice(3, 6).length - 1 ? 'rounded-r-lg' : ''
+                  }`}
+                  style={{
+                    backgroundImage: `url(${bg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                >
+                  <div className="w-full h-16 flex items-center justify-center">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-contain p-2"
+                    />
+                  </div>
+                  <div className="w-full py-1 text-center bg-opacity-30">
+                    <span className="text-gray-800 text-xs font-bold">{category.title}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Third row - 2 items with gaps */}
+          <div className="flex w-full gap-2">
+            {gameCategories.slice(6, 8).map((category, index) => (
+              <div key={category.id} className="flex-1">
+                <div
+                  className="flex flex-row items-center overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow h-16 rounded-lg"
+                  style={{
+                    backgroundImage: `url(${smallbg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                >
+                  {/* Image on the Left */}
+                  <div className="w-1/3 h-full flex items-center justify-center p-2">
+                    <img
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+
+                  {/* Text on the Right */}
+                  <div className="w-2/3 text-left px-2">
+                    <span className="text-gray-800 text-xs font-bold">{category.title}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-    
-    {/* Second row - 3 items - connected (no changes) */}
-    <div className="flex w-full mb-4">
-      {gameCategories.slice(3, 6).map((category, index) => (
-        <div
-          key={category.id}
-          className="flex-1"
-        >
-          <div
-            className={`flex flex-col items-center overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow h-full ${
-              index === 0 ? 'rounded-l-lg' : 
-              index === gameCategories.slice(3, 6).length - 1 ? 'rounded-r-lg' : ''
-            }`}
-            style={{
-              backgroundImage: `url(${require('../Assets/Homeicon/bg.png')})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          >
-            <div className="w-full h-24 flex items-center justify-center">
+
+      {/* Lottery Section */}
+<div className="bg-custom-light-gray w-full max-w-md px-4">
+  <div className="w-full">
+    <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
+      <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>
+      Lottery
+    </h2>
+    <p className="text-sm text-gray-400 px-2">
+      when you win a super jackpot, you will receive additional rewards
+    </p>
+  </div>
+
+  {/* Fixed lottery card layout for mobile */}
+  <div className="w-full py-4">
+    <div className="container mx-auto">
+      <div className="grid grid-cols-3 gap-2">
+        {lotterycardData.slice(0, 3).map((slide) => (
+          <div key={slide.id} className="w-full">
+            <div className="relative">
               <img
-                src={category.image}
-                alt={category.title}
-                className="w-full h-full object-contain p-2"
+                src={slide.imgSrc}
+                alt={slide.alt}
+                className="w-full h-auto object-cover rounded-lg shadow-lg"
               />
-            </div>
-            <div className="w-full py-1 text-center  bg-opacity-30">
-              <span className="text-gray-800  font-bold">{category.title}</span>
+              {/* Overlay text on the image */}
+              <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 p-1 rounded-b-lg">
+                <p className="text-[#ffee6a] text-base text-center font-bold">{slide.title}</p>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-    
-    {/* Third row - 2 items with gaps */}
-    <div className="flex w-full gap-4">
-  {gameCategories.slice(6, 8).map((category, index) => (
-    <div key={category.id} className="flex-1">
-      <div
-        className="flex flex-row items-center overflow-hidden cursor-pointer shadow-md hover:shadow-lg transition-shadow h-full rounded-lg"
-        style={{
-          backgroundImage: `url(${require('../Assets/Homeicon/smallbg.png')})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Image on the Left */}
-        <div className="w-full h-24 flex items-center justify-center p-2">
+        ))}
+      </div>
+      <div className="mt-2">
+        <div className="relative w-1/3">
           <img
-            src={category.image}
-            alt={category.title}
-            className="w-full h-full object-contain"
+            src={lotterycardData[3].imgSrc}
+            alt={lotterycardData[3].alt}
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
-        </div>
-
-        {/* Text on the Right */}
-        <div className="w-2/3 py-1 text-left px-4 bg-opacity-30">
-          <span className="text-gray-800 font-bold">{category.title}</span>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
-</div>
-</div>
-
-      <div className="bg-custom-light-gray px-4 shadow-md w-full max-w-md h-full mt-0 flex flex-col justify-center">
-        <div className="bg-custom-light-gray max-w-md h-full mt-0 flex flex-col justify-center">
-        <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
-                <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>{" "}
-                Lottery
-              </h2>
-          <p className="text-sm text-gray-400 px-2">
-            when you win a super jackpot, you will receive additional rewards
-          </p>
-        </div>
-
-        {/* Fixed lottery card layout for mobile */}
-        <div className="w-full py-4 bg-custom-light-gray">
-  <div className="container mx-auto px-2">
-    <div className="grid grid-cols-3 gap-2">
-      {lotterycardData.slice(0, 3).map((slide) => (
-        <div key={slide.id} className="w-full">
-          <div className="relative">
-            <img
-              src={slide.imgSrc}
-              alt={slide.alt}
-              className="w-full object-cover rounded-lg shadow-lg"
-            />
-            {/* Overlay text on the image */}
-            <div className="absolute bottom-0 left-0 right-0  bg-opacity-50 p-1 rounded-b-lg">
-              <p className="text-[#ffee6a] text-base text-center font-bold">{slide.title}</p>
-            </div>
+          {/* Overlay text on the image */}
+          <div className="absolute bottom-0 left-0 right-0 bg-opacity-50 p-1 rounded-b-lg">
+            <p className="text-[#ffee6a] text-base text-center font-bold">{lotterycardData[3].title}</p>
           </div>
-        </div>
-      ))}
-    </div>
-    <div className="mt-2">
-      <div className="relative w-1/3">
-        <img
-          src={lotterycardData[3].imgSrc}
-          alt={lotterycardData[3].alt}
-          className="w-full object-cover rounded-lg shadow-lg"
-        />
-        {/* Overlay text on the image */}
-        <div className="absolute bottom-0 left-0 right-0  bg-opacity-50 p-1 rounded-b-lg">
-          <p className="text-[#ffee6a] text-base text-center font-bold">{lotterycardData[3].title}</p>
         </div>
       </div>
     </div>
   </div>
+
+  {/* Original Games Section */}
+  <div className="w-full py-4">
+    <div className="container mx-auto">
+      {/* Title */}
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
+          <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>
+          Original
+        </h2>
+        <p className="text-gray-400 text-sm">
+          The games are independently developed by our team, fun, fair,
+          and safe
+        </p>
+      </div>
+
+      {/* Fixed Original Games Grid */}
+      <div className="grid grid-cols-3 gap-2">
+        {originalGames.map((game, index) => (
+          <div key={index} className="relative">
+            <img
+              src={game.img}
+              alt={game.name}
+              className="w-full h-auto object-cover rounded-lg"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Fishing Games Section */}
+  <div className="w-full py-4">
+    <div className="container mx-auto">
+      {/* Title */}
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
+          <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>
+          Fishing
+        </h2>
+        <p className="text-gray-400 text-sm">
+          Classic arcade gameplay, super cool visual enjoyment
+        </p>
+      </div>
+
+      {/* Fixed Fishing Games Grid */}
+      <div className="grid grid-cols-3 gap-2">
+        {fishingGames.map((game, index) => (
+          <div key={index} className="relative">
+            <img
+              src={game.img}
+              alt={game.name}
+              className="w-full h-auto object-contain rounded-lg"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* Live Casino Section */}
+  <div className="pb-10">
+  <div className="grid grid-cols-3 gap-2">
+    {gameData[activeTab]?.map((game, index) => (
+      <div key={index} className="relative">
+        <img
+          src={game.image}
+          alt={game.name || "Casino game"}
+          className="w-full h-auto object-cover rounded-lg"
+        />
+      </div>
+    ))}
+  </div>
 </div>
 
-        <div className="w-full py-6 px-2">
-          <div className="container mx-auto">
-            {/* Title */}
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
-                <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>{" "}
-                Original
-              </h2>
-              <p className="text-gray-400 text-sm">
-                The games are independently developed by our team, fun, fair,
-                and safe
-              </p>
-            </div>
-
-            {/* Fixed Original Games Grid */}
-            <div className="grid grid-cols-3 gap-2">
-              {originalGames.map((game, index) => (
-                <div key={index} className="relative">
-                  <img
-                    src={game.img}
-                    alt={game.name}
-                    className="w-full h-auto object-contain rounded-lg"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full py-6 px-2">
-          <div className="container mx-auto">
-            {/* Title */}
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
-                <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>{" "}
-                Fishing
-              </h2>
-              <p className="text-gray-400 text-sm">
-                Classic arcade gameplay, super cool visual enjoyment
-              </p>
-            </div>
-
-            {/* Fixed Fishing Games Grid */}
-            <div className="grid grid-cols-3 gap-2">
-              {fishingGames.map((game, index) => (
-                <div key={index} className="relative">
-                  <img
-                    src={game.img}
-                    alt={game.name}
-                    className="w-full h-auto object-contain rounded-lg"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-custom-light-gray p-4 rounded-lg max-w-md mx-auto">
-          {/* Header */}
-          <div className="mb-4">
-            <h2 className="text-lg font-semibold flex items-center gap-2 text-white">
-              <span className="w-2 h-6 bg-[#C4933F] inline-block rounded-sm"></span>{" "}
-              Live Casino
-            </h2>
-            <p className="text-sm text-gray-400 mt-1">
-              Guided by live dealers, you will experience the fun of baccarat
-            </p>
-          </div>
-
-          {/* Tabs - Made more responsive for mobile */}
-          <div className="flex mb-2 bg-gray-900 rounded-lg p-1 overflow-x-auto">
-            <button
-              onClick={() => handleTabChange("DG")}
-              className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
-                activeTab === "DG" ? "bg-[#C4933F] green-500 text-white" : "text-gray-400"
-              }`}
-            >
-              <span className="font-bold text-sm">DG</span>
-            </button>
-            <button
-              onClick={() => handleTabChange("EVO_Video")}
-              className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
-                activeTab === "EVO_Video"
-                  ? "bg-[#C4933F] text-white"
-                  : "text-gray-400"
-              }`}
-            >
-              <span className="text-sm">EVO_Video</span>
-            </button>
-            <button
-              onClick={() => handleTabChange("SEXY_Video")}
-              className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
-                activeTab === "SEXY_Video"
-                  ? "bg-[#C4933F] text-white"
-                  : "text-gray-400"
-              }`}
-            >
-              <span className="text-sm">SEXY_Video</span>
-            </button>
-          </div>
-
-          <div className="pb-10">
-            {" "}
-            
-            <div className="grid grid-cols-3 gap-2">
-              {" "}
-              
-              {gameData[activeTab]?.map((game, index) => (
-                <div key={index} className="relative">
-                  <img
-                    src={game.image}
-                    alt={game.name || "Casino game"}
-                    className="w-full h-auto object-contain rounded-lg"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* Tabs - Made more responsive for mobile */}
+      <div className="flex mb-2 bg-gray-900 rounded-lg p-1 overflow-x-auto">
+        <button
+          onClick={() => handleTabChange("DG")}
+          className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
+            activeTab === "DG" ? "bg-[#C4933F] text-white" : "text-gray-400"
+          }`}
+        >
+          <span className="font-bold text-sm">DG</span>
+        </button>
+        <button
+          onClick={() => handleTabChange("EVO_Video")}
+          className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
+            activeTab === "EVO_Video"
+              ? "bg-[#C4933F] text-white"
+              : "text-gray-400"
+          }`}
+        >
+          <span className="text-sm">EVO_Video</span>
+        </button>
+        <button
+          onClick={() => handleTabChange("SEXY_Video")}
+          className={`flex-1 py-2 px-2 rounded-lg flex items-center justify-center ${
+            activeTab === "SEXY_Video"
+              ? "bg-[#C4933F] text-white"
+              : "text-gray-400"
+          }`}
+        >
+          <span className="text-sm">SEXY_Video</span>
+        </button>
       </div>
-      <br></br>
-      <Footer />
-    </div>
+
+      <div className="pb-10">
+        <div className="grid grid-cols-3 gap-2">
+          {gameData[activeTab]?.map((game, index) => (
+            <div key={index} className="relative">
+              <img
+                src={game.image}
+                alt={game.name || "Casino game"}
+                className="w-full h-auto object-cover rounded-lg"
+              />
+             </div>
+    ))}
+  </div>
+</div>
+
+{/* These elements need to be inside the main container div */}
+</div> {/* This is likely closing some other div */}
+</div> {/* This is likely closing the main container */}
+
+{/* The br and Footer are outside the main container, which causes the error */}
+<br></br>
+<Footer />
+</div>
   );
 }
+
 export default Home;
+

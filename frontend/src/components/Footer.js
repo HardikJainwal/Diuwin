@@ -46,27 +46,33 @@ function Footer() {
   };
 
   return (
-    <div className="fixed bottom-0 w-full max-w-[400px] mt-10 space-x-10 bg-[#242424] shadow-lg flex justify-between p-2 mx-auto rounded-t-2xl">
-      {tabs.map((tab) => (
-        <button
-          key={tab.id}
-          onClick={() => handleTabClick(tab.id)}
-          className={`flex flex-col items-center ${
-            tab.id === "home" ? "bg-[#d9ac4f] rounded-full px-4 py-2 mb-1" : ""
-          }`}
-        >
-          <img
-            src={activeTab === tab.id ? tab.activeIcon : tab.icon}
-            alt={tab.label}
-            className="w-8 h-8 rounded-full"
-          />
-          {tab.id !== "home" && (
-            <span className={`text-xs ${activeTab === tab.id ? "text-custom-golden" : "text-[#bfbfbf]"}`}>
-              {tab.label}
-            </span>
-          )}
-        </button>
-      ))}
+    <div className="fixed bottom-0 left-0 right-0 bg-[#333332] shadow-lg z-50" style={{ width: "100%", maxWidth: "450px", margin: "0 auto" }}>
+      <div className="flex justify-around items-end h-16 px-2">
+        {tabs.map((tab) => (
+          <div
+            key={tab.id}
+            onClick={() => handleTabClick(tab.id)}
+            className={`flex flex-col items-center justify-center ${
+              tab.id === "home" ? "bg-[#d9ac4f] rounded-full p-2 -mt-5" : "px-1"
+            }`}
+          >
+            <img
+              src={activeTab === tab.id ? tab.activeIcon : tab.icon}
+              alt={tab.label}
+              className={`${
+                tab.id === "home" ? "w-8 h-8" : "w-6 h-6"
+              } mb-1`}
+            />
+            {tab.id !== "home" && (
+              <span className={`text-xs font-medium ${
+                activeTab === tab.id ? "text-[#d9ac4f]" : "text-gray-500"
+              }`}>
+                {tab.label}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

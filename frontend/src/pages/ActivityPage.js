@@ -58,7 +58,7 @@ function ActivityPage() {
   };
 
   return (
-    <div className="bg-[#242424] min-h-screen w-[445px] flex flex-col items-center justify-center">
+    <div className="bg-[#242424] min-h-screen w-full flex flex-col items-center justify-center">
       <ActivityHeader />
       <div className="text-left mb-0 w-full max-w-md px-4 mt-16">
         <h1 className="text-xl text-white mb-1">Activity</h1>
@@ -69,7 +69,7 @@ function ActivityPage() {
         </p>
       </div>
 
-      <div className="bg-custom-dark-gray p-4  shadow-md w-full max-w-md h-full mt-2 flex flex-col justify-between">
+      <div className="bg-custom-dark-gray p-4 shadow-md w-full max-w-md h-full mt-2 flex flex-col justify-between">
         <div className="grid grid-cols-3 text-[#a8a5a1] items-center mb-2">
           <div className="text-center">
             <Link to="/activityaward">
@@ -122,7 +122,7 @@ function ActivityPage() {
                     <img
                       src={signInBanner}
                       alt="description"
-                      className="w-full h-80% object-cover rounded-t-lg"
+                      className="w-full h-full object-cover rounded-t-lg"
                     />
                   </div>
                   <div className="w-full h-1/4 flex flex-col items-left justify-center mb-8 p-2">
@@ -142,7 +142,7 @@ function ActivityPage() {
                     <img
                       src={giftRedeem}
                       alt="description"
-                      className="w-full h-80% object-cover rounded-t-lg"
+                      className="w-full h-full object-cover rounded-t-lg"
                     />
                   </div>
                   <div className="w-full h-1/4 flex flex-col items-left justify-center mb-8 p-2">
