@@ -90,20 +90,22 @@ function PromotionPage() {
   };
 
   return (
-    <div className="relative w-full bg-[#242424]">
+    <div className="relative w-full min-h-screen overflow-x-hidden bg-[#242424]">
       <Promotionheader className="fixed top-0 left-0 w-full z-50" />
       
-      {/* Top section with background image */}
+      {/* Top section with background image - Full width */}
       <div
-        className="relative w-full"
+        className="relative w-screen overflow-hidden"
         style={{
           backgroundImage: `url(${Background})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          paddingBottom: "18rem" // Adjust this value to control where the background ends
+          paddingBottom: "20rem",
+          margin: "0",
+          width: "100%"
         }}
       >
-        {/* Promotion background image overlay */}
+        {/* Promotion background image overlay - Made full width */}
         <div className="absolute z-0 top-0 w-full h-full">
           <img
             src={promotionbg}
@@ -114,7 +116,7 @@ function PromotionPage() {
       </div>
       
       {/* Content section that partially overlaps with the background */}
-      <div className="relative z-20 w-full px-2 max-w-sm mx-auto mt-[-17rem]"> {/* Adjust this negative margin to position the content box */}
+      <div className="relative z-20 w-full px-4 mx-auto mt-[-17rem] max-w-md">
         <h1 className="text-[#8f5206] text-2xl text-center font-bold mb-1">0</h1>
         <div className="flex justify-center w-full">
           <button
@@ -128,12 +130,12 @@ function PromotionPage() {
           Upgrade the level to increase commission income
         </p>
         
-        {/* Table section with semi-transparent background */}
+        {/* Table section with semi-transparent background - Fixed width issues */}
         <div className="bg-[#242424] bg-opacity-90 rounded-t-lg overflow-hidden">
           <table className="table-auto w-full bg-[#2c2c36] bg-opacity-90">
             <thead>
               <tr>
-                <th className="bg-[#3a3947] text-sm font-normal text-white  border-r border-[#242424]">
+                <th className="bg-[#3a3947] text-sm font-normal text-white p-2 border-r border-[#242424]">
                   <div className="flex items-center justify-center">
                     <img
                       src={directsubordinate}
@@ -161,22 +163,22 @@ function PromotionPage() {
                 <td className="text-white ">0</td>
               </tr>
               <tr>
-                <td className="text-white  text-xs border-r border-[#242424]">
+                <td className="text-white text-xs  border-r border-[#242424]">
                   number of register
                 </td>
-                <td className="text-white text-xs">
+                <td className="text-white text-xs ">
                   number of register
                 </td>
               </tr>
               <tr>
-                <td className="text-green-500 border-r border-[#242424]">0</td>
+                <td className="text-green-500  border-r border-[#242424]">0</td>
                 <td className="text-green-500 ">0</td>
               </tr>
               <tr>
-                <td className="text-white  text-xs border-r border-[#242424]">
+                <td className="text-white text-xs  border-r border-[#242424]">
                   Deposit number
                 </td>
-                <td className="text-white text-xs">
+                <td className="text-white text-xs ">
                   Deposit number
                 </td>
               </tr>
@@ -185,10 +187,10 @@ function PromotionPage() {
                 <td className="text-orange-500 ">0</td>
               </tr>
               <tr>
-                <td className="text-white  text-xs border-r border-[#242424]">
+                <td className="text-white text-xs  border-r border-[#242424]">
                   Deposit amount
                 </td>
-                <td className="text-white text-xs">
+                <td className="text-white text-xs ">
                   Deposit amount
                 </td>
               </tr>
@@ -197,10 +199,10 @@ function PromotionPage() {
                 <td className="text-white ">0</td>
               </tr>
               <tr>
-                <td className="text-white  text-xs border-r border-[#242424]">
+                <td className="text-white text-xs  border-r border-[#242424]">
                   Number of people making first deposit
                 </td>
-                <td className="text-white  text-xs">
+                <td className="text-white text-xs ">
                   Number of people making first deposit
                 </td>
               </tr>
@@ -210,13 +212,13 @@ function PromotionPage() {
         
         {/* Invitation Link Button - Separate from table */}
         <div className="w-full flex justify-center mt-6 mb-4">
-  <button
-    type="button"
-    className="w-full max-w-xs bg-gradient-to-r from-[#fae59f] to-[#c4933f] p-3 text-center text-[#8f5206] font-bold text-sm rounded-lg hover:opacity-90 focus:ring-2 focus:ring-gray-300"
-  >
-    INVITATION LINK
-  </button>
-</div>
+          <button
+            type="button"
+            className="w-full max-w-xs bg-gradient-to-r from-[#fae59f] to-[#c4933f] p-3 text-center text-[#8f5206] font-bold text-sm rounded-lg hover:opacity-90 focus:ring-2 focus:ring-gray-300"
+          >
+            INVITATION LINK
+          </button>
+        </div>
         
         {/* Additional menu items (overlay style) */}
         <div className="bg-[#2c2c36] bg-opacity-90 p-3 rounded-lg mb-3">
@@ -241,7 +243,7 @@ function PromotionPage() {
           {copied && <span className="text-green-500 text-xs">Copied!</span>}
         </div>
 
-        <Link to="/subordinate" className="w-full">
+        <Link to="/subordinate" className="w-full block">
           <div className="bg-[#2c2c36] bg-opacity-90 p-3 rounded-lg mb-3">
             <div className="flex justify-between items-center">
               <div className="flex text-white items-center">
@@ -259,7 +261,7 @@ function PromotionPage() {
           </div>
         </Link>
 
-        <Link to="/commissiondetailpage" className="w-full">
+        <Link to="/commissiondetailpage" className="w-full block">
           <div className="bg-[#2c2c36] bg-opacity-90 p-3 rounded-lg mb-3">
             <div className="flex justify-between items-center">
               <div className="flex text-white items-center">
@@ -277,7 +279,7 @@ function PromotionPage() {
           </div>
         </Link>
 
-        <Link to="/promotionrule" className="w-full">
+        <Link to="/promotionrule" className="w-full block">
           <div className="bg-[#2c2c36] bg-opacity-90 p-3 rounded-lg mb-3">
             <div className="flex justify-between items-center">
               <div className="flex text-white items-center">
@@ -291,7 +293,7 @@ function PromotionPage() {
           </div>
         </Link>
 
-        <Link to="/agentcustomer" className="w-full">
+        <Link to="/agentcustomer" className="w-full block">
           <div className="bg-[#2c2c36] bg-opacity-90 p-3 rounded-lg mb-3">
             <div className="flex justify-between items-center">
               <div className="flex text-white items-center">
@@ -305,7 +307,7 @@ function PromotionPage() {
           </div>
         </Link>
 
-        <Link to="/rebateratio" className="w-full">
+        <Link to="/rebateratio" className="w-full block">
           <div className="bg-[#2c2c36] bg-opacity-90 p-3 rounded-lg mb-3">
             <div className="flex justify-between items-center">
               <div className="flex text-white items-center">
